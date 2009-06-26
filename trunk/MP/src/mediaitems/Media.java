@@ -5,14 +5,16 @@ public abstract class Media extends Item {
 	
 	private String title;
 	private Integer duration;
+	private String genre;
 	private String language; //list?!? TODO
 	private Media mi;
 
 	Media() {};
-	Media(String b, String a, String t, Integer d, String l, String desc, Float p) {
+	Media(String b, String a, String t, Integer d, String g, String l, String desc, Float p) {
 		super(b, t, desc, p);
 		mi = createMedia();
 		title = t;
+		genre = g;
 		language = l;
 		duration = d;
 	}
@@ -30,6 +32,7 @@ public abstract class Media extends Item {
 	}
 	
 	public String getTitle() {return title;}
+	public String getGenre() {return genre;}
 	public String getLanguage() {return language;}
 	public Integer getDuration() {return duration;}
 

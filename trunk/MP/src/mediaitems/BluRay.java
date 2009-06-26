@@ -5,8 +5,8 @@ public class BluRay extends Media {
 	private String director;
 	
 	BluRay() {};
-	BluRay(String b, String t, String d, String brand, Integer dur, String l, String desc, Float pr){
-		super(b, d, t, dur, l, desc, pr);
+	BluRay(String b, String t, String d, String brand, String g, Integer dur, String l, String desc, Float pr){
+		super(b, d, t, dur, g, l, desc, pr);
 		director = d;
 	}
 	
