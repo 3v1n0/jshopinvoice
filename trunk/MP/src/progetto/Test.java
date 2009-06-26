@@ -1,3 +1,5 @@
+// GPL License
+
 package progetto;
 
 import players.BluRayPlayer;
