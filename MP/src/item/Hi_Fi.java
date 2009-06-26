@@ -1,4 +1,4 @@
-package progetto;
+package item;
 
 import players.*;
 

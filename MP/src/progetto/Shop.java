@@ -1,5 +1,7 @@
 package progetto;
 
+import item.Item;
+
 import java.util.LinkedList;
 
 import people.Company;

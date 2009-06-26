@@ -1,7 +1,8 @@
-// GPL License
+
 
 package progetto;
 
+import item.ItemInterface;
 import media.*;
 import players.*;
 
