@@ -10,7 +10,7 @@ public class DVD extends Media {
 		this.director=director;
 	}
 	
-	Media createLeggibili(){return new DVD();}
+	Media createMedia(){return new DVD();}
 
 	public String getName() { return super.getName()+"-"+director;}
 }

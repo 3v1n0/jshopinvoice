@@ -10,7 +10,7 @@ public class BluRay extends Media {
 		this.director=director;
 	}
 	
-	Media createLeggibili(){return new BluRay();}
+	Media createMedia(){return new BluRay();}
 
 	public String getName() { return super.getName()+"-"+director;}
 }
