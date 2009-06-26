@@ -1,7 +1,7 @@
 package players;
 
-import readable.BluRay;
-import readable.Readable;
+import media.BluRay;
+import media.Media;
 
 public class BluRayPlayer extends ConcretePlayer{
 
@@ -12,7 +12,7 @@ public class BluRayPlayer extends ConcretePlayer{
 	
 	ConcretePlayer createPlayer(){return new BluRayPlayer();}
 
-	public void accept(Readable m){
+	public void accept(Media m){
 		if(m instanceof BluRay) {super.accept(m);}
 		else System.out.println("Media non corretto per il tipo di lettore.");
 	}

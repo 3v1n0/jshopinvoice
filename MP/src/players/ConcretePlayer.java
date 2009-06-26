@@ -1,12 +1,14 @@
 package players;
 
-import readable.Readable;
+import media.Media;
 
 public abstract class ConcretePlayer implements Player{
 
-	private Readable read;
+	private Media read;
 	private String name;
 	private String brand;
+	private Float price;
+	private String description;
 	@SuppressWarnings("unused")
 	private ConcretePlayer pl;
 	
@@ -19,7 +21,7 @@ public abstract class ConcretePlayer implements Player{
 	
 	abstract ConcretePlayer createPlayer();
 	
-	public void accept(Readable m){
+	public void accept(Media m){
 		read = m;
 	}
 	
@@ -31,4 +33,9 @@ public abstract class ConcretePlayer implements Player{
 		s = "Name: "+name+" Brand: "+brand+" read \n\n"+read.readLeggibile();
 		return s;
 		}
+	
+	public String getBrand(){return brand;}
+	public String getDescription(){return description;}
+	public String getName(){return name;}
+	public Float getPrice(){return price;}
 }
