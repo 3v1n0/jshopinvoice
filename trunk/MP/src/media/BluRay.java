@@ -12,5 +12,5 @@ public class BluRay extends Media {
 	
 	Media createLeggibili(){return new BluRay();}
 
-	public String getName() { return super.getName()+director;}
+	public String getName() { return super.getName()+"-"+director;}
 }

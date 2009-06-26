@@ -12,6 +12,6 @@ public class HDDVD extends Media {
 	
 	Media createLeggibili(){return new HDDVD();}
 	
-	public String getName() { return super.getName()+director;}
+	public String getName() { return super.getName()+"-"+director;}
 
 }
