@@ -18,10 +18,10 @@ public static void main(String args[]){
 	array[3]=new HDDVD("Titanic","James Cameron","20th Century Fox", 180,15000,"Film vincitore di 11 premi oscar con L.Di Caprio",(float)15.00);
 	array[4]=new Vinile("Abbronzatissima","Edoardo Vianello","Records", 5,null,"Grande hit dell'artista Edoardo Vianello",(float)10.00);
 		
-	lettori[0]=new CDPlayer("Lettore CD","Samsung","Velocit‡= 52x, Formati supportati= cd,vcd,svcd,avi,mpg3,mpg4",(float)50.00);
-	lettori[1]=new DVDPlayer("Lettore DVD","Philips","Velocit‡= 26x, Formati supportati= dvd+r,dvd-r,dvd+rw,dvd-rw",(float)100.00);
-	lettori[2]=new BluRayPlayer("Lettore Blu-Ray","Sony","Velocit‡= 16x, Formati supportati= BluRay",(float)250.00);
-	lettori[3]=new HDDVDPlayer("Lettore HDDVD","Toshiba","Velocit‡= 16x, Formati supportati= HD Dvd",(float)220.00);
+	lettori[0]=new CDPlayer("Lettore CD","Samsung","Velocit√†= 52x, Formati supportati= cd,vcd,svcd,avi,mpg3,mpg4",(float)50.00);
+	lettori[1]=new DVDPlayer("Lettore DVD","Philips","Velocit√†= 26x, Formati supportati= dvd+r,dvd-r,dvd+rw,dvd-rw",(float)100.00);
+	lettori[2]=new BluRayPlayer("Lettore Blu-Ray","Sony","Velocit√†= 16x, Formati supportati= BluRay",(float)250.00);
+	lettori[3]=new HDDVDPlayer("Lettore HDDVD","Toshiba","Velocit√†= 16x, Formati supportati= HD Dvd",(float)220.00);
 	lettori[4]=new Grammofono("DiscPlayer","Kenwood","Un bellissimo modello di grammofono",(float)150.00);
 	
 for(int i=0;i<array.length;i++){
