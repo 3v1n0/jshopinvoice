@@ -29,7 +29,7 @@ public static void main(String args[]){
 		lettori[1]=new DVDPlayer("Lettore DVD","Philips");
 		lettori[2]=new BluRayPlayer("Lettore Blu-Ray","Sony");
 		lettori[3]=new HDDVDPlayer("Lettore HDDVD","Majestic");
-		lettori[4]=new Grammofono("Grammofono","LG");
+		lettori[4]=new Grammofono("Grammofono","Kenwood");
 	
 for(int i=0;i<array.length;i++){
 	System.out.println(array[i].readLeggibile()+"\n");
