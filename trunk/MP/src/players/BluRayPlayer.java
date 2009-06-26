@@ -6,8 +6,8 @@ import media.Media;
 public class BluRayPlayer extends ConcretePlayer{
 
 	private BluRayPlayer(){}
-	public BluRayPlayer(String title,String brand){
-		super(title,brand);
+	public BluRayPlayer(String title,String brand,String description, Float price){
+		super(title,brand,price,description);
 	}
 	
 	ConcretePlayer createPlayer(){return new BluRayPlayer();}

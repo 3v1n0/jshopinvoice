@@ -6,8 +6,8 @@ import media.Media;
 public class HDDVDPlayer extends ConcretePlayer{
 
 	private HDDVDPlayer(){}
-	public HDDVDPlayer(String title,String brand){
-		super(title,brand);
+	public HDDVDPlayer(String title,String brand,String description, Float price){
+		super(title,brand,price,description);
 	}
 	
 	ConcretePlayer createPlayer(){return new HDDVDPlayer();}
