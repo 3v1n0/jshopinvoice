@@ -14,7 +14,7 @@ public abstract class Media implements ItemInterface{
 	
 	Media(){}
 	Media(String t, String b, Integer d, Integer s, String desc, Float prc){
-		r=createLeggibili();
+		r=createMedia();
 		title = t;
 		brand = b;
 		duration = d;
@@ -23,7 +23,7 @@ public abstract class Media implements ItemInterface{
 		price = prc;
 	}
 	
-	abstract Media createLeggibili();
+	abstract Media createMedia();
 	
 	public String readLeggibile(){
 		String s;

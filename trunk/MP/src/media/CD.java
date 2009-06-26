@@ -10,7 +10,7 @@ public class CD extends Media {
 		this.author=author;
 	}
 	
-	Media createLeggibili(){return new CD();}
+	Media createMedia(){return new CD();}
 	
 	public String getName() { return super.getName()+"-"+author;}
 

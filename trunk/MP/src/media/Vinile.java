@@ -10,7 +10,7 @@ public class Vinile extends Media {
 		this.author = author;
 	}
 	
-	Media createLeggibili(){return new Vinile();}
+	Media createMedia(){return new Vinile();}
 
 	public String getName() { return super.getName()+"-"+author;}
 }
