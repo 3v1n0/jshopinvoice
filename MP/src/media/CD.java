@@ -12,6 +12,6 @@ public class CD extends Media {
 	
 	Media createLeggibili(){return new CD();}
 	
-	public String getName() { return super.getName()+author;}
+	public String getName() { return super.getName()+"-"+author;}
 
 }
