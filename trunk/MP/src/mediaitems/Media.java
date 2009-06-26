@@ -28,7 +28,7 @@ public abstract class Media extends Item {
 			"\nDuration:\t"+duration+
 			"\nGenre:\t"+genre+
 			"\nLanguage:\t"+language+
-			"\nSupport:\t"+mi.getClass().getSimpleName()+"\nSize:\t";
+			"\nSupport:\t"+mi.getClass().getSimpleName();
 		return s;
 	}
 	
