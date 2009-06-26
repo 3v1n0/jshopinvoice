@@ -7,7 +7,8 @@ public abstract class Item implements ItemInterface {
 	Float price;
 	String description;
 	
-	Item(String br, String nm, String desc, Float pr) {
+	protected Item() {};
+	protected Item(String br, String nm, String desc, Float pr) {
 		brand = br;
 		name = nm;
 		description = desc;
