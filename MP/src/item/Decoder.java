@@ -5,7 +5,7 @@ public class Decoder extends Item{
 	private boolean smartCard;
 	
 	Decoder(String nm, String br, Float pr, String desc,boolean sc) {
-		super(nm, br, pr, desc);
+		super(br, nm, desc, pr);
 		smartCard = sc;
 	}
 	

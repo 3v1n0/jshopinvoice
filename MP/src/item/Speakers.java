@@ -6,7 +6,7 @@ public class Speakers extends Item {
 	private Integer channels;
 	
 	Speakers(String nm, String br, Float pr, String desc, Integer pwr, Integer ch) {
-		super(nm, br, pr, desc);
+		super(br, nm, desc, pr);
 		power = pwr;
 		channels = ch;
 	}
