@@ -1,4 +1,4 @@
-package progetto;
+package item;
 
 public abstract class Item implements ItemInterface{
 

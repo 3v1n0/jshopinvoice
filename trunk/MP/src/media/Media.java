@@ -1,5 +1,5 @@
 package media;
-import progetto.ItemInterface;
+import item.ItemInterface;
 
 public abstract class Media implements ItemInterface{
 	
