@@ -13,9 +13,11 @@ public abstract class ConcretePlayer implements Player{
 	private ConcretePlayer pl;
 	
 	ConcretePlayer(){}
-	ConcretePlayer(String name,String brand){
+	ConcretePlayer(String name,String brand,Float price,String description){
 		this.name=name;
 		this.brand=brand;
+		this.price=price;
+		this.description = description;
 		pl=createPlayer();
 	}
 	

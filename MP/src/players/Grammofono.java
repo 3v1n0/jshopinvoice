@@ -6,8 +6,8 @@ import media.Vinile;
 public class Grammofono extends ConcretePlayer{
 
 	private Grammofono(){}
-	public Grammofono(String title,String brand){
-		super(title,brand);
+	public Grammofono(String title,String brand,String description, Float price){
+		super(title,brand,price,description);
 	}
 	
 	ConcretePlayer createPlayer(){return new Grammofono();}

@@ -6,8 +6,8 @@ import media.Media;
 public class CDPlayer extends ConcretePlayer{
 
 	private CDPlayer(){}
-	public CDPlayer(String title,String brand){
-		super(title,brand);
+	public CDPlayer(String title,String brand,String description, Float price){
+		super(title,brand,price,description);
 	}
 	
 	public ConcretePlayer createPlayer(){return new CDPlayer();}
