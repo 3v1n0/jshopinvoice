@@ -17,7 +17,7 @@ public class Address {
 		country = co;
 	}
 	
-	String getAddress() {
+	public String toString() {
 		String out = street + ", " + number + "\n" +
 					 zip + " - " + city + "\n" +
 					 province + " - " + country + "\n";
