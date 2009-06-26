@@ -26,6 +26,7 @@ public abstract class Media extends Item {
 		s = "Title:\t\t"+title+
 			"\nBrand:\t\t"+getBrand()+
 			"\nDuration:\t"+duration+
+			"\nGenre:\t"+genre+
 			"\nLanguage:\t"+language+
 			"\nSupport:\t"+mi.getClass().getSimpleName()+"\nSize:\t";
 		return s;
