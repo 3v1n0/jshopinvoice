@@ -1,7 +1,7 @@
 package players;
 
-import readable.DVD;
-import readable.Readable;
+import media.DVD;
+import media.Media;
 
 public class DVDPlayer extends ConcretePlayer{
 
@@ -12,7 +12,7 @@ public class DVDPlayer extends ConcretePlayer{
 	
 	ConcretePlayer createPlayer(){return new DVDPlayer();}
 
-	public void accept(Readable m){
+	public void accept(Media m){
 		if(m instanceof DVD) {super.accept(m);}
 		else System.out.println("Media non corretto per il tipo di lettore.");
 	}

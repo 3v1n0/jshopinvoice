@@ -1,22 +1,18 @@
 package progetto;
 
-public class TVSet implements Item{
+public class TVSet extends Item{
 	
-	String name;
-	String brand;
-	Double price;
-	String description;
+	private Float inches;
 
-	public TVSet(String nm, String br, Double pr, String desc){
-	name = nm;
-	brand = br;
-	price = pr;
-	description = desc;
+	public TVSet(String nm, String br, Float pr, String desc,Float inch){
+	super(nm,br,pr,desc);
+	inches =inch;
 	}
-	public String getBrand() {return brand;}
-	public String getDescription() {return description;}
-	public String getName() {return name;}
-	public Double getPrice() {return price;}
+
+	public Float getInches() {return inches;}
 	
+	public String describe(){
+		return "Name:\t"+name+"\nBrand:\t"+brand+"\nPrice:\t"+price+"\nInches:\t"+inches+"\nDescription:\n"+description;
+	}
 
 }

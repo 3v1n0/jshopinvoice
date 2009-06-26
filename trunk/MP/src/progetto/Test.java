@@ -2,21 +2,11 @@
 
 package progetto;
 
-import players.BluRayPlayer;
-import players.CDPlayer;
-import players.DVDPlayer;
-import players.Grammofono;
-import players.HDDVDPlayer;
-import players.Player;
-import readable.BluRay;
-import readable.CD;
-import readable.DVD;
-import readable.HDDVD;
-import readable.Readable;
-import readable.Vinile;
+import media.*;
+import players.*;
 
 public class Test {
-private static Readable[] array =new Readable[5];
+private static Media[] array =new Media[5];
 private static Player[] lettori =new Player[5];
 
 public static void main(String args[]){
@@ -44,5 +34,7 @@ for(int i=0;i<4;i++){
 lettori[4].accept(array[3]);
 System.out.print(lettori[4].play());
 
+Item  a = new TVSet("s","s", (float)12.2,"s",(float)55);
+System.out.println(a.getBrand()+" "+a.getDescription()+" "+a.getName()+" "+a.getPrice());
 }
 }

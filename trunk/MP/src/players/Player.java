@@ -1,8 +1,9 @@
 package players;
 
-import readable.Readable;
+import media.Media;
+import progetto.*;
 
-public interface Player {
-	public void accept( Readable m );
+public interface Player extends ItemInterface {
+	public void accept( Media m );
 	public String play();
 }
