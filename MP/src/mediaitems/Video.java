@@ -8,8 +8,8 @@ public class Video extends Media {
 		private String format;
 
 		Video() {};
-		public Video(String house, String dir, String act, String title, Integer len,
-						  String genre, String lang, String sub, String fmt, String desc, Float price) {
+		Video(String house, String dir, String act, String title, Integer len,
+			  String genre, String lang, String sub, String fmt, String desc, Float price) {
 			super(house, title, len, genre, lang, desc, price);
 			director = dir;
 			actors = act;
