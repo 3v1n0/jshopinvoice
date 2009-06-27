@@ -1,6 +1,6 @@
 package mediaitems;
 
-public abstract class MediaAudio extends Media {
+public class MediaAudio extends Media {
 	
 	private String author;
 
@@ -18,11 +18,15 @@ public abstract class MediaAudio extends Media {
 			"\nBrand:\t\t"+getBrand()+
 			"\nDuration:\t"+getDuration()+
 			"\nLanguage:\t"+getLanguage()+
-			"\nSupport:\t"+getMediaType();
+			"\nType:\t\t"+getMediaType()+
+			"\nSupport:\t"+getMedia();
 		return s;
 	}
 	
 	public String getAuthor() {return author;}
 	public String getName() {return getAuthor()+" - "+getTitle();}
+	
+	Media createMedia() {return new MediaAudio();}
+	Media createMediaType() {return new MediaAudio();}
 
 }

@@ -9,12 +9,14 @@ public abstract class Media extends Item {
 	private String language; //list?!? TODO
 	//private int medianum; // numero di dischi?!? TODO
 	private Media mi;
+	private Media mt;
 
 	Media() {};
 	Media(String house, String tit, Integer len, String gen,
 		  String lang, String desc, Float price) {
 		super(house, tit, desc, price);
 		mi = createMedia();
+		mt = createMediaType();
 		title = tit;
 		genre = gen;
 		language = lang;
@@ -22,9 +24,14 @@ public abstract class Media extends Item {
 	}
 	
 	abstract Media createMedia();
+	abstract Media createMediaType();
+	
+	public String getMedia() {
+		return mi.getClass().getSimpleName();
+	}
 	
 	public String getMediaType() {
-		return mi.getClass().getSimpleName();
+		return mt.getClass().getSimpleName();
 	}
 
 	public String getInfo(){
