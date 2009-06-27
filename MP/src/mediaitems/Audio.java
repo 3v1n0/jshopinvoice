@@ -27,6 +27,6 @@ public class Audio extends Media {
 	public String getName() {return getAuthor()+" - "+getTitle();}
 	
 	Media createMedia() {return new Audio();}
-	Media createMediaType() {return new Audio();}
+	final Media createMediaType() {return new Audio();}
 
 }

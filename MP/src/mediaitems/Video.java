@@ -39,5 +39,5 @@ public class Video extends Media {
 		public String getName() {return getTitle()+" by "+getDirector();}
 		
 		Media createMedia() {return new Video();}
-		Media createMediaType() {return new Video();}
+		final Media createMediaType() {return new Video();}
 }
