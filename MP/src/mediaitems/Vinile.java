@@ -1,6 +1,6 @@
 package mediaitems;
 
-public class Vinile extends MediaAudio {
+public class Vinile extends Audio {
 	
 	private Vinile() {};
 	public Vinile(String house, String auth, String title, Integer len,

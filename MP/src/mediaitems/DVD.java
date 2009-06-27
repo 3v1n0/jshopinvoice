@@ -1,6 +1,6 @@
 package mediaitems;
 
-public class DVD extends MediaVideo {
+public class DVD extends Video {
 	
 	private DVD() {};
 	public DVD(String house, String dir, String act, String title, Integer len,

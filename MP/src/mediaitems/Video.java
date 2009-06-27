@@ -1,14 +1,14 @@
 package mediaitems;
 
-public class MediaVideo extends Media {
+public class Video extends Media {
 		
 		private String director;
 		private String actors;
 		private String subtitles;
 		private String format;
 
-		MediaVideo() {};
-		public MediaVideo(String house, String dir, String act, String title, Integer len,
+		Video() {};
+		public Video(String house, String dir, String act, String title, Integer len,
 						  String genre, String lang, String sub, String fmt, String desc, Float price) {
 			super(house, title, len, genre, lang, desc, price);
 			director = dir;
@@ -38,6 +38,6 @@ public class MediaVideo extends Media {
 		public String getFormat() {return format;}
 		public String getName() {return getTitle()+" by "+getDirector();}
 		
-		Media createMedia() {return new MediaVideo();}
-		Media createMediaType() {return new MediaVideo();}
+		Media createMedia() {return new Video();}
+		Media createMediaType() {return new Video();}
 }
