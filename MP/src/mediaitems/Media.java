@@ -7,28 +7,34 @@ public abstract class Media extends Item {
 	private Integer duration;
 	private String genre;
 	private String language; //list?!? TODO
+	//private int medianum; // numero di dischi?!? TODO
 	private Media mi;
 
 	Media() {};
-	Media(String b, String a, String t, Integer d, String g, String l, String desc, Float p) {
-		super(b, t, desc, p);
+	Media(String house, String tit, Integer len, String gen,
+		  String lang, String desc, Float price) {
+		super(house, tit, desc, price);
 		mi = createMedia();
-		title = t;
-		genre = g;
-		language = l;
-		duration = d;
+		title = tit;
+		genre = gen;
+		language = lang;
+		duration = len;
 	}
 	
 	abstract Media createMedia();
 	
-	public String getDescription(){
+	public String getMediaType() {
+		return mi.getClass().getSimpleName();
+	}
+
+	public String getInfo(){
 		String s;
 		s = "Title:\t\t"+title+
 			"\nBrand:\t\t"+getBrand()+
 			"\nDuration:\t"+duration+
-			"\nGenre:\t"+genre+
+			"\nGenre:\t\t"+genre+
 			"\nLanguage:\t"+language+
-			"\nSupport:\t"+mi.getClass().getSimpleName();
+			"\nType:\t\t"+getMediaType();
 		return s;
 	}
 	

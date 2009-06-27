@@ -1,16 +1,12 @@
 package mediaitems;
 
-public class DVDAudio extends Media {
+public class DVDAudio extends MediaAudio {
 	
-	private String author;
-	
-	DVDAudio() {};
-	DVDAudio(String b, String t, String a, String brand, String g, Integer dur, String l, String desc, Float pr){
-		super(b, a, t, dur, g, l, desc, pr);
-		author = a;
+	private DVDAudio() {};
+	public DVDAudio(String house, String auth, String title, Integer len,
+			 String genre, String lang, String desc, Float price) {
+		super(house, auth, title, len, genre, lang, desc, price);
 	}
 	
 	Media createMedia() {return new DVDAudio();}
-
-	public String getName() {return author+" - "+getTitle();}
 }
