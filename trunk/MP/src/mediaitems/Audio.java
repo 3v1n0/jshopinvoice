@@ -5,8 +5,8 @@ public class Audio extends Media {
 	private String author;
 
 	Audio() {};
-	public Audio(String house, String auth, String title, Integer len,
-					  String genre, String lang, String desc, Float price) {
+	Audio(String house, String auth, String title, Integer len,
+		  String genre, String lang, String desc, Float price) {
 		super(house, title, len, genre, lang, desc, price);
 		author = auth;
 	}
