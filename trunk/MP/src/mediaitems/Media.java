@@ -1,7 +1,7 @@
 package mediaitems;
-import item.Item;
+import item.ConcreteItem;
 
-public abstract class Media extends Item {
+public abstract class Media extends ConcreteItem {
 	
 	private String title;
 	private Integer duration;
