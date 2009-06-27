@@ -1,7 +1,7 @@
 package media;
-import item.ItemInterface;
+import item.Item;
 
-public abstract class Media implements ItemInterface{
+public abstract class Media implements Item{
 	
 	private String title;
 	private String brand;

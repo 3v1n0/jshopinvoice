@@ -1,7 +1,7 @@
 package item;
 
-public class TVSet extends Item {
-	
+public class TVSet extends ConcreteItem {
+// classe leaf del pattern composite	
 	private Float inches;
 
 	public TVSet(String nm, String br, Float pr, String desc, Float in) {
@@ -11,8 +11,5 @@ public class TVSet extends Item {
 
 	public Float getInches() {return inches;}
 	
-	public String describe(){
-		return "Name:\t"+name+"\nBrand:\t"+brand+"\nPrice:\t"+price+"\nInches:\t"+inches+"\nDescription:\n"+description;
-	}
 
 }

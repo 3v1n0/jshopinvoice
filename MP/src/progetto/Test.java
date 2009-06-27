@@ -2,13 +2,13 @@
 
 package progetto;
 
-import item.ItemInterface;
+import item.Item;
 import media.*;
 import players.*;
 
 public class Test {
-private static ItemInterface[] array =new Media[5];
-private static ItemInterface[] lettori =new Player[5];
+private static Item[] array =new Media[5];
+private static Item[] lettori =new Player[5];
 
 public static void main(String args[]){
 	

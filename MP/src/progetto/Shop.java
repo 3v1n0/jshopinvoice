@@ -1,6 +1,6 @@
 package progetto;
 
-import item.Item;
+import item.ConcreteItem;
 
 import java.util.LinkedList;
 
@@ -9,7 +9,7 @@ import people.Company;
 public class Shop {
 	private Company company;
 	private String name;
-	private LinkedList<Item> items;
+	private LinkedList<ConcreteItem> items;
 	private int invoicenum;
 	private static int id;
 	
@@ -17,11 +17,11 @@ public class Shop {
 		company = c;
 		name = n;
 		invoicenum = 0;
-		items = new LinkedList<Item>();
+		items = new LinkedList<ConcreteItem>();
 		id++;
 	}
 	
-	public void addItem(Item i) {
+	public void addItem(ConcreteItem i) {
 		items.add(i);
 	}
 }
