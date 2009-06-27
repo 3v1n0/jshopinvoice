@@ -1,16 +1,12 @@
 package mediaitems;
 
-public class DVD extends Media {
+public class DVD extends MediaVideo {
 	
-	private String director;
-	
-	DVD() {};
-	DVD(String b, String t, String d, String brand, String g, Integer dur, String l, String desc, Float pr){
-		super(b, d, t, dur, g, l, desc, pr);
-		director = d;
+	private DVD() {};
+	public DVD(String house, String dir, String act, String title, Integer len,
+		String genre, String lang, String sub, String fmt, String desc, Float price) {
+		super(house, dir, act, title, len, genre, lang, sub, fmt, desc, price);
 	}
 	
 	Media createMedia() {return new DVD();}
-
-	public String getName() {return super.getTitle()+" by "+director;}
 }
