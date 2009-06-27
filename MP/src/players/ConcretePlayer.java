@@ -1,5 +1,7 @@
 package players;
 
+import item.Item;
+import item.SinglePartException;
 import media.Media;
 
 public abstract class ConcretePlayer implements Player{
@@ -40,4 +42,15 @@ public abstract class ConcretePlayer implements Player{
 	public String getDescription(){return description;}
 	public String getName(){return name;}
 	public Float getPrice(){return price;}
+	
+	
+	public void add(Item i)throws SinglePartException{
+		throw new SinglePartException();		
+		}
+		
+		public void remove(Item i)throws SinglePartException{
+		throw new SinglePartException();		
+		}
+		
+		public Item getChild(int n){ return null;}
 }

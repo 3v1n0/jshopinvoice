@@ -1,5 +1,7 @@
 package media;
+
 import item.Item;
+import item.SinglePartException;
 
 public abstract class Media implements Item{
 	
@@ -36,5 +38,15 @@ public abstract class Media implements Item{
 	public String getBrand(){return brand;}
 	public String getDescription(){return description;}
 	public Float getPrice(){return price;}
+	
+	public void add(Item i)throws SinglePartException{
+	throw new SinglePartException();		
+	}
+	
+	public void remove(Item i)throws SinglePartException{
+	throw new SinglePartException();		
+	}
+	
+	public Item getChild(int n){ return null;}
 
 }

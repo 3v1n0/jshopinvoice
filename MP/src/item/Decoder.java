@@ -4,7 +4,7 @@ public class Decoder extends ConcreteItem{
 // classe leaf del pattern composite
 	private boolean smartCard;
 	
-	Decoder(String nm, String br, Float pr, String desc,boolean sc) {
+	public Decoder(String nm, String br, Float pr, String desc,boolean sc) {
 		super(br, nm, desc, pr);
 		smartCard = sc;
 	}

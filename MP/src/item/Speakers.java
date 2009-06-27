@@ -6,7 +6,7 @@ public class Speakers extends ConcreteItem {
 	private Integer power;
 	private Integer channels;
 	
-	Speakers(String nm, String br, Float pr, String desc, Integer pwr, Integer ch) {
+	public Speakers(String nm, String br, Float pr, String desc, Integer pwr, Integer ch) {
 		super(br, nm, desc, pr);
 		power = pwr;
 		channels = ch;
