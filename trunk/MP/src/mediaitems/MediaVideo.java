@@ -1,6 +1,6 @@
 package mediaitems;
 
-public abstract class MediaVideo extends Media {
+public class MediaVideo extends Media {
 		
 		private String director;
 		private String actors;
@@ -27,7 +27,8 @@ public abstract class MediaVideo extends Media {
 				"\nActors:\t\t"+actors+
 				"\nFormat:\t\t"+format+
 				"\nSubtitles:\t"+subtitles+
-				"\nSupport:\t"+getMediaType();
+				"\nType:\t\t"+getMediaType()+
+				"\nSupport:\t"+getMedia();
 			return s;
 		}
 		
@@ -36,4 +37,7 @@ public abstract class MediaVideo extends Media {
 		public String getSubtitles() {return subtitles;}
 		public String getFormat() {return format;}
 		public String getName() {return getTitle()+" by "+getDirector();}
+		
+		Media createMedia() {return new MediaVideo();}
+		Media createMediaType() {return new MediaVideo();}
 }
