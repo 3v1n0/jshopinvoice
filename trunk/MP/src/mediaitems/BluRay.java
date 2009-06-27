@@ -1,6 +1,6 @@
 package mediaitems;
 
-public class BluRay extends MediaVideo {
+public class BluRay extends Video {
 	
 	private BluRay() {};
 	public BluRay(String house, String dir, String act, String title, Integer len,

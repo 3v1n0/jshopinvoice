@@ -1,11 +1,11 @@
 package mediaitems;
 
-public class MediaAudio extends Media {
+public class Audio extends Media {
 	
 	private String author;
 
-	MediaAudio() {};
-	public MediaAudio(String house, String auth, String title, Integer len,
+	Audio() {};
+	public Audio(String house, String auth, String title, Integer len,
 					  String genre, String lang, String desc, Float price) {
 		super(house, title, len, genre, lang, desc, price);
 		author = auth;
@@ -26,7 +26,7 @@ public class MediaAudio extends Media {
 	public String getAuthor() {return author;}
 	public String getName() {return getAuthor()+" - "+getTitle();}
 	
-	Media createMedia() {return new MediaAudio();}
-	Media createMediaType() {return new MediaAudio();}
+	Media createMedia() {return new Audio();}
+	Media createMediaType() {return new Audio();}
 
 }

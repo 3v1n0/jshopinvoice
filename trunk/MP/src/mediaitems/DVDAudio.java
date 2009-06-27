@@ -1,6 +1,6 @@
 package mediaitems;
 
-public class DVDAudio extends MediaAudio {
+public class DVDAudio extends Audio {
 	
 	private DVDAudio() {};
 	public DVDAudio(String house, String auth, String title, Integer len,
