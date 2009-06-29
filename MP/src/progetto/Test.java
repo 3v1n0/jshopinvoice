@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import entities.*;
 import item.*;
+import item.Package;
 import media.*;
 import players.*;
 
@@ -50,16 +51,16 @@ public class Test {
 		array[12]=new Hi_Fi("Hi-fi",(CDPlayer)array[5],(Speakers)array[11],"Un bellissimo modello di hi-fi");
 		array[13]=new TVSet("TV","Samsung",150.00f,"Un bellissimo modello di TV",20);
 		
-		Composti packet = new Composti("Pacchetto bLu","Sony, Samsung","Lettore blu ray+TVset+bluray batman");
+		Package pkg = new Package("Pacchetto bLu","Sony, Samsung","Lettore blu ray+TVset+bluray batman");
 		try {
-			packet.add(array[2]);
-			packet.add(array[7]);
-			packet.add(array[13]);
+			pkg.add(array[2]);
+			pkg.add(array[7]);
+			pkg.add(array[13]);
 		} catch (SinglePartException e) {
 			e.printStackTrace();
 		}
 		
-		array[14]=packet;
+		array[14]=pkg;
 		
 		for(int i=0;i<array.length;i++){
 			System.out.println(array[i]+"\n"+array[i].getName()+", "+array[i].getBrand()+", "+array[i].getDescription()+", "+array[i].getPrice());
