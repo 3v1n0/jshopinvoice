@@ -1,52 +1,54 @@
 package media;
+import item.ConcreteItem;
 
-import item.Item;
-import item.SinglePartException;
-
-public abstract class Media implements Item{
+public abstract class Media extends ConcreteItem {
 	
 	private String title;
-	private String brand;
-	private String description;
 	private Integer duration;
-	private Integer size;
-	private Float price;
-	private Media r;
-	
-	
-	Media(){}
-	Media(String t, String b, Integer d, Integer s, String desc, Float prc){
-		r=createMedia();
-		title = t;
-		brand = b;
-		duration = d;
-		size = s;
-		description = desc;
-		price = prc;
+	private String genre;
+	private String language; //list?!? TODO
+	//private int medianum; // numero di dischi?!? TODO
+	//private Integer year; // TODO???
+	private Media mi;
+	private Media mt;
+
+	Media() {};
+	Media(String house, String tit, Integer len, String gen,
+		  String lang, String desc, Float price) {
+		super(house, tit, desc, price);
+		mi = createMedia();
+		mt = createMediaType();
+		title = tit;
+		genre = gen;
+		language = lang;
+		duration = len;
 	}
 	
 	abstract Media createMedia();
+	abstract Media createMediaType();
 	
-	public String readLeggibile(){
+	public String getMedia() {
+		return mi.getClass().getSimpleName();
+	}
+	
+	public String getMediaType() {
+		return mt.getClass().getSimpleName();
+	}
+
+	public String getInfo(){
 		String s;
-		s="Title:\t\t"+title+"\nBrand:\t\t"+brand+"\nDuration:\t"+duration+"\nSupport:\t"+r.getClass().getSimpleName()+"\nSize:\t";
-		if (size==null) s+="\t/\n\n";
-		else s+= "\t"+size+" MB\n\n";
+		s = "Title:\t\t"+title+
+			"\nBrand:\t\t"+getBrand()+
+			"\nDuration:\t"+duration+
+			"\nGenre:\t\t"+genre+
+			"\nLanguage:\t"+language+
+			"\nType:\t\t"+getMediaType();
 		return s;
 	}
-	public String getName() { return title;}
-	public String getBrand(){return brand;}
-	public String getDescription(){return description;}
-	public Float getPrice(){return price;}
 	
-	public void add(Item i)throws SinglePartException{
-	throw new SinglePartException();		
-	}
-	
-	public void remove(Item i)throws SinglePartException{
-	throw new SinglePartException();		
-	}
-	
-	public Item getChild(int n){ return null;}
+	public String getTitle() {return title;}
+	public String getGenre() {return genre;}
+	public String getLanguage() {return language;}
+	public Integer getDuration() {return duration;}
 
 }

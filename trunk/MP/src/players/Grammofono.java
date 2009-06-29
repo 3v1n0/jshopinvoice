@@ -1,7 +1,7 @@
 package players;
 
 import media.Media;
-import media.Vinile;
+import media.Vinyl;
 
 public class Grammofono extends ConcretePlayer{
 
@@ -13,7 +13,7 @@ public class Grammofono extends ConcretePlayer{
 	ConcretePlayer createPlayer(){return new Grammofono();}
 
 	public void accept(Media m){
-		if(m instanceof Vinile) {super.accept(m);}
+		if(m instanceof Vinyl) {super.accept(m);}
 		else System.out.println("Media non corretto per il tipo di lettore.");
 	}
 }

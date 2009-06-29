@@ -34,7 +34,7 @@ public abstract class ConcretePlayer implements Player{
 		if( read == null )
 		s = "Error: Insert a media.";
 		else
-		s = "Name: "+name+" Brand: "+brand+" read \n\n"+read.readLeggibile();
+		s = "Name: "+name+" Brand: "+brand+" read \n\n"+read.getInfo();
 		return s;
 		}
 	
