@@ -4,6 +4,7 @@ package progetto;
 
 import java.io.IOException;
 
+import entities.*;
 import item.*;
 import media.*;
 import players.*;
@@ -69,5 +70,18 @@ public class Test {
 		} catch (SinglePartException e) {
 			e.printStackTrace();
 		}
+		
+		// A first Shop test
+		Company cmp = new Company("New s.r.l",
+								  new Address("Via di Novoli", 25, "Firenze", "FI", 50100, "Italia"),
+								  "JHSDF1751285", "+390557475892", "+390557475894", "info@newsrl.it",
+								  "http://www.newsrl.it");
+	
+		Shop sh = new Shop(cmp, "The New SHOP");
+		
+		for (Item i : array)
+			sh.addItem(i);
+		
+		sh.printItemsHtml();
 	}
 }
