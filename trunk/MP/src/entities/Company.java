@@ -5,7 +5,7 @@ public class Company extends Entity {
 	private String web;
 //	private Person manager;
 	
-	protected Company(String n, Address ad, String v, String p, String f, String e, String w) {
+	public Company(String n, Address ad, String v, String p, String f, String e, String w) {
 		super(n, ad, p, f, e);
 		VATIN = v;
 		web = w;

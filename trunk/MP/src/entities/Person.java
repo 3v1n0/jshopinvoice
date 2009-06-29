@@ -4,7 +4,7 @@ public class Person extends Entity {
 	private String name;
 	private String surname;
 	
-	protected Person(String n, String s, Address ad, String v, String p, String f, String e, String w) {
+	public Person(String n, String s, Address ad, String v, String p, String f, String e, String w) {
 		super(n, ad, p, f, e);
 		surname = s;
 	}
