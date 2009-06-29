@@ -8,7 +8,7 @@ public class Address {
 	private Integer zip;
 	private String country;
 	
-	Address(String st, Integer no, String cy, String pr, Integer zp, String co) {
+	public Address(String st, Integer no, String cy, String pr, Integer zp, String co) {
 		street = st;
 		number = no;
 		city = cy;
