@@ -1,17 +1,12 @@
 package media;
 
-public class CD extends Media {
+public class CD extends Audio {
 	
-	private String author;
-		
-	private CD(){};
-	public CD(String title,String author, String brand,Integer duration,Integer size,String description,Float price){
-		super(title,brand,duration,size,description,price);	
-		this.author=author;
+	private CD() {};
+	public CD(String house, String auth, String title, Integer len,
+			  String genre, String lang, String desc, Float price) {
+		super(house, auth, title, len, genre, lang, desc, price);
 	}
 	
-	Media createMedia(){return new CD();}
-	
-	public String getName() { return super.getName()+"-"+author;}
-
+	Media createMedia() {return new CD();}
 }
