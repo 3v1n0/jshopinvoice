@@ -1,7 +1,7 @@
 package item;
 
 public interface Item {
-
+//	public int getId(); //TODO!
 	public String getBrand();
 	public String getDescription();
 	public String getName();
