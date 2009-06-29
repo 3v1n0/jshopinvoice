@@ -1,4 +1,4 @@
-package people;
+package entities;
 
 public class Address {
 	private String street;
