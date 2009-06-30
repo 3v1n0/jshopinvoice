@@ -82,7 +82,7 @@ public class Shop extends Company {
 					tstr += "&quot;";
 					break;
 				case '&':
-					tstr += "&quot;";
+					tstr += "&amp;";
 					break;
 				default:
 					if (c > 0x7f)
@@ -94,7 +94,7 @@ public class Shop extends Company {
 		
 		return tstr.toString();
 	}
-//very good job!!!!!!!!!!!!!!!!!!!! my complements!!!!!
+
 	public String getName() {return shopname;}
 	public int getItemNum() {return items.size();}
 	public LinkedList<Invoice> getInvoices() {return invoices;}
