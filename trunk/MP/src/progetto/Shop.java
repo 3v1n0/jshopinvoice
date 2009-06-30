@@ -13,7 +13,7 @@ public class Shop extends Company {
 	private LinkedList<Item> items;
 	private LinkedList<Invoice> invoices;
 	//private LinkedList<Entity> clients; //TODO??? no.
-	private static int id;
+	private static int id; //FIXME
 	
 	Shop(Company cmp, String nm) {
 		super(cmp.getName(), cmp.getAddress(), cmp.getVATIN(), cmp.getPhone(),
@@ -51,7 +51,7 @@ public class Shop extends Company {
 				"\t\t\t</tr>\n";
 		
 		for (Item i : items)
-			html += "\t\t\t<tr id='"+i/*.getId() TODO*/+"'>\n" +
+			html += "\t\t\t<tr id='"+i.getId()+"'>\n" +
 					"\t\t\t\t<td>"+stringToHTML(i.getName())+"</td>\n"+
 					"\t\t\t\t<td>"+stringToHTML(i.getDescription())+"</td>\n"+
 					"\t\t\t\t<td>"+i.getPrice()+"</td>\n" +

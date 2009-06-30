@@ -7,7 +7,9 @@ public abstract class Item  {
 	private String brand;
 	private Float price;
 	private String description;
-	private static int id;
+	private static int id; //FIXME this can't be static (=> every item will share it)!!!
+						   //      An item has an ONLY ID when it is added to a shop...
+						   // => TODO ShopItem that surrounds an Item with price and ID.
 	
 	
 	protected Item() {};
