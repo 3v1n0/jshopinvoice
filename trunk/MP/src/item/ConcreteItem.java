@@ -26,11 +26,13 @@ public abstract class ConcreteItem implements Item {
 	public int getId() {return id;}
 	
 	public void add(Item i)throws SinglePartException{
-		if(!(this instanceof Package)) throw new SinglePartException();		
+//		if(!(this instanceof Package)) //FIXME is this really needed?!? Package class overrides it...
+			throw new SinglePartException();		
 	}
 	
 	public void remove(Item i)throws SinglePartException{
-		if(!(this instanceof Package)) throw new SinglePartException();		
+//		if(!(this instanceof Package)) //FIXME is this really needed?!? Package class overrides it...
+			throw new SinglePartException();		
 	}
 	
 	public Item getChild(int n){ return null;}
