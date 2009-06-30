@@ -12,7 +12,7 @@ public class Invoice {
 	private Shop seller;
 	private Entity buyer;
 	private Date time;
-	private Item invoice;
+	private Packages invoice;
 	private static int id;
 	//TODO keep trace of the duplicates
 
@@ -32,12 +32,23 @@ public class Invoice {
 		invoice.remove(a);
 	}
 
-	//TODO add get buyer set buyer get seller set seller ecc..
 	public Float getTotal() {
 		return invoice.getPrice();
 	}
 	
 	public int getCount() throws SinglePartException {
 		return invoice.getCount();
+	}
+	
+	public Shop getSeller() {
+		return seller;
+	}
+	
+	public Entity getBuyer() {
+		return buyer;
+	}
+	
+	public Date getTime() {
+		return time;
 	}
 }
