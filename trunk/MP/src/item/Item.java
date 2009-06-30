@@ -25,13 +25,16 @@ public abstract class Item  {
 	public Float getPrice() {return price;}
 	public int getId() {return id;}
 	
-// damn, you're right
-	public void add(Item i)throws SinglePartException{
-			throw new SinglePartException();		
+	public int getCount() throws SinglePartException {
+		throw new SinglePartException(); //TODO return 1 anyway?
 	}
 	
-	public void remove(Item i)throws SinglePartException{
-			throw new SinglePartException();		
+	public void add(Item i) throws SinglePartException {
+		throw new SinglePartException();
+	}
+	
+	public void remove(Item i) throws SinglePartException {
+		throw new SinglePartException();		
 	}
 	
 	public Item getChild(int n){ return null;}

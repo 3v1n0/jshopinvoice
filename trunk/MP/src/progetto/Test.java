@@ -13,7 +13,7 @@ public class Test {
 	private static Item[] array =new Item[15];
 
 
-	public static void main(String args[]) throws IOException{
+	public static void main(String args[]) throws IOException, SinglePartException{
 		array[0]=new CD("New Logic Studio", "Laura Pausini", "Resta in ascolto", 60,
 						"POP", "Italiano", "Ultimo cd dell'artista Laura Pausini.", 15.00f);
 
@@ -99,6 +99,6 @@ public class Test {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(a.getTotal());
+		System.out.println(a.getTotal()+" EUR for "+a.getCount()+" items");
 	}
 }
