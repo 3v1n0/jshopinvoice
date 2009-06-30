@@ -33,7 +33,11 @@ public class Invoice {
 	}
 
 	//TODO add get buyer set buyer get seller set seller ecc..
-	public Float getTotal(){
+	public Float getTotal() {
 		return invoice.getPrice();
+	}
+	
+	public int getCount() throws SinglePartException {
+		return invoice.getCount();
 	}
 }
