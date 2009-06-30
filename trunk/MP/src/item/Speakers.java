@@ -1,6 +1,6 @@
 package item;
 
-public class Speakers extends ConcreteItem {
+public class Speakers extends Item {
 // classe leaf del pattern composite
 
 	private Integer power;

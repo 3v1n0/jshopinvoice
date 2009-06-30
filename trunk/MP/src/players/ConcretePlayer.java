@@ -1,25 +1,17 @@
 package players;
 
-import item.Item;
-import item.SinglePartException;
+import item.*;
 import media.Media;
 
-public abstract class ConcretePlayer implements Player{
+public abstract class ConcretePlayer extends Item implements Player{
 
 	private Media read;
-	private String name;
-	private String brand;
-	private Float price;
-	private String description;
-	@SuppressWarnings("unused")
+
 	private ConcretePlayer pl;
 	
 	ConcretePlayer(){}
 	ConcretePlayer(String name,String brand,Float price,String description){
-		this.name=name;
-		this.brand=brand;
-		this.price=price;
-		this.description = description;
+		super (brand, name, description, price);
 		pl=createPlayer();
 	}
 	
@@ -34,15 +26,9 @@ public abstract class ConcretePlayer implements Player{
 		if( read == null )
 		s = "Error: Insert a media.";
 		else
-		s = "Name: "+name+" Brand: "+brand+" read \n\n"+read.getInfo();
+		s = "Name: "+this.getName()+" Brand: "+this.getBrand()+" read \n\n"+read.getInfo();
 		return s;
 		}
-	
-	public String getBrand(){return brand;}
-	public String getDescription(){return description;}
-	public String getName(){return name;}
-	public Float getPrice(){return price;}
-	
 	
 	public void add(Item i)throws SinglePartException{
 		throw new SinglePartException();		

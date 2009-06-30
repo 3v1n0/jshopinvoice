@@ -1,13 +1,38 @@
 package progetto;
 
+
 import entities.*;
+import item.*;
+
 import java.util.Date;
+// import java.util.LinkedList;
+
 
 public class Invoice {
 	private Shop seller;
 	private Entity buyer;
 	private Date time;
-	private int id;
+	private Item invoice;
+	private static int id;
 	//TODO keep trace of the duplicates
 
+	public Invoice(Shop sel, Entity buy){
+		invoice = new Packages("Fattura",null,null);
+		seller = sel;
+		buyer = buy;
+		id++;
+//		time = getTime(); dunno what you would do
+	}
+	
+	public void add(Item a) throws SinglePartException{
+		invoice.add(a);
+	}
+	public void remove(Item a) throws SinglePartException{
+		invoice.remove(a);
+	}
+	//TODO add get buyer set buyer get seller set seller ecc..
+	public Float getTotal(){
+		return invoice.getPrice();
+	}
+	
 }

@@ -6,7 +6,7 @@ public class Video extends Media {
 		private String actors;
 		private String subtitles;
 		private String format;
-		//private boolean color; //TODO???
+		//private boolean color; //TODO??? no
 
 		protected Video() {};
 		protected Video(String house, String dir, String act, String title, Integer len,
