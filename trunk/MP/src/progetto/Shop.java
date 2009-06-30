@@ -6,7 +6,7 @@ import entities.Company;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.LinkedList;
-
+//TODO singleton?!?
 
 public class Shop extends Company {
 	private String shopname;

@@ -61,6 +61,7 @@ public class Test {
 		}
 		
 		array[14]=pkg;
+		//TODO do a pkg of pkgs
 		
 		for(int i=0;i<array.length;i++){
 			System.out.println(array[i]+"\n"+array[i].getName()+", "+array[i].getBrand()+", "+array[i].getDescription()+", "+array[i].getPrice());
