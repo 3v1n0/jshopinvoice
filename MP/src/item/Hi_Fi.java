@@ -2,7 +2,7 @@ package item;
 
 import players.*;
 
-public class Hi_Fi extends ConcreteItem {
+public class Hi_Fi extends Item {
 // classe leaf del pattern composite
 
 	private Integer power;

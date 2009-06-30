@@ -1,14 +1,14 @@
 package media;
-import item.ConcreteItem;
+import item.Item;
 
-public abstract class Media extends ConcreteItem {
+public abstract class Media extends Item {
 	
 	private String title;
 	private Integer duration;
 	private String genre;
 	private String language; //list?!? TODO
-	//private int medianum; // numero di dischi?!? TODO
-	//private Integer year; // TODO???
+	//private int medianum; // numero di dischi?!? TODO of course not!!
+	//private Integer year; // TODO??? idem with potatoes
 	private Media mi;
 	private Media mt;
 

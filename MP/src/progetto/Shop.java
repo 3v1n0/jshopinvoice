@@ -6,13 +6,13 @@ import entities.Company;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.LinkedList;
-//TODO singleton?!?
+//TODO singleton?!?  only if you want just one shop in our world, in this case you don need a cmp and a nm..
 
 public class Shop extends Company {
 	private String shopname;
 	private LinkedList<Item> items;
 	private LinkedList<Invoice> invoices;
-	//private LinkedList<Entity> clients; //TODO???
+	//private LinkedList<Entity> clients; //TODO??? no.
 	private static int id;
 	
 	Shop(Company cmp, String nm) {
@@ -27,6 +27,7 @@ public class Shop extends Company {
 	public void addItem(Item i) {
 		items.add(i);
 	}
+
 	
 	public void printItemsHtml() throws IOException {
 		String filepath = System.getProperty("java.io.tmpdir") +
@@ -93,8 +94,9 @@ public class Shop extends Company {
 		
 		return tstr.toString();
 	}
-	
+//very good job!!!!!!!!!!!!!!!!!!!! my complements!!!!!
 	public String getName() {return shopname;}
 	public int getItemNum() {return items.size();}
 	public LinkedList<Invoice> getInvoices() {return invoices;}
+
 }

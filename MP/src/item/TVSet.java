@@ -1,6 +1,6 @@
 package item;
 
-public class TVSet extends ConcreteItem {
+public class TVSet extends Item {
 // classe leaf del pattern composite	
 	private Integer inches;
 

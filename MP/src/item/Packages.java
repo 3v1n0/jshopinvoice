@@ -2,12 +2,12 @@ package item;
 
 import java.util.LinkedList;
 
-public class Package extends ConcreteItem {
+public class Packages extends Item {
 	// classe composite del pattern composite
 	private LinkedList<Item> items;
 	
-	
-	public Package(String nm, String br, String desc) {
+
+	public Packages(String nm, String br, String desc) { // senno fa ambiguita con la classe package di java
 		super(br, nm, desc, null);
 		items = new LinkedList<Item>();
 	}
@@ -25,11 +25,11 @@ public class Package extends ConcreteItem {
 		items.add(i);		
 	}
 	
-	//TODO is exception needed here?
-	public void remove(Item i) throws SinglePartException {
+	
+//dunno why but i think it's needed
+	public void remove(Item i) {
 		if (items.contains(i))
 			items.remove(i);
-		// TODO else throw exception?!?
 	}
 	
 	public Item getChild(int n){
