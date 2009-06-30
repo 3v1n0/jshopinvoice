@@ -20,13 +20,15 @@ public class Packages extends Item {
 
 		return sum;
 	}
+	
+	public int getCount() {
+		return items.size();
+	}
 
 	public void add(Item i) throws SinglePartException {
 		items.add(i);		
 	}
 	
-	
-//dunno why but i think it's needed
 	public void remove(Item i) {
 		if (items.contains(i))
 			items.remove(i);
