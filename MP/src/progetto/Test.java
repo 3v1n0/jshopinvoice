@@ -38,10 +38,10 @@ public class Test {
 						   "L'ultimo album registrato in studio dai Beatles risalente al 1969 in Vinile",
 						   15.00f);
 			
-		array[5]=new CDPlayer("Lettore CD","Samsung","Velocit‡†= 52x, Formati supportati= cd,vcd,svcd,avi,mpg3,mpg4",50.00f);
-		array[6]=new DVDPlayer("Lettore DVD","Philips","Velocit‡†= 26x, Formati supportati= dvd+r,dvd-r,dvd+rw,dvd-rw",100.00f);
-		array[7]=new BluRayPlayer("Lettore Blu-Ray","Sony","Velocit‡†= 16x, Formati supportati= BluRay",250.00f);
-		array[8]=new HDDVDPlayer("Lettore HDDVD","Toshiba","Velocit‡†= 16x, Formati supportati= HD Dvd",220.00f);
+		array[5]=new CDPlayer("Lettore CD","Samsung","Velocit√†= 52x, Formati supportati= cd,vcd,svcd,avi,mpg3,mpg4",50.00f);
+		array[6]=new DVDPlayer("Lettore DVD","Philips","Velocit√†= 26x, Formati supportati= dvd+r,dvd-r,dvd+rw,dvd-rw",100.00f);
+		array[7]=new BluRayPlayer("Lettore Blu-Ray","Sony","Velocit√†= 16x, Formati supportati= BluRay",250.00f);
+		array[8]=new HDDVDPlayer("Lettore HDDVD","Toshiba","Velocit√†= 16x, Formati supportati= HD Dvd",220.00f);
 		array[9]=new Grammofono("DiscPlayer","Kenwood","Un bellissimo modello di grammofono",150.00f);
 		
 		array[10]=new Decoder("Decoder","Samsung",150.00f,"Un bellissimo modello di decoder",true);
