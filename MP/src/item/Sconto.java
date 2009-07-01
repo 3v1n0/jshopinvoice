@@ -26,5 +26,5 @@ public abstract class Sconto extends Item{
 	
 	public void add(Item i)throws SinglePartException{	obj.add(i);	}
 	public void remove(Item i)throws SinglePartException{	obj.remove(i); }
-	public Item getChild(int n){ return obj.getChild(n);}
+	public Item getSubItem(int n){ return obj.getSubItem(n);}
 }

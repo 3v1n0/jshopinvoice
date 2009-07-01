@@ -39,6 +39,6 @@ public abstract class Item  {
 		throw new SinglePartException();		
 	}
 	
-	public Item getChild(int n){ return null;}
+	public Item getSubItem(int n){ return null;}
 
 }

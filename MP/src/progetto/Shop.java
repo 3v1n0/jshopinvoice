@@ -1,6 +1,7 @@
 package progetto;
 
 import item.Item;
+import item.ItemLinkedList;
 import entities.Company;
 
 import java.io.FileOutputStream;
@@ -10,7 +11,7 @@ import java.util.LinkedList;
 
 public class Shop extends Company {
 	private String shopname;
-	private LinkedList<Item> items;
+	private ItemLinkedList items;
 	private LinkedList<Invoice> invoices;
 	//private LinkedList<Entity> clients; //TODO??? no.
 	private static int id; //FIXME
@@ -20,7 +21,7 @@ public class Shop extends Company {
 			  cmp.getFax(), cmp.getMail(), cmp.getWeb());
 		shopname = nm;
 		invoices = new LinkedList<Invoice>();
-		items = new LinkedList<Item>();
+		items = new ItemLinkedList();
 		id++;
 	}
 	
@@ -96,7 +97,7 @@ public class Shop extends Company {
 	}
 
 	public String getName() {return shopname;}
-	public int getItemNum() {return items.size();}
+	public int getItemNum() {return items.getSize();}
 	public LinkedList<Invoice> getInvoices() {return invoices;}
 
 }
