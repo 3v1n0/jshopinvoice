@@ -38,6 +38,7 @@ public class Test {
 						   "L'ultimo album registrato in studio dai Beatles risalente al 1969 in Vinile",
 						   15.00f);
 			
+// a me come lo modifichi te mi appare una a maiuscola con l'ondina sopra..
 		array[5]=new CDPlayer("Lettore CD","Samsung","Velocità= 52x, Formati supportati= cd,vcd,svcd,avi,mpg3,mpg4",50.00f);
 		array[6]=new DVDPlayer("Lettore DVD","Philips","Velocità= 26x, Formati supportati= dvd+r,dvd-r,dvd+rw,dvd-rw",100.00f);
 		array[7]=new BluRayPlayer("Lettore Blu-Ray","Sony","Velocità= 16x, Formati supportati= BluRay",250.00f);
@@ -49,7 +50,7 @@ public class Test {
 		array[12]=new Hi_Fi("Hi-fi",(CDPlayer)array[5],(Speakers)array[11],"Un bellissimo modello di hi-fi");
 		array[13]=new TVSet("TV","Samsung",150.00f,"Un bellissimo modello di TV",20);
 		
-		Packages pkg = new Packages("Pacchetto bLu","Sony, Samsung","Lettore blu ray+TVset+bluray batman");
+		Item pkg = new Packages("Pacchetto bLu","Sony, Samsung","Lettore blu ray+TVset+bluray batman");
 		try {
 			pkg.add(array[2]);
 			pkg.add(array[7]);
@@ -60,6 +61,7 @@ public class Test {
 			e.printStackTrace();
 		}
 		
+		pkg = new Sconto20(pkg);
 		array[14]=pkg;
 		//TODO do a pkg of pkgs
 		// the invoice has an item which is a package of packages
