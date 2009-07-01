@@ -1,15 +1,13 @@
 package item;
 
-import java.util.LinkedList;
-
 public class Packages extends Item {
 	// classe composite del pattern composite
-	private LinkedList<Item> items;
+	private ItemLinkedList items; //TODO type AbstractItemList?
 	
 
 	public Packages(String nm, String br, String desc) { // senno fa ambiguita con la classe package di java
 		super(br, nm, desc, null);
-		items = new LinkedList<Item>();
+		items = new ItemLinkedList();
 	}
 	
 	public Float getPrice() {
@@ -22,7 +20,7 @@ public class Packages extends Item {
 	}
 	
 	public int getCount() {
-		return items.size();
+		return items.getSize();
 	}
 
 	public void add(Item i) throws SinglePartException {
@@ -30,11 +28,14 @@ public class Packages extends Item {
 	}
 	
 	public void remove(Item i) {
-		if (items.contains(i))
-			items.remove(i);
+		items.remove(i);
 	}
 	
-	public Item getChild(int n){
+	public Item getSubItem(int n){
 		return items.get(n);
+	}
+	
+	public AbstractItemList getItemList() {
+		return items;
 	}
 }
