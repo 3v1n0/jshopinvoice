@@ -93,6 +93,7 @@ public class Test {
 		Entity en = new Company("prova",new Address("prova",0,"prova","prova",0,"prova"),"prova","prova","prova","prova","prova");
 		
 		Invoice a= new Invoice(sh,en);
+		
 		for(int i=0;i<array.length;i++){
 			try {
 				a.add(array[i]);
@@ -101,5 +102,19 @@ public class Test {
 			}
 		}
 		System.out.println(a.getTotal()+" EUR for "+a.getCount()+" items");
+		
+		
+		Invoice b= new Invoice(sh,en);
+		
+		for(int i=0;i<array.length/2;i++){
+			try {
+				b.add(array[i]);
+			} catch (SinglePartException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println(a.getTotal()+" EUR for "+b.getCount()+" items");
+		
+		
 	}
 }
