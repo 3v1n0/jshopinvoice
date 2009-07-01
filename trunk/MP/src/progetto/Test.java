@@ -37,8 +37,7 @@ public class Test {
 						   "Inglese",
 						   "L'ultimo album registrato in studio dai Beatles risalente al 1969 in Vinile",
 						   15.00f);
-			
-// a me come lo modifichi te mi appare una a maiuscola con l'ondina sopra..
+
 		array[5]=new CDPlayer("Lettore CD","Samsung","Velocità= 52x, Formati supportati= cd,vcd,svcd,avi,mpg3,mpg4",50.00f);
 		array[6]=new DVDPlayer("Lettore DVD","Philips","Velocità= 26x, Formati supportati= dvd+r,dvd-r,dvd+rw,dvd-rw",100.00f);
 		array[7]=new BluRayPlayer("Lettore Blu-Ray","Sony","Velocità= 16x, Formati supportati= BluRay",250.00f);
