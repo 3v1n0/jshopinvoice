@@ -1,35 +1,52 @@
 package progetto;
 
-
 import entities.*;
 import item.*;
-
 import java.util.Date;
-// import java.util.LinkedList;
+import java.util.Observable;
 
-
-public class Invoice {
+public class Invoice extends Observable {
 	private Shop seller;
 	private Entity buyer;
 	private Date time;
 	private ItemPackage invoice;
-	private static int id;
+	private InvoicePrint printer;
+	private int id;
 	//TODO keep trace of the duplicates
 
-	public Invoice(Shop sel, Entity buy){
-		invoice = new ItemPackage("Fattura",null,null);
+	public Invoice(Shop sel, Entity buy) {
+		invoice = new ItemPackage("Invoice", sel.getCompanyName(), sel.getName());
 		seller = sel;
 		buyer = buy;
-		id++;
-//		time = getTime(); dunno what you would do
+		time = getTime(); //dunno what you would do
+		printer = null;
+		id = seller.getInvoicesCount() + 1;
+		seller.addInvoice(this);
+	}
+	
+	private void emitChange() {
+		setChanged();
+		notifyObservers();
 	}
 	
 	public void add(Item a) throws SinglePartException{
 		invoice.add(a);
+		emitChange();
+//		setChanged();
+//		notifyObservers(a);
 	}
 
 	public void remove(Item a) throws SinglePartException{
 		invoice.remove(a);
+		emitChange();
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public AbstractItemList getItems() {
+		return invoice.getItemList();
 	}
 
 	public Float getTotal() {
@@ -37,7 +54,7 @@ public class Invoice {
 	}
 	
 	public int getCount() throws SinglePartException {
-		return invoice.getCount();
+		return invoice.getItemsCount();
 	}
 	
 	public Shop getSeller() {
@@ -50,5 +67,26 @@ public class Invoice {
 	
 	public Date getTime() {
 		return time;
+	}
+	
+	/* My Idea:
+	 * invoice.setPrinter(new InvoicePrintStdout());
+	 * invoice.print();
+	 * 
+	 * InvoicePrint html = new InvoicePrintHTML();
+	 * html.setFile("ohoho.html");
+	 * invoice.setPrinter(html);
+	 * invoice.print(); // To be notified of changes by observer!!!
+	 */
+	
+	public void setPrinter(InvoicePrint ip) {
+		printer = ip;
+		ip.setInvoice(this);
+	}
+	
+	public void print() {
+		if (printer != null && printer.getInvoice() == this)
+			printer.print();
+		//else //TODO exception!
 	}
 }

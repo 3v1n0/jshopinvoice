@@ -14,7 +14,9 @@ public class Shop extends Company {
 	private ItemLinkedList items;
 	private LinkedList<Invoice> invoices;
 	//private LinkedList<Entity> clients; //TODO??? no.
-	private static int id; //FIXME
+	private static int shops;
+	private int id;
+	private InvoiceObserver obs;
 	
 	Shop(Company cmp, String nm) {
 		super(cmp.getName(), cmp.getAddress(), cmp.getVATIN(), cmp.getPhone(),
@@ -22,13 +24,27 @@ public class Shop extends Company {
 		shopname = nm;
 		invoices = new LinkedList<Invoice>();
 		items = new ItemLinkedList();
-		id++;
+		obs = new InvoiceObserver();
+		id = (++shops);
 	}
 	
 	public void addItem(Item i) {
 		items.add(i);
 	}
-
+	
+	public void removeItem(Item i) {
+		items.remove(i);
+	}
+	
+	protected void addInvoice(Invoice i) {
+		i.addObserver(obs);
+		invoices.add(i);
+	}
+	
+	protected void removeInvoice(Invoice i) {
+		i.deleteObservers();
+		invoices.add(i);
+	}
 	
 	public void printItemsHtml() throws IOException {
 		String filepath = System.getProperty("java.io.tmpdir") +
@@ -97,7 +113,9 @@ public class Shop extends Company {
 	}
 
 	public String getName() {return shopname;}
+	public String getCompanyName() {return super.getName();}
+	public int getId() {return id;}
 	public int getItemNum() {return items.getSize();}
+	public int getInvoicesCount() {return invoices.size();}
 	public LinkedList<Invoice> getInvoices() {return invoices;}
-
 }
