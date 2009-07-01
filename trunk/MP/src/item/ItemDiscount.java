@@ -1,11 +1,11 @@
 package item;
 
-public abstract class Sconto extends Item{
+public abstract class ItemDiscount extends Item{
 
 	Item obj;
 	Integer percent;
 	
-	protected Sconto(Item a){
+	protected ItemDiscount(Item a){
 		obj = a;
 		percent = createSconto();		
 	}

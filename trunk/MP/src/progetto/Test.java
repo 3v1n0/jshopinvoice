@@ -42,14 +42,14 @@ public class Test {
 		array[6]=new DVDPlayer("Lettore DVD","Philips","Velocità= 26x, Formati supportati= dvd+r,dvd-r,dvd+rw,dvd-rw",100.00f);
 		array[7]=new BluRayPlayer("Lettore Blu-Ray","Sony","Velocità= 16x, Formati supportati= BluRay",250.00f);
 		array[8]=new HDDVDPlayer("Lettore HDDVD","Toshiba","Velocità= 16x, Formati supportati= HD Dvd",220.00f);
-		array[9]=new Grammofono("DiscPlayer","Kenwood","Un bellissimo modello di grammofono",150.00f);
+		array[9]=new Gramophone("DiscPlayer","Kenwood","Un bellissimo modello di grammofono",150.00f);
 		
 		array[10]=new Decoder("Decoder","Samsung",150.00f,"Un bellissimo modello di decoder",true);
 		array[11]=new Speakers("Casse","Samsung",150.00f,"Un bellissimo modello di casse",500,20);
-		array[12]=new Hi_Fi("Hi-fi",(CDPlayer)array[5],(Speakers)array[11],"Un bellissimo modello di hi-fi");
+		array[12]=new HiFi("Hi-fi",(CDPlayer)array[5],(Speakers)array[11],"Un bellissimo modello di hi-fi");
 		array[13]=new TVSet("TV","Samsung",150.00f,"Un bellissimo modello di TV",20);
 		
-		Item pkg = new Packages("Pacchetto bLu","Sony, Samsung","Lettore blu ray+TVset+bluray batman");
+		Item pkg = new ItemPackage("Pacchetto bLu","Sony, Samsung","Lettore blu ray+TVset+bluray batman");
 		try {
 			pkg.add(array[2]);
 			pkg.add(array[7]);
@@ -60,7 +60,7 @@ public class Test {
 			e.printStackTrace();
 		}
 		
-		pkg = new Sconto20(pkg);
+		pkg = new ItemDiscount20(pkg);
 		array[14]=pkg;
 		//TODO do a pkg of pkgs
 		// the invoice has an item which is a package of packages
