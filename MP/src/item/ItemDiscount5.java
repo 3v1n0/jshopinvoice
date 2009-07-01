@@ -1,8 +1,8 @@
 package item;
 
-public class Sconto5 extends Sconto{
+public class ItemDiscount5 extends ItemDiscount{
 	
-	public Sconto5(Item obj){
+	public ItemDiscount5(Item obj){
 		super(obj);
 	}
 

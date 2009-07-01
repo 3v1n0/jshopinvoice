@@ -1,11 +1,11 @@
 package item;
 
-public class Packages extends Item {
+public class ItemPackage extends Item {
 	// classe composite del pattern composite
 	private ItemLinkedList items; //TODO type AbstractItemList?
 	
 
-	public Packages(String nm, String br, String desc) { // senno fa ambiguita con la classe package di java
+	public ItemPackage(String nm, String br, String desc) {
 		super(br, nm, desc, null);
 		items = new ItemLinkedList();
 	}

@@ -12,12 +12,12 @@ public class Invoice {
 	private Shop seller;
 	private Entity buyer;
 	private Date time;
-	private Packages invoice;
+	private ItemPackage invoice;
 	private static int id;
 	//TODO keep trace of the duplicates
 
 	public Invoice(Shop sel, Entity buy){
-		invoice = new Packages("Fattura",null,null);
+		invoice = new ItemPackage("Fattura",null,null);
 		seller = sel;
 		buyer = buy;
 		id++;
