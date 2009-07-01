@@ -11,13 +11,13 @@ public abstract class Sconto extends Item{
 	}
 	protected abstract Integer createSconto();
 	
-	public String getBrand() {return obj.getBrand();}
-	public String getDescription() {return obj.getDescription();}
-	public String getName() {return obj.getName();}
+//	public String getBrand() {return obj.getBrand();}
+//	public String getDescription() {return obj.getDescription();}
+//	public String getName() {return obj.getName();}
 	public Float getPrice() {return (obj.getPrice()-(obj.getPrice()*percent/100));}
-	public int getId() {return obj.getId();}
+//	public int getId() {return obj.getId();}
 	
-	public void add(Item i)throws SinglePartException{	obj.add(i);	}
-	public void remove(Item i)throws SinglePartException{	obj.remove(i); }
-	public Item getChild(int n){ return obj.getChild(n);}
+//	public void add(Item i)throws SinglePartException{	obj.add(i);	}
+//	public void remove(Item i)throws SinglePartException{	obj.remove(i); }
+//	public Item getChild(int n){ return obj.getChild(n);}
 }
