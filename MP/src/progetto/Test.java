@@ -194,7 +194,7 @@ public class Test {
 		for(int i=0;i<array.length/2;i++){
 			b.add(array[i]);
 		}
-		System.out.println(a.getTotal()+" EUR for "+b.getCount()+" items");
+		System.out.println(b.getTotal()+" EUR for "+b.getCount()+" items");
 		
 		
 	}
