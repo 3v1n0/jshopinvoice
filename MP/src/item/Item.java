@@ -31,6 +31,7 @@ public abstract class Item  {
 	public String getDescription() {return description;}
 	public String getName() {return name;}
 	public Float getPrice() {return price;}
+	public Integer getDiscount() {return 0;}
 	public int getId() {return id;}
 	
 	public int getItemsCount() throws SinglePartException {

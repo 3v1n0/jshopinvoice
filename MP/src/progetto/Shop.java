@@ -65,16 +65,18 @@ public class Shop extends Company {
 					  "\t\t<table align=\"center\">\n";
 		
 		html += "\t\t\t<tr>\n" +
-				"\t\t\t\t<td><b>Oggetto</b></td>\n"+
-				"\t\t\t\t<td><b>Descrizione</b></td>\n"+
+				"\t\t\t\t<td><b>Oggetto</b></td>\n" +
+				"\t\t\t\t<td><b>Descrizione</b></td>\n" +
 				"\t\t\t\t<td><b>Prezzo</b></td>\n" +
 				"\t\t\t</tr>\n";
 		
 		for (Item i : items)
 			html += "\t\t\t<tr id='"+i.getId()+"'>\n" +
-					"\t\t\t\t<td>"+stringToHTML(i.getName())+"</td>\n"+
-					"\t\t\t\t<td>"+stringToHTML(i.getDescription())+"</td>\n"+
-					"\t\t\t\t<td>"+i.getPrice()+"</td>\n" +
+					"\t\t\t\t<td>"+stringToHTML(i.getName())+"</td>\n" +
+					"\t\t\t\t<td>"+stringToHTML(i.getDescription())+"</td>\n" +
+					"\t\t\t\t<td>"+i.getPrice()+
+					(i.getDiscount() > 0 ? " ("+i.getDiscount()+"%)" : "") +
+					"</td>\n" +
 					"\t\t\t</tr>\n";
 		
 		html += "\t\t</table>\n" +
