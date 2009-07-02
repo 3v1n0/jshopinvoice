@@ -10,7 +10,7 @@ import media.*;
 import players.*;
 
 public class Test {
-	private static Item[] array =new Item[15];
+	private static Item[] array =new Item[16];
 
 
 	public static void main(String args[]) throws IOException, SinglePartException{
@@ -62,9 +62,19 @@ public class Test {
 		
 		pkg = new ItemDiscount20(pkg);
 		array[14]=pkg;
-		//TODO do a pkg of pkgs
-		// the invoice has an item which is a package of packages
 		
+		pkg.add(array[9]);
+		
+		
+		Item pkg2 = new ItemPackage("Scooonti!","Vari","Multimedia vari");
+		try {
+			pkg2.add(array[0]);
+			pkg2.add(new ItemDiscount5(array[1]));
+			pkg2.add(new ItemDiscount5(array[3]));
+		} catch (SinglePartException e) {
+			e.printStackTrace();
+		}
+		array[15]=new ItemDiscount20(pkg2);
 
 		
 		for(int i=0;i<array.length;i++){

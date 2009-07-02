@@ -1,15 +1,15 @@
 package item;
 
-public abstract class ItemDiscount extends Item{
+public abstract class ItemDiscount extends Item {
 
 	Item obj;
-	Integer percent;
+	Integer discount;
 	
 	protected ItemDiscount(Item a){
 		obj = a;
-		percent = createSconto();		
+		discount = createDiscount();		
 	}
-	protected abstract Integer createSconto();
+	protected abstract Integer createDiscount();
 	
 /*
  *  Il decorator avvolge l'oggetto con un nuovo oggetto che per come lo creiamo noi ha i campi nome brand ecc
@@ -21,10 +21,11 @@ public abstract class ItemDiscount extends Item{
 	public String getBrand() {return obj.getBrand();}
 	public String getDescription() {return obj.getDescription();}
 	public String getName() {return obj.getName();}
-	public Float getPrice() {return (obj.getPrice()-(obj.getPrice()*percent/100));}
+	public Float getPrice() {return (obj.getPrice()-(obj.getPrice()*discount/100));}
+	public Integer getDiscount() {return discount;}
 //	public int getId() {return obj.getId();} //--> If I don't comment it out I get always 0!
 	
-//	public void add(Item i)throws SinglePartException{	obj.add(i);	}
-//	public void remove(Item i)throws SinglePartException{	obj.remove(i); }
-//	public Item getSubItem(int n){ return obj.getSubItem(n);}
+	public void add(Item i)throws SinglePartException{	obj.add(i);	}
+	public void remove(Item i)throws SinglePartException{	obj.remove(i); }
+	public Item getSubItem(int n){ return obj.getSubItem(n);}
 }
