@@ -107,13 +107,13 @@ public class Test {
 		Entity en = new Company("prova",new Address("prova",0,"prova","prova",0,"prova"),"prova","prova","prova","prova","prova");
 		
 		Invoice a= new Invoice(sh,en);
+		a.setPrinter(new InvoicePrintStdout());
 		
 		for(int i=0;i<array.length;i++){
-			try {
-				a.add(array[i]);
-			} catch (SinglePartException e) {
-				e.printStackTrace();
-			}
+			a.add(array[i]);
+		}
+		for(int i=0;i<3;i++){
+			a.add(array[i]);
 		}
 		System.out.println(a.getTotal()+" EUR for "+a.getCount()+" items");
 		
@@ -121,11 +121,7 @@ public class Test {
 		Invoice b= new Invoice(sh,en);
 		
 		for(int i=0;i<array.length/2;i++){
-			try {
-				b.add(array[i]);
-			} catch (SinglePartException e) {
-				e.printStackTrace();
-			}
+			b.add(array[i]);
 		}
 		System.out.println(a.getTotal()+" EUR for "+b.getCount()+" items");
 		

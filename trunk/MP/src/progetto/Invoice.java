@@ -2,6 +2,7 @@ package progetto;
 
 import entities.*;
 import item.*;
+
 import java.util.Date;
 import java.util.Observable;
 
@@ -29,15 +30,32 @@ public class Invoice extends Observable {
 		notifyObservers();
 	}
 	
-	public void add(Item a) throws SinglePartException{
-		invoice.add(a);
+	public void add(Item a) {
+		Item tmp = a;//a.clone();
+		boolean add = true;
+		tmp.setCount(1);
+	
+		for (Item i : invoice.getItemList()) {
+			if (tmp.getId() == i.getId()) {
+				i.setCount(i.getCount()+1);
+				add = false;
+			}
+		}
+	
+		if (add)
+			invoice.add(tmp);
+
 		emitChange();
 //		setChanged();
 //		notifyObservers(a);
 	}
 
-	public void remove(Item a) throws SinglePartException{
-		invoice.remove(a);
+	public void remove(Item a) {
+		a.setCount(a.getCount()-1);
+		
+		if (a.getCount() < 1)
+			invoice.remove(a);
+	
 		emitChange();
 	}
 	
@@ -53,7 +71,7 @@ public class Invoice extends Observable {
 		return invoice.getPrice();
 	}
 	
-	public int getCount() throws SinglePartException {
+	public int getCount() {
 		return invoice.getItemsCount();
 	}
 	

@@ -23,7 +23,12 @@ public class ItemLinkedList extends AbstractItemList {
 	}
 	
 	public int getSize() {
-		return list.size();
+//		return list.size();
+		int count = 0;
+		for (Item i : list)
+			count += i.getCount();
+		
+		return count;
 	}
 
 	Item get(int idx) {
