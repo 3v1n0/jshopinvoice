@@ -72,7 +72,7 @@ public class Invoice extends Observable {
 	}
 	
 	public int getCount() {
-		return invoice.getItemsCount();
+		return invoice.getSubItemsCount();
 	}
 	
 	public Shop getSeller() {

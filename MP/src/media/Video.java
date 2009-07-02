@@ -33,6 +33,8 @@ public class Video extends Media {
 			return s;
 		}
 		
+		protected String createType() {return "Video Media";}
+		
 		public String getDirector() {return director;}
 		public String getActors() {return actors;}
 		public String getSubtitles() {return subtitles;}

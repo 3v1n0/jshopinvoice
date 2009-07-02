@@ -2,9 +2,9 @@ package item;
 
 //import java.util.HashMap;
 
-public abstract class Item implements Cloneable {
-// classe component del pattern composite
+public class Item implements ItemInterface, Cloneable {
 	
+	private String type;
 	private String name;
 	private String brand;
 	private Float price;
@@ -14,9 +14,9 @@ public abstract class Item implements Cloneable {
 	private int count;
 					// => TODO ShopItem that surrounds an Item with price and ID.
 	
-	
 	protected Item() {};
 	protected Item(String br, String nm, String desc, Float pr) {
+		type = createType();
 		brand = br;
 		name = nm;
 		description = desc;
@@ -31,6 +31,8 @@ public abstract class Item implements Cloneable {
 		count = num;
 	}
 	
+	protected String createType() {return "Item";} //TODO extend to missing sup
+	
 	public void setId(int ID) {
 		id = ID;
 	}
@@ -39,6 +41,7 @@ public abstract class Item implements Cloneable {
 		count = c;
 	}
 	
+	public String getType() {return type;}
 	public String getBrand() {return brand;}
 	public String getDescription() {return description;}
 	public String getName() {return name;}
@@ -47,7 +50,7 @@ public abstract class Item implements Cloneable {
 	public int getId() {return id;}
 	public int getCount() {return count;}
 	
-	public int getItemsCount() throws SinglePartException {
+	public int getSubItemsCount() throws SinglePartException {
 		throw new SinglePartException(); //TODO return 1 anyway?
 	}
 	
@@ -59,7 +62,9 @@ public abstract class Item implements Cloneable {
 		throw new SinglePartException();		
 	}
 	
-	public Item getSubItem(int n){ return null;}
+	public Item getSubItem(int n) throws SinglePartException { 
+		throw new SinglePartException();
+	}
 	
 //	public void getFeatures() { // TODO????
 //		for (String k : features.keySet()) {

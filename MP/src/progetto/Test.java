@@ -25,7 +25,7 @@ public class Test {
 		
 		for (int i = 0; i < items.length; i++)
 			c += (i+1)+") "+items[i].getName()+", "+items[i].getDescription() +
-				  " - "+items[i].getClass().getName()+" - "+items[i].getPrice() +"EUR " +
+				  " - "+items[i].getType()+" - "+items[i].getPrice() +"EUR " +
 				  (items[i].getDiscount() > 0 ? " ("+items[i].getDiscount()+"% di sconto)" : "" )+
 				  "\n";
 			

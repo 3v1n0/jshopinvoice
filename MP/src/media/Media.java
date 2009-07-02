@@ -46,6 +46,8 @@ public abstract class Media extends Item {
 		return s;
 	}
 	
+	protected String createType() {return "Media";}
+	
 	public String getTitle() {return title;}
 	public String getGenre() {return genre;}
 	public String getLanguage() {return language;}

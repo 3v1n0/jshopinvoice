@@ -14,7 +14,7 @@ public class Audio extends Media {
 	public String getInfo(){
 		String s;
 		s = "Author:\t\t"+author+
-//		super.getInfo() alternativa possibile ???
+//		super.getInfo() TODO alternativa possibile ???
 			"\nTitle:\t\t"+getTitle()+
 			"\nBrand:\t\t"+getBrand()+
 			"\nDuration:\t"+getDuration()+
@@ -23,6 +23,8 @@ public class Audio extends Media {
 			"\nSupport:\t"+getMedia();
 		return s;
 	}
+	
+	protected String createType() {return "Audio Media";}
 	
 	public String getAuthor() {return author;}
 	public String getName() {return getAuthor()+" - "+getTitle();}
