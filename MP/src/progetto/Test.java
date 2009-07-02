@@ -15,12 +15,20 @@ public class Test {
 	private static Item[] array =new Item[16];
 	
 	/** metodo per leggere interi */
-	public static int getInt(String c) {
+	public static int getInt(Item[] items) {
 		byte[] b = new byte[9];
-		String s;
 		int res = 0;
 		int m = 1;
 		boolean cfl = false;
+		String s;
+		String c = "";
+		
+		for (int i = 0; i < items.length; i++)
+			c += (i+1)+") "+items[i].getName()+", "+items[i].getDescription() +
+				  " - "+items[i].getClass().getName()+" - "+items[i].getPrice() +"EUR " +
+				  (items[i].getDiscount() > 0 ? " ("+items[i].getDiscount()+"% di sconto)" : "" )+
+				  "\n";
+			
 		s = JOptionPane.showInputDialog(c);
 		for (int i = 0; i < s.length(); i++) {
 			b[i] = (byte) s.charAt(i);
@@ -143,49 +151,33 @@ public class Test {
 			a.add(array[i]);
 		}
 */
-		String s = "Inserire il numero corrispondente al prodotto desiderato per aggiungerlo al carrello.\n"+
-					"1.Laura Pausini - Resta in ascolto, Genere: POP, Ultimo cd dell'artista Laura Pausini, Prezzo 15.00 EUR\n"+
-					"2.The Matrix, La famosa trilogia di fantascenza informatica - DVD, Prezzo 50.00 EUR\n"+
-					"3.Batman, Film di Batman del 1989 - BluRay, Prezzo 30.00 EUR\n"+
-					"4.Titanic, Film vincitore di 11 premi oscar - HDDVD 15.00 EUR\n"+
-					"5.The Beatles - Abbey Road, Genere: Rock Classico POP, L'ultimo album registrato in studio dai Beatles risalente al 1969 in Vinile, Prezzo 15.00 EUR\n"+
-					"6.Lettore CD, Samsung, Formati supportati= cd,vcd,svcd,avi,mpg3,mpg,  Prezzo:50.00 EUR\n"+
-					"7.Lettore DVD, Philips, Formati supportati= dvd+r,dvd-r,dvd+rw,dvd-rw, Prezzo: 100.00 EUR\n"+
-					"8.Lettore Blu-Ray, Sony, Formati supportati= BluRay Prezzo: 250.00 EUR\n"+
-					"9.Lettore HDDVD, Toshiba, Formati supportati= HD Dvd Prezzo: 220.00 EUR\n"+
-					"10.Grammofono, Kenwood, Un bellissimo modello di grammofono Prezzo: 150.00 EUR\n"+
-					"11.Decoder, Samsung, Un bellissimo modello di decoder Prezzo: 150.00 EUR\n"+
-					"12.Casse,Samsung, Un bellissimo modello di casse Prezzo:150.00 EUR\n"+
-					"13.Hi-fi, Un bellissimo modello di hi-fi composto dal lettore CD e dalle casse della Samsung Prezzo: 200.00 EUR\n"+
-					"14.TV, Samsung, Un bellissimo modello di TV Prezzo: 150.00 EUR\n"+
-					"15.Pacchetto bLu, Sony - Samsung, Lettore blu ray + TVset + bluray batman, con sconto 20% sul totale\n"+
-					"16.Pacchetto film e audio superscontati (Resta in ascolto + The matrix + Titanic)\n"+
-					"0. Uscire.";
+//		String s = "Inserire il numero corrispondente al prodotto desiderato per aggiungerlo al carrello.\n"+
+//					"1.Laura Pausini - Resta in ascolto, Genere: POP, Ultimo cd dell'artista Laura Pausini, Prezzo 15.00 EUR\n"+
+//					"2.The Matrix, La famosa trilogia di fantascenza informatica - DVD, Prezzo 50.00 EUR\n"+
+//					"3.Batman, Film di Batman del 1989 - BluRay, Prezzo 30.00 EUR\n"+
+//					"4.Titanic, Film vincitore di 11 premi oscar - HDDVD 15.00 EUR\n"+
+//					"5.The Beatles - Abbey Road, Genere: Rock Classico POP, L'ultimo album registrato in studio dai Beatles risalente al 1969 in Vinile, Prezzo 15.00 EUR\n"+
+//					"6.Lettore CD, Samsung, Formati supportati= cd,vcd,svcd,avi,mpg3,mpg,  Prezzo:50.00 EUR\n"+
+//					"7.Lettore DVD, Philips, Formati supportati= dvd+r,dvd-r,dvd+rw,dvd-rw, Prezzo: 100.00 EUR\n"+
+//					"8.Lettore Blu-Ray, Sony, Formati supportati= BluRay Prezzo: 250.00 EUR\n"+
+//					"9.Lettore HDDVD, Toshiba, Formati supportati= HD Dvd Prezzo: 220.00 EUR\n"+
+//					"10.Grammofono, Kenwood, Un bellissimo modello di grammofono Prezzo: 150.00 EUR\n"+
+//					"11.Decoder, Samsung, Un bellissimo modello di decoder Prezzo: 150.00 EUR\n"+
+//					"12.Casse,Samsung, Un bellissimo modello di casse Prezzo:150.00 EUR\n"+
+//					"13.Hi-fi, Un bellissimo modello di hi-fi composto dal lettore CD e dalle casse della Samsung Prezzo: 200.00 EUR\n"+
+//					"14.TV, Samsung, Un bellissimo modello di TV Prezzo: 150.00 EUR\n"+
+//					"15.Pacchetto bLu, Sony - Samsung, Lettore blu ray + TVset + bluray batman, con sconto 20% sul totale\n"+
+//					"16.Pacchetto film e audio superscontati (Resta in ascolto + The matrix + Titanic)\n"+
+//					"0. Uscire.";
 					
 		int c = -1;
-		while(c!=0){
-			c=getInt(s);
-			switch(c){
-			case 1:	a.add(array[0]); break;
-			case 2:	a.add(array[1]); break;
-			case 3:	a.add(array[2]); break;
-			case 4:	a.add(array[3]); break;
-			case 5:	a.add(array[4]); break;
-			case 6:	a.add(array[5]); break;
-			case 7:	a.add(array[6]); break;
-			case 8:	a.add(array[7]); break;
-			case 9:	a.add(array[8]); break;
-			case 10:a.add(array[9]); break;
-			case 11:a.add(array[10]); break;
-			case 12:a.add(array[11]); break;
-			case 13:a.add(array[12]); break;
-			case 14:a.add(array[13]); break;
-			case 15:a.add(array[14]); break;
-			case 16:a.add(array[15]); break;
-			case 0:
-			}
+		while(c != 0){
+			c = getInt(array);
 			
+			if (c >= 0 && c < array.length)
+				a.add(array[c+1]);
 		}
+
 		System.out.println(a.getTotal()+" EUR for "+a.getCount()+" items");
 		
 		
