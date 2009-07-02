@@ -4,6 +4,8 @@ package progetto;
 
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 import entities.*;
 import item.*;
 import media.*;
@@ -11,9 +13,35 @@ import players.*;
 
 public class Test {
 	private static Item[] array =new Item[16];
+	
+	/** metodo per leggere interi */
+	public static int getInt(String c) {
+		byte[] b = new byte[9];
+		String s;
+		int res = 0;
+		int m = 1;
+		boolean cfl = false;
+		s = JOptionPane.showInputDialog(c);
+		for (int i = 0; i < s.length(); i++) {
+			b[i] = (byte) s.charAt(i);
+			if (b[i] == ' ')
+				continue;
+			else if (b[i] == '-' && (!cfl && m > 0))
+				m = -1;
+			else if (b[i] == '-' && m < 0)
+				break;
+			else if (b[i] >= '0' && b[i] <= '9') {
+				res = res * 10 + b[i] - '0';
+				cfl = true;
+			} else
+				break;
+		}
+		return m * res;
+	}
 
 
 	public static void main(String args[]) throws IOException, SinglePartException{
+		
 		array[0]=new CD("New Logic Studio", "Laura Pausini", "Resta in ascolto", 60,
 						"POP", "Italiano", "Ultimo cd dell'artista Laura Pausini.", 15.00f);
 
@@ -50,30 +78,27 @@ public class Test {
 		array[13]=new TVSet("TV","Samsung",150.00f,"Un bellissimo modello di TV",20);
 		
 		Item pkg = new ItemPackage("Pacchetto bLu","Sony, Samsung","Lettore blu ray+TVset+bluray batman");
-		try {
+		
 			pkg.add(array[2]);
 			pkg.add(array[7]);
 			pkg.add(array[13]);
 			pkg.remove(array[7]);
 			pkg.add(array[7]);
-		} catch (SinglePartException e) {
-			e.printStackTrace();
-		}
+	
 		
 		pkg = new ItemDiscount20(pkg);
 		array[14]=pkg;
 		
 		pkg.add(array[9]);
-		
+	
+
 		
 		Item pkg2 = new ItemPackage("Scooonti!","Vari","Multimedia vari");
-		try {
+	
 			pkg2.add(array[0]);
 			pkg2.add(new ItemDiscount5(array[1]));
 			pkg2.add(new ItemDiscount5(array[3]));
-		} catch (SinglePartException e) {
-			e.printStackTrace();
-		}
+	
 		array[15]=new ItemDiscount20(pkg2);
 
 		
@@ -84,9 +109,11 @@ public class Test {
 		try {
 			array[10].add(array[12]);
 		} catch (SinglePartException e) {
-			//e.printStackTrace();
 			System.out.println("ERROR: Tried to add an item over another Item!");
 		}
+
+		/////////////////////////////////////////////////////////////////////////////
+		
 		
 		// A first Shop test
 		Company cmp = new Company("New s.r.l",
@@ -95,7 +122,8 @@ public class Test {
 								  "http://www.newsrl.it");
 	
 		Shop sh = new Shop(cmp, "The New SHOP");
-		
+		Entity en = new Company("prova",new Address("prova",0,"prova","prova",0,"prova"),"prova","prova","prova","prova","prova");	
+
 		for (Item i : array)
 			sh.addItem(i);
 		
@@ -104,16 +132,59 @@ public class Test {
 		
 		sh.printItemsHtml();
 		
-		Entity en = new Company("prova",new Address("prova",0,"prova","prova",0,"prova"),"prova","prova","prova","prova","prova");
-		
 		Invoice a= new Invoice(sh,en);
 		a.setPrinter(new InvoicePrintStdout());
 		
-		for(int i=0;i<array.length;i++){
+/*		
+ 		for(int i=0;i<array.length;i++){
 			a.add(array[i]);
 		}
 		for(int i=0;i<3;i++){
 			a.add(array[i]);
+		}
+*/
+		String s = "Inserire il numero corrispondente al prodotto desiderato per aggiungerlo al carrello.\n"+
+					"1.Laura Pausini - Resta in ascolto, Genere: POP, Ultimo cd dell'artista Laura Pausini, Prezzo 15.00 EUR\n"+
+					"2.The Matrix, La famosa trilogia di fantascenza informatica - DVD, Prezzo 50.00 EUR\n"+
+					"3.Batman, Film di Batman del 1989 - BluRay, Prezzo 30.00 EUR\n"+
+					"4.Titanic, Film vincitore di 11 premi oscar - HDDVD 15.00 EUR\n"+
+					"5.The Beatles - Abbey Road, Genere: Rock Classico POP, L'ultimo album registrato in studio dai Beatles risalente al 1969 in Vinile, Prezzo 15.00 EUR\n"+
+					"6.Lettore CD, Samsung, Formati supportati= cd,vcd,svcd,avi,mpg3,mpg,  Prezzo:50.00 EUR\n"+
+					"7.Lettore DVD, Philips, Formati supportati= dvd+r,dvd-r,dvd+rw,dvd-rw, Prezzo: 100.00 EUR\n"+
+					"8.Lettore Blu-Ray, Sony, Formati supportati= BluRay Prezzo: 250.00 EUR\n"+
+					"9.Lettore HDDVD, Toshiba, Formati supportati= HD Dvd Prezzo: 220.00 EUR\n"+
+					"10.Grammofono, Kenwood, Un bellissimo modello di grammofono Prezzo: 150.00 EUR\n"+
+					"11.Decoder, Samsung, Un bellissimo modello di decoder Prezzo: 150.00 EUR\n"+
+					"12.Casse,Samsung, Un bellissimo modello di casse Prezzo:150.00 EUR\n"+
+					"13.Hi-fi, Un bellissimo modello di hi-fi composto dal lettore CD e dalle casse della Samsung Prezzo: 200.00 EUR\n"+
+					"14.TV, Samsung, Un bellissimo modello di TV Prezzo: 150.00 EUR\n"+
+					"15.Pacchetto bLu, Sony - Samsung, Lettore blu ray + TVset + bluray batman, con sconto 20% sul totale\n"+
+					"16.Pacchetto film e audio superscontati (Resta in ascolto + The matrix + Titanic)\n"+
+					"0. Uscire.";
+					
+		int c = -1;
+		while(c!=0){
+			c=getInt(s);
+			switch(c){
+			case 1:	a.add(array[0]); break;
+			case 2:	a.add(array[1]); break;
+			case 3:	a.add(array[2]); break;
+			case 4:	a.add(array[3]); break;
+			case 5:	a.add(array[4]); break;
+			case 6:	a.add(array[5]); break;
+			case 7:	a.add(array[6]); break;
+			case 8:	a.add(array[7]); break;
+			case 9:	a.add(array[8]); break;
+			case 10:a.add(array[9]); break;
+			case 11:a.add(array[10]); break;
+			case 12:a.add(array[11]); break;
+			case 13:a.add(array[12]); break;
+			case 14:a.add(array[13]); break;
+			case 15:a.add(array[14]); break;
+			case 16:a.add(array[15]); break;
+			case 0:
+			}
+			
 		}
 		System.out.println(a.getTotal()+" EUR for "+a.getCount()+" items");
 		
