@@ -3,7 +3,7 @@ package players;
 import item.*;
 import media.Media;
 
-public abstract class ConcretePlayer extends Item implements Player {
+public abstract class ConcretePlayer extends GenericItem implements Player {
 	private Media read;
 	@SuppressWarnings("unused") private ConcretePlayer pl;
 
@@ -29,4 +29,6 @@ public abstract class ConcretePlayer extends Item implements Player {
 
 		return s;
 	}
+	
+	protected String createType() {return "Player";}
 }

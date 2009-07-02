@@ -1,7 +1,7 @@
 package media;
-import item.Item;
+import item.GenericItem;
 
-public abstract class Media extends Item {
+public abstract class Media extends GenericItem {
 	
 	private String title;
 	private Integer duration;
