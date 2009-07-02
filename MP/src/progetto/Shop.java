@@ -11,12 +11,13 @@ import java.util.LinkedList;
 
 public class Shop extends Company {
 	private String shopname;
+	private InvoiceObserver obs;
 	private ItemLinkedList items;
 	private LinkedList<Invoice> invoices;
 	//private LinkedList<Entity> clients; //TODO??? no.
 	private static int shops;
+	private static int added;
 	private int id;
-	private InvoiceObserver obs;
 	
 	Shop(Company cmp, String nm) {
 		super(cmp.getName(), cmp.getAddress(), cmp.getVATIN(), cmp.getPhone(),
@@ -29,10 +30,12 @@ public class Shop extends Company {
 	}
 	
 	public void addItem(Item i) {
+		i.setId(++added);
 		items.add(i);
 	}
 	
 	public void removeItem(Item i) {
+		i.setId(0);
 		items.remove(i);
 	}
 	
@@ -115,7 +118,7 @@ public class Shop extends Company {
 	public String getName() {return shopname;}
 	public String getCompanyName() {return super.getName();}
 	public int getId() {return id;}
-	public int getItemNum() {return items.getSize();}
+	public int getItemCount() {return items.getSize();}
 	public int getInvoicesCount() {return invoices.size();}
 	public LinkedList<Invoice> getInvoices() {return invoices;}
 }

@@ -74,7 +74,8 @@ public class Test {
 		try {
 			array[10].add(array[12]);
 		} catch (SinglePartException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("ERROR: Tried to add an item over another Item!");
 		}
 		
 		// A first Shop test
@@ -87,6 +88,9 @@ public class Test {
 		
 		for (Item i : array)
 			sh.addItem(i);
+		
+		sh.removeItem(array[6]);
+		sh.addItem(array[6]);
 		
 		sh.printItemsHtml();
 		
