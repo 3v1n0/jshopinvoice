@@ -2,7 +2,7 @@ package item;
 
 import players.*;
 
-public class HiFi extends Item {
+public class HiFi extends GenericItem {
 // classe leaf del pattern composite
 
 	private Integer power;

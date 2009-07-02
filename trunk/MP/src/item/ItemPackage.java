@@ -1,6 +1,6 @@
 package item;
 
-public class ItemPackage extends Item {
+public class ItemPackage extends GenericItem {
 	// classe composite del pattern composite
 	private ItemLinkedList items; //TODO type AbstractItemList?
 	

@@ -1,6 +1,6 @@
 package item;
 
-public class Decoder extends Item{
+public class Decoder extends GenericItem{
 // classe leaf del pattern composite
 	private boolean smartCard;
 	
