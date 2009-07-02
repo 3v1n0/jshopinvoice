@@ -11,6 +11,7 @@ public abstract class Item  {
 	private String description;
 //	private HashMap<String, Object> features;
 	private int id;
+	private int count;
 					// => TODO ShopItem that surrounds an Item with price and ID.
 	
 	
@@ -21,10 +22,21 @@ public abstract class Item  {
 		description = desc;
 		price = pr;
 		id = 0;
+		count = 1;
+	}
+
+	protected Item(String br, String nm, String desc, Float pr, int num) {
+		this(br, nm, desc, pr);
+		//TODO if (num < 1) ...
+		count = num;
 	}
 	
 	public void setId(int ID) {
 		id = ID;
+	}
+	
+	public void setCount(int c) {
+		count = c;
 	}
 	
 	public String getBrand() {return brand;}
@@ -33,6 +45,7 @@ public abstract class Item  {
 	public Float getPrice() {return price;}
 	public Integer getDiscount() {return 0;}
 	public int getId() {return id;}
+	public int getCount() {return count;}
 	
 	public int getItemsCount() throws SinglePartException {
 		throw new SinglePartException(); //TODO return 1 anyway?

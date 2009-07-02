@@ -23,12 +23,15 @@ public class ItemPackage extends Item {
 		return items.getSize();
 	}
 
-	public void add(Item i) throws SinglePartException {
-		items.add(i);		
+	public void add(Item i) {
+		items.add(i);
+		this.setCount(this.getCount() + i.getCount());
+		//TODO increment this.setcount of i.getCount() or 1 ???
 	}
 	
 	public void remove(Item i) {
 		items.remove(i);
+		this.setCount(this.getCount() - i.getCount());
 	}
 	
 	public Item getSubItem(int n){
