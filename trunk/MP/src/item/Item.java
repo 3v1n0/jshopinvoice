@@ -1,6 +1,6 @@
 package item;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 
 public abstract class Item  {
 // classe component del pattern composite
@@ -9,10 +9,9 @@ public abstract class Item  {
 	private String brand;
 	private Float price;
 	private String description;
-	private HashMap<String, Object> features;
-	private static int id; //FIXME this can't be static (=> every item will share it)!!!
-						   //      An item has an ONLY ID when it is added to a shop...
-						   // => TODO ShopItem that surrounds an Item with price and ID.
+//	private HashMap<String, Object> features;
+	private int id;
+					// => TODO ShopItem that surrounds an Item with price and ID.
 	
 	
 	protected Item() {};
@@ -21,7 +20,11 @@ public abstract class Item  {
 		name = nm;
 		description = desc;
 		price = pr;
-		id++;
+		id = 0;
+	}
+	
+	public void setId(int ID) {
+		id = ID;
 	}
 	
 	public String getBrand() {return brand;}
@@ -44,10 +47,10 @@ public abstract class Item  {
 	
 	public Item getSubItem(int n){ return null;}
 	
-	public void getFeatures() {
-		for (String k : features.keySet()) {
-			System.out.println(k+" = "+features.get(k));
-		}
-	}
+//	public void getFeatures() { // TODO????
+//		for (String k : features.keySet()) {
+//			System.out.println(k+" = "+features.get(k));
+//		}
+//	}
 
 }

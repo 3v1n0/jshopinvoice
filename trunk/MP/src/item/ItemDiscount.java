@@ -22,9 +22,9 @@ public abstract class ItemDiscount extends Item{
 	public String getDescription() {return obj.getDescription();}
 	public String getName() {return obj.getName();}
 	public Float getPrice() {return (obj.getPrice()-(obj.getPrice()*percent/100));}
-	public int getId() {return obj.getId();}
+//	public int getId() {return obj.getId();} //--> If I don't comment it out I get always 0!
 	
-	public void add(Item i)throws SinglePartException{	obj.add(i);	}
-	public void remove(Item i)throws SinglePartException{	obj.remove(i); }
-	public Item getSubItem(int n){ return obj.getSubItem(n);}
+//	public void add(Item i)throws SinglePartException{	obj.add(i);	}
+//	public void remove(Item i)throws SinglePartException{	obj.remove(i); }
+//	public Item getSubItem(int n){ return obj.getSubItem(n);}
 }
