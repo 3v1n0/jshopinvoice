@@ -2,7 +2,7 @@ package item;
 
 //import java.util.HashMap;
 
-public abstract class Item  {
+public abstract class Item implements Cloneable {
 // classe component del pattern composite
 	
 	private String name;
@@ -66,5 +66,13 @@ public abstract class Item  {
 //			System.out.println(k+" = "+features.get(k));
 //		}
 //	}
+	
+	public Item clone() {
+		try {
+			return (Item) super.clone();
+		} catch (CloneNotSupportedException e) {
+			return null;
+		}
+	}
 
 }
