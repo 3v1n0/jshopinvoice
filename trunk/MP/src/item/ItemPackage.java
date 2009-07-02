@@ -19,7 +19,7 @@ public class ItemPackage extends Item {
 		return sum;
 	}
 	
-	public int getItemsCount() {
+	public int getSubItemsCount() {
 		return items.getSize();
 	}
 
