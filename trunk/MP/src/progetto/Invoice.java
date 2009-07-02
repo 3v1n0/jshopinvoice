@@ -31,7 +31,7 @@ public class Invoice extends Observable {
 	}
 	
 	public void add(Item a) {
-		Item tmp = a;//a.clone();
+		Item tmp = a.clone();
 		boolean add = true;
 		tmp.setCount(1);
 	
