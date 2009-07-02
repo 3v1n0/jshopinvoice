@@ -14,6 +14,7 @@ public class Audio extends Media {
 	public String getInfo(){
 		String s;
 		s = "Author:\t\t"+author+
+//		super.getInfo() alternativa possibile ???
 			"\nTitle:\t\t"+getTitle()+
 			"\nBrand:\t\t"+getBrand()+
 			"\nDuration:\t"+getDuration()+
