@@ -19,7 +19,7 @@ public class Invoice extends Observable {
 		invoice = new ItemPackage("Invoice", sel.getCompanyName(), sel.getName());
 		seller = sel;
 		buyer = buy;
-		time = getTime(); //dunno what you would do
+		time = new Date(System.currentTimeMillis());
 		printer = null;
 		id = seller.getInvoicesCount() + 1;
 		seller.addInvoice(this);
