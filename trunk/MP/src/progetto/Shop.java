@@ -14,6 +14,7 @@ public class Shop extends Company {
 	private InvoiceObserver obs;
 	private ItemLinkedList items;
 	private LinkedList<Invoice> invoices;
+	private LinkedList<String> categories;
 	//private LinkedList<Entity> clients; //TODO??? no.
 	private static int shops;
 	private static int added;
@@ -24,19 +25,51 @@ public class Shop extends Company {
 			  cmp.getFax(), cmp.getMail(), cmp.getWeb());
 		shopname = nm;
 		invoices = new LinkedList<Invoice>();
+		categories = new LinkedList<String>();
 		items = new ItemLinkedList();
 		obs = new InvoiceObserver();
 		id = (++shops);
 	}
 	
 	public void addItem(Item i) {
+		//TODO clone item??? It would need to re-implement clone for all!
 		i.setId(++added);
 		items.add(i);
+		addCategory(i.getType());
 	}
 	
 	public void removeItem(Item i) {
 		i.setId(0);
 		items.remove(i);
+		removeCategory(i.getType());
+	}
+	
+	private boolean findCategory(String cat) {
+		
+		for (String c : categories)
+			if (c == cat)
+				return true;
+
+		return false;
+	}
+	
+	public void addCategory(String cat) {
+		if (!findCategory(cat))
+			categories.add(cat);
+	}
+	
+	public void removeCategory(String cat) {
+		boolean catfound = false;
+
+		for (Item it : items) {
+			if (it.getType() == cat) {
+				catfound = true;
+				break;
+			}
+		}
+		
+		if (!catfound && !findCategory(cat))
+			categories.remove(cat);
 	}
 	
 	protected void addInvoice(Invoice i) {
@@ -133,4 +166,5 @@ public class Shop extends Company {
 	public int getItemCount() {return items.getSize();}
 	public int getInvoicesCount() {return invoices.size();}
 	public LinkedList<Invoice> getInvoices() {return invoices;}
+	public LinkedList<String> getCategories() {return categories;}
 }
