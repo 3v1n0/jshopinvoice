@@ -7,9 +7,10 @@ import entities.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.LinkedList;
-//TODO singleton?!?  only if you want just one shop in our world, in this case you don need a cmp and a nm..
+
 
 public class Shop extends Company {
+	private static Shop sh;
 	private String shopname;
 	private InvoiceObserver obs;
 	private ItemLinkedList items;
@@ -20,7 +21,7 @@ public class Shop extends Company {
 	private static int added;
 	private int id;
 	
-	Shop(Company cmp, String nm) {
+	private Shop(Company cmp, String nm) {
 		super(cmp.getName(), cmp.getAddress(), cmp.getVATIN(), cmp.getPhone(),
 			  cmp.getFax(), cmp.getMail(), cmp.getWeb());
 		shopname = nm;
@@ -31,6 +32,10 @@ public class Shop extends Company {
 		id = (++shops);
 	}
 	
+	public static Shop createShop(Company cmp, String nm) {
+		if (sh==null) sh = new Shop(cmp, nm);
+		return sh;
+	}
 	public void addItem(Item i) {
 		//TODO clone item??? It would need to re-implement clone for all!
 		Item tmp = i.clone(); 
