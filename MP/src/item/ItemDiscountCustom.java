@@ -1,14 +1,12 @@
 package item;
 
 public class ItemDiscountCustom extends ItemDiscount {
-	Integer discount;
 
-	protected ItemDiscountCustom(Item a, Integer disc) {
-		super(a);
-		discount = disc;
+	public ItemDiscountCustom(Item a, Integer disc) {
+		super(a, disc);
 	}
 
 	protected Integer createDiscount() {
-		return discount;
+		return super.getDiscount();
 	}
 }

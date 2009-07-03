@@ -2,12 +2,17 @@ package item;
 
 public abstract class ItemDiscount extends Item {
 
-	Item obj;
-	Integer discount;
+	private Item obj;
+	private Integer discount;
 	
 	protected ItemDiscount(Item a){
 		obj = a;
 		discount = createDiscount();		
+	}
+	
+	public ItemDiscount(Item a, Integer disc){
+		obj = a;
+		discount = disc;		
 	}
 	
 	protected abstract Integer createDiscount();
