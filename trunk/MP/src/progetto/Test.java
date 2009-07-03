@@ -106,7 +106,7 @@ public class Test {
 			pkg2.add(new ItemDiscount5(array[1]));
 			pkg2.add(new ItemDiscount5(array[3]));
 	
-		array[15]=new ItemDiscount20(pkg2);
+		array[15]=new ItemDiscountCustom(pkg2, 15);
 
 		
 		for(int i=0;i<array.length;i++){
