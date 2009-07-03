@@ -137,6 +137,11 @@ public class Test {
 		sh.removeItem(array[6]);
 		sh.addItem(array[6]);
 		
+		System.out.print("Shop Categories: ");
+		for (String c : sh.getCategories())
+			System.out.print(c+", ");
+		System.out.print("\n");
+		
 		sh.printItemsHtml();
 		
 		Invoice a= new Invoice(sh,en);

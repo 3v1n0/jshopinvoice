@@ -12,7 +12,7 @@ public abstract class ItemDiscount extends Item {
 	
 	public ItemDiscount(Item a, Integer disc){
 		obj = a;
-		discount = disc;		
+		discount = disc;
 	}
 	
 	protected abstract Integer createDiscount();
