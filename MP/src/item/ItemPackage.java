@@ -14,7 +14,7 @@ public class ItemPackage extends GenericItem {
 		float sum = 0;
 
 		for (Item i : items)
-			sum += i.getPrice();
+			sum += i.getPrice() * i.getCount();
 
 		return sum;
 	}

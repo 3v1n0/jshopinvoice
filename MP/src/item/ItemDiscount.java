@@ -1,6 +1,6 @@
 package item;
 
-public abstract class ItemDiscount extends Item implements ItemInterface {
+public abstract class ItemDiscount extends Item {
 
 	Item obj;
 	Integer discount;
@@ -9,15 +9,8 @@ public abstract class ItemDiscount extends Item implements ItemInterface {
 		obj = a;
 		discount = createDiscount();		
 	}
+	
 	protected abstract Integer createDiscount();
-	
-/*
- *  Il decorator avvolge l'oggetto con un nuovo oggetto che per come lo creiamo noi ha i campi nome brand ecc
- *  nulli. se non facciamo l'overload dei metodi questi ritornano valori nulli mentre noi vogliamo che 
- *  ritornino i valori dell'oggetto avvolto, e questo lo otteniamo con la delegation a obj. E' descritto
- *  anche nel libro dei pattern. :p
- */ 
-	
 	protected String createType() {return obj.getType();}
 	
 	public String getType() {return obj.getType();}
@@ -28,7 +21,6 @@ public abstract class ItemDiscount extends Item implements ItemInterface {
 	public Integer getDiscount() {return discount;}
 	public int getId() {return obj.getId();}
 	public int getCount() {return obj.getCount();}
-	
 	
 	public void setCount(int c) {obj.setCount(c);}
 	public void setId(int ID) {obj.setId(ID);}
