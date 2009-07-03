@@ -151,7 +151,7 @@ public class Test {
 		Invoice a= new Invoice(sh,en);
 
 		System.out.println("Invoices: "+sh.getInvoicesCount());
-		a.setPrinter(new InvoicePrintStdout());
+		a.setPrinter(new InvoicePrinterStdout());
 		
 /*		
  		for(int i=0;i<array.length;i++){

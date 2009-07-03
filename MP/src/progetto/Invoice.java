@@ -11,7 +11,7 @@ public class Invoice extends Observable {
 	private Entity buyer;
 	private Date time;
 	private ItemPackage invoice;
-	private InvoicePrint printer;
+	private InvoicePrinter printer;
 	private int id;
 	//TODO keep trace of the duplicates
 
@@ -100,7 +100,7 @@ public class Invoice extends Observable {
 	 * invoice.print(); // To be notified of changes by observer!!!
 	 */
 	
-	public void setPrinter(InvoicePrint ip) {
+	public void setPrinter(InvoicePrinter ip) {
 		printer = ip;
 		
 		if (ip != null)

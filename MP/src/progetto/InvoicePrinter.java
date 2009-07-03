@@ -1,6 +1,6 @@
 package progetto;
 
-public abstract class InvoicePrint {
+public abstract class InvoicePrinter {
 	private Invoice invoice;
 
 	protected final void setInvoice(Invoice inv) {

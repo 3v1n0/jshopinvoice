@@ -2,7 +2,7 @@ package progetto;
 
 import item.Item;
 
-public class InvoicePrintStdout extends InvoicePrint {
+public class InvoicePrinterStdout extends InvoicePrinter {
 
 	protected void print() {
 		Invoice i = getInvoice();
