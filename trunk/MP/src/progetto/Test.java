@@ -20,14 +20,15 @@ public class Test {
 		int res = 0;
 		int m = 1;
 		boolean cfl = false;
-		String s;
-		String c = "";
+		String s, c = "";
 		
 		for (int i = 0; i < items.length; i++)
 			c += (i+1)+") "+items[i].getName()+", "+items[i].getDescription() +
 				  " - "+items[i].getType()+" - "+items[i].getPrice() +"EUR " +
 				  (items[i].getDiscount() > 0 ? " ("+items[i].getDiscount()+"% di sconto)" : "" )+
 				  "\n";
+
+		c += "0) Quit";		
 			
 		s = JOptionPane.showInputDialog(c);
 		for (int i = 0; i < s.length(); i++) {
@@ -174,8 +175,8 @@ public class Test {
 		while(c != 0){
 			c = getInt(array);
 			
-			if (c >= 0 && c < array.length)
-				a.add(array[c+1]);
+			if (c > 0 && c < array.length)
+				a.add(array[c-1]);
 		}
 
 		System.out.println(a.getTotal()+" EUR for "+a.getCount()+" items");
