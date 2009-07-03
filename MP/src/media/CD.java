@@ -9,4 +9,5 @@ public class CD extends Audio {
 	}
 	
 	Media createMedia() {return new CD();}
+	protected String createType() {return "CD";}
 }

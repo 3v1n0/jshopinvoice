@@ -9,4 +9,6 @@ public class BluRay extends Video {
 	}
 	
 	Media createMedia() {return new BluRay();}
+	
+	protected String createType() {return "BluRay";}
 }
