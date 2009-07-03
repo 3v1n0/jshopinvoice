@@ -2,7 +2,7 @@ package progetto;
 
 import item.Item;
 import item.ItemLinkedList;
-import entities.Company;
+import entities.*;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -40,13 +40,23 @@ public class Shop extends Company {
 	}
 	
 	protected void addInvoice(Invoice i) {
-		i.addObserver(obs);
-		invoices.add(i);
+		if (!invoices.contains(i)) {
+			i.addObserver(obs);
+			invoices.add(i);
+		}
 	}
 	
 	protected void removeInvoice(Invoice i) {
-		i.deleteObservers();
-		invoices.add(i);
+		if (invoices.contains(i)) {
+			i.deleteObservers();
+			invoices.remove(i);
+		}
+	}
+	
+	protected Invoice addCustomerInvoice(Entity buyer) throws Exception {
+		Invoice i = new Invoice(this, buyer);
+		addInvoice(i);
+		return i;
 	}
 	
 	public void printItemsHtml() throws IOException {

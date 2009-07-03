@@ -2,8 +2,6 @@
 
 package progetto;
 
-import java.io.IOException;
-
 import javax.swing.JOptionPane;
 
 import entities.*;
@@ -49,7 +47,7 @@ public class Test {
 	}
 
 
-	public static void main(String args[]) throws IOException, SinglePartException{
+	public static void main(String args[]) throws Exception{
 		
 		array[0]=new CD("New Logic Studio", "Laura Pausini", "Resta in ascolto", 60,
 						"POP", "Italiano", "Ultimo cd dell'artista Laura Pausini.", 15.00f);
@@ -142,6 +140,8 @@ public class Test {
 		sh.printItemsHtml();
 		
 		Invoice a= new Invoice(sh,en);
+
+		System.out.println("Invoices: "+sh.getInvoicesCount());
 		a.setPrinter(new InvoicePrintStdout());
 		
 /*		
