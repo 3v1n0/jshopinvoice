@@ -9,4 +9,5 @@ public class DVD extends Video {
 	}
 	
 	Media createMedia() {return new DVD();}
+	protected String createType() {return "DVD";}
 }

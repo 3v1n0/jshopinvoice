@@ -9,4 +9,5 @@ public class Vinyl extends Audio {
 	}
 	
 	Media createMedia() {return new Vinyl();}
+	protected String createType() {return "Vinyl";}
 }

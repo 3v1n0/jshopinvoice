@@ -9,4 +9,5 @@ public class HDDVD extends Video {
 	}
 	
 	Media createMedia() {return new HDDVD();}
+	protected String createType() {return "HDDVD";}
 }

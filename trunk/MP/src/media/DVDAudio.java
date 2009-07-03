@@ -9,4 +9,5 @@ public class DVDAudio extends Audio {
 	}
 	
 	Media createMedia() {return new DVDAudio();}
+	protected String createType() {return "Audio DVD";}
 }
