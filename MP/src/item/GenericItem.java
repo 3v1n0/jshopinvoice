@@ -49,7 +49,7 @@ public class GenericItem extends Item implements Cloneable {
 	public int getCount() {return count;}
 	
 	public int getSubItemsCount() throws SinglePartException {
-		throw new SinglePartException(); //TODO return 1 anyway?
+		throw new SinglePartException();
 	}
 	
 	public void add(Item i) throws SinglePartException {
