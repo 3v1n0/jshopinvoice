@@ -33,9 +33,10 @@ public class Shop extends Company {
 	
 	public void addItem(Item i) {
 		//TODO clone item??? It would need to re-implement clone for all!
-		i.setId(++added);
-		items.add(i);
-		addCategory(i.getType());
+		Item tmp = i.clone(); 
+		tmp.setId(++added);
+		items.add(tmp);
+		addCategory(tmp.getType());
 	}
 	
 	public void removeItem(Item i) {
@@ -71,7 +72,7 @@ public class Shop extends Company {
 		if (!catfound && !findCategory(cat))
 			categories.remove(cat);
 	}
-	
+
 	protected void addInvoice(Invoice i) {
 		if (!invoices.contains(i)) {
 			i.addObserver(obs);

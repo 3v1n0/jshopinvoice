@@ -25,13 +25,14 @@ public class ItemPackage extends GenericItem {
 
 	public void add(Item i) {
 		items.add(i);
-		this.setCount(this.getCount() + i.getCount());
-		//TODO increment this.setcount of i.getCount() or 1 ???
+		this.setCount(this.getCount() + 1);
 	}
-	
+
 	public void remove(Item i) {
-		items.remove(i);
-		this.setCount(this.getCount() - i.getCount());
+		if (getCount() > 0) {
+			items.remove(i);
+			this.setCount(this.getCount() - 1);
+		}
 	}
 	
 	public Item getSubItem(int n){

@@ -32,10 +32,7 @@ public class ItemLinkedList extends AbstractItemList {
 	}
 
 	Item get(int idx) {
-		if (idx > getSize() || idx < 0) //TODO is it better to leave the exception?!?
-			return null;
-		else
-			return list.get(idx);
+		return list.get(idx);
 	}
 
 }
