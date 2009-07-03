@@ -15,20 +15,18 @@ public class GenericItem extends Item {
 					// => TODO ShopItem that surrounds an Item with price and ID.
 	
 	protected GenericItem() {};
-	protected GenericItem(String br, String nm, String desc, Float pr) {
+	protected GenericItem(String br, String nm, String desc, Float pr, int num) {
 		type = createType();
 		brand = br;
 		name = nm;
 		description = desc;
 		price = pr;
 		id = 0;
-		count = 1;
-	}
-
-	protected GenericItem(String br, String nm, String desc, Float pr, int num) {
-		this(br, nm, desc, pr);
-		//TODO if (num < 1) ...
 		count = num;
+	}
+	
+	protected GenericItem(String br, String nm, String desc, Float pr) {
+		this(br, nm, desc, pr, 1);
 	}
 	
 	protected String createType() {return "Item";} //TODO extend to missing sup
