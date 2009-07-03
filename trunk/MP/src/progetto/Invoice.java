@@ -15,7 +15,10 @@ public class Invoice extends Observable {
 	private int id;
 	//TODO keep trace of the duplicates
 
-	public Invoice(Shop sel, Entity buy) {
+	public Invoice(Shop sel, Entity buy) throws Exception {
+		if (sel == null)
+		    throw new IllegalArgumentException("Invalid Shop!!");
+		
 		invoice = new ItemPackage("Invoice", sel.getCompanyName(), sel.getName());
 		seller = sel;
 		buyer = buy;
@@ -99,7 +102,9 @@ public class Invoice extends Observable {
 	
 	public void setPrinter(InvoicePrint ip) {
 		printer = ip;
-		ip.setInvoice(this);
+		
+		if (ip != null)
+			ip.setInvoice(this);
 	}
 	
 	public void print() {
