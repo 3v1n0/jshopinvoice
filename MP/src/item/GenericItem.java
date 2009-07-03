@@ -2,7 +2,7 @@ package item;
 
 //import java.util.HashMap;
 
-public class GenericItem extends Item {
+public class GenericItem extends Item implements Cloneable {
 	
 	private String type;
 	private String name;
@@ -62,6 +62,10 @@ public class GenericItem extends Item {
 	
 	public Item getSubItem(int n) throws SinglePartException { 
 		throw new SinglePartException();
+	}
+	
+	public Item clone() {
+		return (Item) super.clone();
 	}
 	
 //	public void getFeatures() { // TODO????

@@ -20,7 +20,7 @@ public class ItemPackage extends GenericItem {
 	}
 	
 	public int getSubItemsCount() {
-		return items.getSize();
+		return items.getCount();
 	}
 
 	public void add(Item i) {

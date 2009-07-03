@@ -23,6 +23,10 @@ public class ItemLinkedList extends AbstractItemList {
 	}
 	
 	public int getSize() {
+		return list.size();
+	}
+	
+	public int getCount() {
 //		return list.size();
 		int count = 0;
 		for (Item i : list)
@@ -31,7 +35,7 @@ public class ItemLinkedList extends AbstractItemList {
 		return count;
 	}
 
-	Item get(int idx) {
+	public Item get(int idx) {
 		return list.get(idx);
 	}
 
