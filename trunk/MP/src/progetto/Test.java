@@ -128,7 +128,11 @@ public class Test {
 								  "JHSDF1751285", "+390557475892", "+390557475894", "info@newsrl.it",
 								  "http://www.newsrl.it");
 	
-		Shop sh = new Shop(cmp, "The New SHOP");
+		Shop sh = Shop.createShop(cmp, "The New SHOP");
+		Shop sh1 = Shop.createShop(cmp, "The New SHOP");
+		
+		System.out.println(sh.equals(sh1));
+		
 		Entity en = new Company("prova",new Address("prova",0,"prova","prova",0,"prova"),"prova","prova","prova","prova","prova");	
 
 		for (Item i : array)
