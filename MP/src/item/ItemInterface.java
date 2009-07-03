@@ -18,5 +18,5 @@ public interface ItemInterface {
 	public int getSubItemsCount() throws SinglePartException;
 	public Item getSubItem(int n) throws SinglePartException;
 	
-	public Item clone();
+//	public Item clone();
 }

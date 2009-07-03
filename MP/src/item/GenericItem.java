@@ -64,10 +64,6 @@ public class GenericItem extends Item implements Cloneable {
 		throw new SinglePartException();
 	}
 	
-	public Item clone() {
-		return (Item) super.clone();
-	}
-	
 //	public void getFeatures() { // TODO????
 //		for (String k : features.keySet()) {
 //			System.out.println(k+" = "+features.get(k));

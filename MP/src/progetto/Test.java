@@ -69,11 +69,8 @@ public class Test {
 		
 		ItemImporter ii = new ItemImporterTest();
 		
-		for (Item i : ii.getItemList()) {
-			System.out.println(i.getName()+" "+i.getId());
+		for (Item i : ii.getItemList())
 			sh.addItem(i);
-			System.out.println(i.getName()+" "+i.getId());
-		}
 		
 		sh.removeItem(ii.getItemList().get(6));
 		sh.addItem(ii.getItemList().get(6));
@@ -118,12 +115,11 @@ public class Test {
 //					"0. Uscire.";
 					
 		int c = -1;
-		while(c != 0){
-			System.out.println(c);
-			c = getInt(ii.getItemList());
+		while(c != 0) {
+			c = getInt(sh.getItems());
 			
-			if (c > 0 && c < ii.getItemList().getSize())
-				a.add(ii.getItemList().get(c-1));
+			if (c > 0 && c < sh.getItems().getSize())
+				a.add(sh.getItems().get(c-1));
 		}
 
 		System.out.println(a.getTotal()+" EUR for "+a.getCount()+" items");
@@ -131,11 +127,9 @@ public class Test {
 		
 		Invoice b= new Invoice(sh,en);
 		
-		for(int i=0; i < ii.getItemList().getSize()/2; i++){
-			b.add(ii.getItemList().get(i));
+		for(int i=0; i < sh.getItemCount()/2; i++){
+			b.add(sh.getItems().get(i));
 		}
 		System.out.println(b.getTotal()+" EUR for "+b.getCount()+" items");
-		
-		
 	}
 }

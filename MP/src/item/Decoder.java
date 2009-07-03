@@ -11,6 +11,4 @@ public class Decoder extends GenericItem{
 	
 		
 	public boolean getSmartCard() {return smartCard;}
-
-	
 }
