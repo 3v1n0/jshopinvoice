@@ -1,5 +1,6 @@
 package progetto;
 
+import item.AbstractItemList;
 import item.Item;
 import item.ItemLinkedList;
 import entities.*;
@@ -9,7 +10,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 
-public class Shop extends Company {
+public class Shop extends Company implements Shopper {
 	private static Shop sh;
 	private String shopname;
 	private InvoiceObserver obs;
@@ -36,12 +37,13 @@ public class Shop extends Company {
 		if (sh==null) sh = new Shop(cmp, nm);
 		return sh;
 	}
-	public void addItem(Item i) {
+	public Item addItem(Item i) {
 		//TODO clone item??? It would need to re-implement clone for all!
-		//Item tmp = i.clone(); 
-		i.setId(++added);
-		items.add(i);
-		addCategory(i.getType());
+		Item tmp = i.clone(); 
+		tmp.setId(++added);
+		items.add(tmp);
+		addCategory(tmp.getType());
+		return tmp;
 	}
 	
 	public void removeItem(Item i) {
@@ -169,6 +171,7 @@ public class Shop extends Company {
 	public String getName() {return shopname;}
 	public String getCompanyName() {return super.getName();}
 	public int getId() {return id;}
+	public AbstractItemList getItems() {return items;}
 	public int getItemCount() {return items.getCount();}
 	public int getInvoicesCount() {return invoices.size();}
 	public LinkedList<Invoice> getInvoices() {return invoices;}

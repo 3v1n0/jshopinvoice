@@ -33,7 +33,10 @@ public class Invoice extends Observable {
 		notifyObservers();
 	}
 	
-	public void add(Item a) {
+	public void add(Item a) throws Exception {
+		if (a.getId() < 1)
+			throw new Exception("Invalid Item ID!"); //TODO
+		
 		Item tmp = a.clone();
 		boolean add = true;
 		tmp.setCount(1);
