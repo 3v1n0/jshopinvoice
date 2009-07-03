@@ -38,10 +38,10 @@ public class Shop extends Company {
 	}
 	public void addItem(Item i) {
 		//TODO clone item??? It would need to re-implement clone for all!
-		Item tmp = i.clone(); 
-		tmp.setId(++added);
-		items.add(tmp);
-		addCategory(tmp.getType());
+		//Item tmp = i.clone(); 
+		i.setId(++added);
+		items.add(i);
+		addCategory(i.getType());
 	}
 	
 	public void removeItem(Item i) {
@@ -169,7 +169,7 @@ public class Shop extends Company {
 	public String getName() {return shopname;}
 	public String getCompanyName() {return super.getName();}
 	public int getId() {return id;}
-	public int getItemCount() {return items.getSize();}
+	public int getItemCount() {return items.getCount();}
 	public int getInvoicesCount() {return invoices.size();}
 	public LinkedList<Invoice> getInvoices() {return invoices;}
 	public LinkedList<String> getCategories() {return categories;}

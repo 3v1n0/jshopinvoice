@@ -1,8 +1,9 @@
 package item;
 
 public abstract class AbstractItemList implements Iterable<Item> {
-	abstract void add(Item i);
-	abstract void remove(Item i);
-	abstract Item get(int idx);
-	abstract int getSize();
+	public abstract void add(Item i);
+	public abstract void remove(Item i);
+	public abstract Item get(int idx);
+	public abstract int getSize();
+	public abstract int getCount();
 }

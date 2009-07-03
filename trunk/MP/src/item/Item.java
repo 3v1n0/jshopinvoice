@@ -23,7 +23,7 @@ public abstract class Item implements ItemInterface, Cloneable {
 	public abstract int getSubItemsCount() throws SinglePartException;
 	public abstract Item getSubItem(int n) throws SinglePartException;
 	
-	public Item clone() {
+	public Item clone(){
 		try {
 			return (Item) super.clone();
 		} catch (CloneNotSupportedException e) {
