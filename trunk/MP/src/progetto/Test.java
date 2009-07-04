@@ -57,15 +57,16 @@ public class Test {
 		// A first Shop test
 		Company cmp = new Company("New s.r.l",
 								  new Address("Via di Novoli", 25, "Firenze", "FI", 50100, "Italia"),
-								  "JHSDF1751285", "+390557475892", "+390557475894", "info@newsrl.it",
-								  "http://www.newsrl.it");
+								  new Contacts("+390557475892", "+390557475894", "info@newsrl.it", "http://www.newsrl.it"),
+								  "JHSDF1751285");
 	
 		Shop sh = Shop.createShop(cmp, "The New SHOP");
 		Shop sh1 = Shop.createShop(cmp, "The New SHOP");
 		
 		System.out.println(sh.equals(sh1));
 		
-		Entity en = new Company("prova",new Address("prova",0,"prova","prova",0,"prova"),"prova","prova","prova","prova","prova");
+		Entity en = new Company("prova", new Address("prova",0,"prova","prova",0,"prova"),
+								new Contacts("tst", "tst", "tst", "tst"), "XYSYAY");
 		
 		ItemImporter ii = new ItemImporterTest();
 		

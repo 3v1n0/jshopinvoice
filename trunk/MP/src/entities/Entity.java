@@ -3,21 +3,16 @@ package entities;
 public abstract class Entity {
 	private String name;
 	private Address address;
-	private String phone;
-	private String fax;
-	private String email;
+	private Contacts contacts;
+
 	
-	protected Entity(String nm, Address adr, String phn, String fx, String mail) {
+	protected Entity(String nm, Address adr, Contacts cnt) {
 		name = nm;
 		address = adr;
-		phone = phn;
-		fax = fx;
-		email = mail;
+		contacts = cnt;
 	}
 	
 	public String getName() {return name;}
 	public Address getAddress() {return address;}
-	public String getPhone() {return phone;}
-	public String getFax() {return fax;}
-	public String getMail() {return email;}
+	public Contacts getContacts() {return contacts;}
 }
