@@ -1,14 +1,13 @@
 package item;
 
 public class Decoder extends GenericItem{
-// classe leaf del pattern composite
-	private boolean smartCard;
+	private final String scard = "SmartCard";
 	
-	public Decoder(String nm, String br, Float pr, String desc,boolean sc) {
+	public Decoder(String nm, String br, Float pr, String desc, boolean smartcard) {
 		super(br, nm, desc, pr);
-		smartCard = sc;
+		addFeature(scard, new ItemFeatureValue(smartcard));
 	}
 	
 		
-	public boolean getSmartCard() {return smartCard;}
+	public boolean getSmartCard() throws Exception {return getFeature(scard).getBooleanValue();}
 }

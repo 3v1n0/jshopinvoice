@@ -9,7 +9,7 @@ public class GenericItem extends Item implements Cloneable {
 	private String brand;
 	private Float price;
 	private String description;
-//	private HashMap<String, Object> features;
+	private ItemFeatures features;
 	private int id;
 	private int count;
 					// => TODO ShopItem that surrounds an Item with price and ID.
@@ -23,6 +23,7 @@ public class GenericItem extends Item implements Cloneable {
 		price = pr;
 		id = 0;
 		count = num;
+		features = new ItemFeaturesHashMap();
 	}
 	
 	protected GenericItem(String br, String nm, String desc, Float pr) {
@@ -64,10 +65,19 @@ public class GenericItem extends Item implements Cloneable {
 		throw new SinglePartException();
 	}
 	
-//	public void getFeatures() { // TODO????
-//		for (String k : features.keySet()) {
-//			System.out.println(k+" = "+features.get(k));
-//		}
-//	}
+	public void addFeature(String f, ItemFeatureValue v) {
+		features.add(f, v);
+	}
 
+	public ItemFeatures getFeatures() {
+		return features;
+	}
+	
+	public ItemFeatureValue getFeature(String f) {
+		return getFeatures().getValue(f);
+	}
+
+	public void removeFeature(String f) {
+		features.remove(f);
+	}
 }

@@ -6,8 +6,9 @@ public abstract class Item implements ItemInterface, Cloneable {
 
 	public abstract String getType();
 	public abstract String getBrand();
-	public abstract String getDescription();
 	public abstract String getName();
+	public abstract String getDescription();
+	public abstract ItemFeatures getFeatures();
 	public abstract Float getPrice();
 	public abstract Integer getDiscount();
 	public abstract int getId();
@@ -17,6 +18,9 @@ public abstract class Item implements ItemInterface, Cloneable {
 
 	public abstract void setId(int ID);
 	public abstract void setCount(int c);
+	
+	public abstract void addFeature(String f, ItemFeatureValue v);
+	public abstract void removeFeature(String f);
 
 	public abstract void add(Item i) throws SinglePartException;
 	public abstract void remove(Item i) throws SinglePartException;
