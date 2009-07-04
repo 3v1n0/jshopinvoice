@@ -22,9 +22,8 @@ public class Shop extends Company implements Shopper {
 	private static int added;
 	private int id;
 	
-	private Shop(Company cmp, String nm) {
-		super(cmp.getName(), cmp.getAddress(), cmp.getVATIN(), cmp.getPhone(),
-			  cmp.getFax(), cmp.getMail(), cmp.getWeb());
+	private Shop(Company cmp, String nm, Address add, Contacts cnt) {
+		super(cmp.getName(), add, cnt, cmp.getVATIN());
 		shopname = nm;
 		invoices = new LinkedList<Invoice>();
 		categories = new LinkedList<String>();
@@ -33,10 +32,18 @@ public class Shop extends Company implements Shopper {
 		id = (++shops);
 	}
 	
-	public static Shop createShop(Company cmp, String nm) {
-		if (sh==null) sh = new Shop(cmp, nm);
+	public static Shop createShop(Company cmp, String nm, Address add, Contacts cnt) {
+		if (sh == null)
+			sh = new Shop(cmp, nm, add, cnt);
+
 		return sh;
 	}
+	
+	public static Shop createShop(Company cmp, String nm) {
+		return createShop(cmp, nm, cmp.getAddress(), cmp.getContacts());
+	}
+	
+	
 	public Item addItem(Item i) {
 		//TODO clone item??? It would need to re-implement clone for all!
 		Item tmp = i.clone(); 
