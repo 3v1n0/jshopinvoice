@@ -72,7 +72,7 @@ public class Test {
 		for (Item i : ii.getItemList())
 			sh.addItem(i);
 		
-		sh.removeItem(ii.getItemList().get(6));
+		sh.removeItem(sh.getItems().get(6));
 		sh.addItem(ii.getItemList().get(6));
 		
 		System.out.print("Shop Categories: ");
@@ -118,7 +118,7 @@ public class Test {
 		while(c != 0) {
 			c = getInt(sh.getItems());
 			
-			if (c > 0 && c < sh.getItems().getSize())
+			if (c > 0 && c <= sh.getItems().getSize())
 				a.add(sh.getItems().get(c-1));
 		}
 
