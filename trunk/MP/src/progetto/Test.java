@@ -75,6 +75,10 @@ public class Test {
 		
 		sh.removeItem(sh.getItems().get(6));
 		sh.addItem(ii.getItemList().get(6));
+		sh.addCategory("Misc");
+		sh.removeItem(sh.getItems().get(4));
+		System.out.println("Shop categories after test removing "+sh.getCategories().toString());
+		sh.addItem(ii.getItemList().get(4));
 		
 		System.out.print("Shop Categories: ");
 		for (String c : sh.getCategories())

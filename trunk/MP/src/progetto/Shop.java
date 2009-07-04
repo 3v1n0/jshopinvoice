@@ -43,7 +43,6 @@ public class Shop extends Company implements Shopper {
 		return createShop(cmp, nm, cmp.getAddress(), cmp.getContacts());
 	}
 	
-	
 	public Item addItem(Item i) {
 		//TODO clone item??? It would need to re-implement clone for all!
 		Item tmp = i.clone(); 
@@ -59,13 +58,25 @@ public class Shop extends Company implements Shopper {
 		removeCategory(i.getType());
 	}
 	
-	private boolean findCategory(String cat) {
+	private boolean findCategory(String cat, boolean remove) {
 		
 		for (String c : categories)
-			if (c == cat)
+			if (c == cat) {
+				if (remove)
+					categories.remove(c);
+
 				return true;
+			}
 
 		return false;
+	}
+	
+	private boolean findCategory(String cat) {
+		return findCategory(cat, false);
+	}
+	
+	private boolean delCategory(String cat) {
+		return findCategory(cat, true);
 	}
 	
 	public void addCategory(String cat) {
@@ -83,8 +94,8 @@ public class Shop extends Company implements Shopper {
 			}
 		}
 		
-		if (!catfound && !findCategory(cat))
-			categories.remove(cat);
+		if (!catfound)
+			delCategory(cat);
 	}
 
 	protected void addInvoice(Invoice i) {
