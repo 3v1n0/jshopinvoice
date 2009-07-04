@@ -3,6 +3,8 @@ package item;
 public class ItemFeatureValue {
 	private Object value;
 	
+	//FIXME null values...
+	
 	public ItemFeatureValue(String s) { //TODO set them all protected!
 		value = s;
 	}
@@ -10,7 +12,7 @@ public class ItemFeatureValue {
 	public ItemFeatureValue(Integer i) {
 		value = i;
 	}
-	
+
 	public ItemFeatureValue(Double d) {
 		value = d;
 	}
@@ -31,21 +33,21 @@ public class ItemFeatureValue {
 		return (String)value;
 	}
 	
-	protected Integer getIntValue() throws Exception {
+	public Integer getIntValue() throws Exception {
 		if (!(value instanceof Integer))
 			throw new Exception();
 		
 		return (Integer)value;
 	}
 	
-	protected Double getDoubleValue() throws Exception {
+	public Double getDoubleValue() throws Exception {
 		if (!(value instanceof Double))
 			throw new Exception();
 		
 		return (Double)value;
 	}
 	
-	protected Float getFloatValue() throws Exception {
+	public Float getFloatValue() throws Exception {
 		if (!(value instanceof Float))
 			throw new Exception();
 		
@@ -59,7 +61,7 @@ public class ItemFeatureValue {
 		return (Boolean)value;
 	}
 	
-	protected Object getObjectValue() {
+	public Object getObjectValue() {
 		return value;
 	}
 	
