@@ -5,9 +5,9 @@ import item.ItemFeatureValueException;
 public class Audio extends Media {
 
 	protected Audio() {};
-	protected Audio(String house, String auth, String title, Integer len,
-					String genre, String lang, String desc, Float price) {
-		super(house, title, len, genre, lang, desc, price);
+	protected Audio(String house, Integer year, String auth, String title,
+					Integer len, String genre, String lang, String desc, Float price) {
+		super(house, year, title, len, genre, lang, desc, price);
 		addFeature("Author", new ItemFeatureValue(auth));
 	}
 	
