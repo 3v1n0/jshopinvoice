@@ -77,7 +77,7 @@ public class Invoice extends Observable {
 		return invoice.getPrice();
 	}
 	
-	public int getCount() {
+	public int getItemsCount() {
 		return invoice.getSubItemsCount();
 	}
 	
