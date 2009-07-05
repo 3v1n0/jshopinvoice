@@ -97,6 +97,14 @@ public class Shop extends Company implements Shopper {
 		if (!catfound)
 			delCategory(cat);
 	}
+	
+	public void removeCategoryItems(String cat) {
+		for (Item it : items)
+			if (it.getType() == cat)
+				removeItem(it);
+		
+		removeCategory(cat);
+	}
 
 	protected void addInvoice(Invoice i) {
 		if (!invoices.contains(i)) {
