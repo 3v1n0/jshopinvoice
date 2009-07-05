@@ -65,8 +65,8 @@ public class Test {
 		
 		System.out.println(sh.equals(sh1));
 		
-		Entity en = new Company("prova", new Address("prova",0,"prova","prova",0,"prova"),
-								new Contacts("tst", "tst", "tst", "tst"), "XYSYAY");
+		Entity en = new Person("Matteo","Pratesi", new Address("Via L.Manara",7,"Sesto Fiorentino","Firenze",50019,"Italia"),
+								new Contacts("055-445661", null, "matteo.pratesi@libero.it",null));
 		
 		ItemImporter ii = new ItemImporterTest();
 		
@@ -131,7 +131,7 @@ public class Test {
 				a.add(sh.getItems().get(c-1));
 		}
 
-		System.out.println(a.getTotal()+" EUR for "+a.getItemsCount()+" items");
+
 		
 		
 		Invoice b= new Invoice(sh,en);
@@ -139,6 +139,9 @@ public class Test {
 		for(int i=0; i < sh.getItemCount()/2; i++){
 			b.add(sh.getItems().get(i));
 		}
-		System.out.println(b.getTotal()+" EUR for "+b.getItemsCount()+" items");
+	
+		
+	
+		
 	}
 }
