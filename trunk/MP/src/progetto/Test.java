@@ -82,8 +82,7 @@ public class Test {
 		System.out.println("Shop categories after test removing "+sh.getCategories().toString());
 		sh.addItem(ii.getItemList().get(4));
 		
-		//TODO test null info, and ItemFeatureValueException for no key..
-		// 	   Test also the getFeatures on packages
+		System.out.println(ii.getItemList().get(12).getFeatures());
 		
 		System.out.print("Shop Categories: ");
 		for (String c : sh.getCategories())
