@@ -131,7 +131,7 @@ public class Test {
 				a.add(sh.getItems().get(c-1));
 		}
 
-		System.out.println(a.getTotal()+" EUR for "+a.getCount()+" items");
+		System.out.println(a.getTotal()+" EUR for "+a.getItemsCount()+" items");
 		
 		
 		Invoice b= new Invoice(sh,en);
@@ -139,6 +139,6 @@ public class Test {
 		for(int i=0; i < sh.getItemCount()/2; i++){
 			b.add(sh.getItems().get(i));
 		}
-		System.out.println(b.getTotal()+" EUR for "+b.getCount()+" items");
+		System.out.println(b.getTotal()+" EUR for "+b.getItemsCount()+" items");
 	}
 }
