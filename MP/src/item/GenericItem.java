@@ -23,7 +23,7 @@ public class GenericItem extends Item implements Cloneable {
 		id = 0;
 		count = num;
 		features = new ItemFeaturesHashMap();
-		//TODO add type, brand, name, desc, price as ItemFeatures?
+		//TODO add type, brand, name, desc, price as ItemFeatures? no leave the class fields
 	}
 	
 	protected GenericItem(String br, String nm, String desc, Float pr) {

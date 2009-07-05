@@ -29,7 +29,7 @@ public class ItemFeatureValue {
 		if (!(value instanceof String))
 			throw new ItemFeatureValueException();
 		
-		return (String)value;
+		return value.toString();
 	}
 	
 	public Integer getIntValue() throws ItemFeatureValueException {
