@@ -5,9 +5,9 @@ import item.ItemFeatureValue;
 public class Video extends Media {
 
 		protected Video() {};
-		protected Video(String house, String director, String actors, String title, Integer length,
-						String genre, String lang, String subs, String fmt, String desc, Float price) {
-			super(house, title, length, genre, lang, desc, price);
+		protected Video(String house, Integer year, String director, String actors, String title,
+						Integer length, String genre, String lang, String subs, String fmt, String desc, Float price) {
+			super(house, year, title, length, genre, lang, desc, price);
 			addFeature("Director", new ItemFeatureValue(director));
 			addFeature("Actors", new ItemFeatureValue(actors));
 			addFeature("Subtitles", new ItemFeatureValue(subs));

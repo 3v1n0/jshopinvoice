@@ -7,13 +7,13 @@ public abstract class Media extends GenericItem {
 	private Media mt;
 
 	Media() {};
-	Media(String house, String title, Integer length, String genre,
-		  String lang, String desc, Float price) {
+	Media(String house, Integer year, String title, Integer length,
+		  String genre, String lang, String desc, Float price) {
 		super(house, title, desc, price);
 		mi = createMedia();
 		mt = createMediaType();
 		
-		//addFeature("Year", new ItemFeatureValue(year)); TODO
+		addFeature("Year", new ItemFeatureValue(year));
 		addFeature("Title", new ItemFeatureValue(title));
 		addFeature("Genre", new ItemFeatureValue(genre));
 		addFeature("Language", new ItemFeatureValue(lang));
