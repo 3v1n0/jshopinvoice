@@ -38,7 +38,14 @@ public abstract class ItemDiscount extends Item implements Cloneable {
 	public void add(Item i)throws SinglePartException{item.add(i);}
 	public void remove(Item i)throws SinglePartException{item.remove(i);}
 	
-	public boolean equals(Object i) {return item.equals(i);} //TODO compare prices
+	public boolean equals(Object i) {
+		if (!(i instanceof Item))
+			return false;
+		
+		Item it = (Item)i;
+		
+		return (item.equals(it) && it.getPrice().equals(this.getPrice()));
+	}
 
 	public Item clone() {
 		ItemDiscount itd = (ItemDiscount)super.clone();

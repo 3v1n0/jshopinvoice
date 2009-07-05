@@ -38,14 +38,14 @@ public class ItemFeaturesHashMap extends ItemFeatures {
 			return false;
 		
 		ItemFeaturesHashMap ft = (ItemFeaturesHashMap)o;
-		System.out.println(features.size() +" "+ft.size());
+
 		if (features.size() != ft.size())
 			return false;
 		
 		ItemFeatureValue v1, v2;
 		
 		for (String k : getKeys()) {
-			v1  = getValue(k);
+			v1 = getValue(k);
 			v2 = ft.getValue(k);
 			
 			if (v1 == null || v2 == null || v1 != v2)

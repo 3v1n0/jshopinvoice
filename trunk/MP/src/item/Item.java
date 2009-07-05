@@ -36,6 +36,7 @@ public abstract class Item implements ItemInterface, Cloneable {
 		try {
 			return (Item) super.clone();
 		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
