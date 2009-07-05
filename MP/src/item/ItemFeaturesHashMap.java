@@ -28,4 +28,38 @@ public class ItemFeaturesHashMap extends ItemFeatures {
 	public void remove(String k) {
 		features.remove(k);		
 	}
+	
+	public int size() {
+		return features.size();
+	}
+
+	public boolean equals(Object o) {
+		if (!(o instanceof ItemFeatures))
+			return false;
+		
+		ItemFeaturesHashMap ft = (ItemFeaturesHashMap)o;
+		System.out.println(features.size() +" "+ft.size());
+		if (features.size() != ft.size())
+			return false;
+		
+		ItemFeatureValue v1, v2;
+		
+		for (String k : getKeys()) {
+			v1  = getValue(k);
+			v2 = ft.getValue(k);
+			
+			if (v1 == null || v2 == null || v1 != v2)
+				return false;
+		}
+			
+		return true;
+	}
+	
+	public ItemFeatures clone() {
+		ItemFeatures ft = new ItemFeaturesHashMap();
+		for (String k : getKeys())
+			ft.add(k, getValue(k));
+		
+		return ft;
+	}
 }
