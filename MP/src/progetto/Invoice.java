@@ -4,6 +4,7 @@ import entities.*;
 import item.*;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.Observable;
 
 public class Invoice extends Observable {
@@ -11,7 +12,7 @@ public class Invoice extends Observable {
 	private Entity buyer;
 	private Date time;
 	private ItemPackage invoice;
-	private InvoicePrinter printer;
+	private LinkedList<InvoicePrinter> printers;
 	private int id;
 	//TODO keep trace of the duplicates
 
@@ -23,7 +24,7 @@ public class Invoice extends Observable {
 		seller = sel;
 		buyer = buy;
 		time = new Date(System.currentTimeMillis());
-		printer = null;
+		printers = new LinkedList<InvoicePrinter>();
 		id = seller.getInvoicesCount() + 1;
 		seller.addInvoice(this);
 	}
@@ -103,16 +104,16 @@ public class Invoice extends Observable {
 	 * invoice.print(); // To be notified of changes by observer!!!
 	 */
 	
-	public void setPrinter(InvoicePrinter ip) {
-		printer = ip;
+	public void addPrinter(InvoicePrinter ip) {
+		printers.add(ip);
 		//TODO multiple-elements
 		if (ip != null)
 			ip.setInvoice(this);
 	}
 	
 	public void print() {
-		if (printer != null && printer.getInvoice() == this)
-			printer.print();
-		//else //TODO exception!
+		for (InvoicePrinter p : printers)
+			if (p != null && p.getInvoice() == this)
+				p.print();
 	}
 }
