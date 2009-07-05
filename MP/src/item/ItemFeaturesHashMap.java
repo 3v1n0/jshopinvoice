@@ -1,6 +1,5 @@
 package item;
 
-import java.util.Collection;
 import java.util.HashMap;
 
 public class ItemFeaturesHashMap extends ItemFeatures {
@@ -18,7 +17,7 @@ public class ItemFeaturesHashMap extends ItemFeatures {
 		return features.get(key);
 	}
 
-	public Collection<ItemFeatureValue> getValues() {
+	public Iterable<ItemFeatureValue> getValues() {
 		return features.values();
 	}
 
