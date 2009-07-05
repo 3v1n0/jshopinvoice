@@ -1,6 +1,6 @@
 package progetto;
 
-import item.AbstractItemList;
+import item.ItemList;
 import item.Item;
 import java.util.LinkedList;
 
@@ -12,7 +12,7 @@ public interface Shopper {
 	public String getName();
 	public String getCompanyName();
 //	public int getId(); TODO
-	public AbstractItemList getItems();
+	public ItemList getItems();
 	public int getItemCount();
 	public int getInvoicesCount();
 	public LinkedList<Invoice> getInvoices();

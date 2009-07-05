@@ -11,7 +11,7 @@ public class Test {
 	
 	
 	/** metodo per leggere interi */
-	public static int getInt(AbstractItemList items) {
+	public static int getInt(ItemList items) {
 		byte[] b = new byte[9];
 		int res = 0;
 		int m = 1;
