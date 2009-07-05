@@ -2,7 +2,7 @@ package item;
 
 public class ItemPackage extends GenericItem {
 	// classe composite del pattern composite
-	private ItemLinkedList items; //TODO type AbstractItemList?
+	private ItemList items; //TODO type AbstractItemList?
 	
 
 	public ItemPackage(String nm, String br, String desc) {
@@ -39,7 +39,7 @@ public class ItemPackage extends GenericItem {
 		return items.get(n);
 	}
 	
-	public AbstractItemList getItemList() {
+	public ItemList getItemList() {
 		return items;
 	}
 }

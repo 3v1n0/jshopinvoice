@@ -12,17 +12,17 @@ import players.Gramophone;
 import players.HDDVDPlayer;
 
 public class ItemImporterTest implements ItemImporter {
-	private ItemLinkedList ill;
+	private ItemList ill;
 		
 	public ItemImporterTest() throws SinglePartException {
 		ill = buildItemList();
 	};
 	
-	public AbstractItemList getItemList() throws SinglePartException {
+	public ItemList getItemList() throws SinglePartException {
 		return ill;
 	}
 
-	private ItemLinkedList buildItemList() throws SinglePartException {
+	private ItemList buildItemList() throws SinglePartException {
 		Item[] array;
 		
 		array = new Item[16];

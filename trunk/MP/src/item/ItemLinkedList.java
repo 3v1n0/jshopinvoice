@@ -2,7 +2,7 @@ package item;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-public class ItemLinkedList extends AbstractItemList {
+public class ItemLinkedList extends ItemList {
 	LinkedList<Item> list;
 	
 	public ItemLinkedList() {

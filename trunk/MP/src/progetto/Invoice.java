@@ -69,7 +69,7 @@ public class Invoice extends Observable {
 		return id;
 	}
 	
-	public AbstractItemList getItems() {
+	public ItemList getItems() {
 		return invoice.getItemList();
 	}
 

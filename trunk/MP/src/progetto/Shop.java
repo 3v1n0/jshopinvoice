@@ -1,7 +1,7 @@
 package progetto;
 
-import item.AbstractItemList;
 import item.Item;
+import item.ItemList;
 import item.ItemLinkedList;
 import entities.*;
 
@@ -14,7 +14,7 @@ public class Shop extends Company implements Shopper {
 	private static Shop sh;
 	private String shopname;
 	private InvoiceObserver obs;
-	private ItemLinkedList items;
+	private ItemList items;
 	private LinkedList<Invoice> invoices;
 	private LinkedList<String> categories;
 	//private LinkedList<Entity> clients; //TODO??? no.
@@ -189,7 +189,7 @@ public class Shop extends Company implements Shopper {
 	public String getName() {return shopname;}
 	public String getCompanyName() {return super.getName();}
 	public int getId() {return id;}
-	public AbstractItemList getItems() {return items;}
+	public ItemList getItems() {return items;}
 	public int getItemCount() {return items.getCount();}
 	public int getInvoicesCount() {return invoices.size();}
 	public LinkedList<Invoice> getInvoices() {return invoices;}
