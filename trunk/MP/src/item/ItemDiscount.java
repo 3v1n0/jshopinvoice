@@ -1,6 +1,6 @@
 package item;
 
-public abstract class ItemDiscount extends Item implements Cloneable {
+public abstract class ItemDiscount extends Item {
 
 	Item item;
 	Integer discount;

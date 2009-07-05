@@ -2,7 +2,7 @@ package item;
 
 //import java.util.HashMap;
 
-public class GenericItem extends Item implements Cloneable {
+public class GenericItem extends Item {
 	
 	private String type;
 	private String name;
