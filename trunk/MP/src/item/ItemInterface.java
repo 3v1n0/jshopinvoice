@@ -20,6 +20,7 @@ public interface ItemInterface {
 
 	public void add(Item i) throws SinglePartException;
 	public void remove(Item i) throws SinglePartException;
+	public ItemList getSubItems() throws SinglePartException;
 	public int getSubItemsCount() throws SinglePartException;
 	public Item getSubItem(int n) throws SinglePartException;
 	

@@ -30,8 +30,9 @@ public abstract class ItemDiscount extends Item {
 	public void setCount(int c) {item.setCount(c);}
 	public void setId(int ID) {item.setId(ID);}
 
+	public ItemList getSubItems()throws SinglePartException {return item.getSubItems();}
 	public int getSubItemsCount() throws SinglePartException {return item.getSubItemsCount();}
+	public Item getSubItem(int n)throws SinglePartException {return item.getSubItem(n);}
 	public void add(Item i)throws SinglePartException{item.add(i);}
 	public void remove(Item i)throws SinglePartException{item.remove(i);}
-	public Item getSubItem(int n)throws SinglePartException {return item.getSubItem(n);}
 }

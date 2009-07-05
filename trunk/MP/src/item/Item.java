@@ -25,6 +25,7 @@ public abstract class Item implements ItemInterface, Cloneable {
 
 	public abstract void add(Item i) throws SinglePartException;
 	public abstract void remove(Item i) throws SinglePartException;
+	public abstract ItemList getSubItems() throws SinglePartException;
 	public abstract int getSubItemsCount() throws SinglePartException;
 	public abstract Item getSubItem(int n) throws SinglePartException;
 	
