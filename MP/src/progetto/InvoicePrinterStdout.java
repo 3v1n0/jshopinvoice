@@ -25,7 +25,7 @@ public class InvoicePrinterStdout extends InvoicePrinter {
 		System.out.println("\n\n|---Quantità------Oggetto-------------------------------------------Prezzo (Sconto)-----|");
 		
 		for (Item o : i.getItems()) {
-			String itemstr = normalizeString(o.getBrand()+" - "+o.getName(), 45);
+			String itemstr = normalizeString("["+o.getId()+"] "+o.getBrand()+" - "+o.getName(), 45);
 			System.out.println("\t"+o.getCount()+"\t"+itemstr+
 							   "\t\t"+o.getPrice()+(o.getDiscount() > 0 ? " ("+o.getDiscount()+"%)" : ""));
 		}

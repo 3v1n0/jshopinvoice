@@ -25,7 +25,7 @@ public class ItemImporterTest implements ItemImporter {
 	private ItemList buildItemList() throws SinglePartException {
 		Item[] array;
 		
-		array = new Item[16];
+		array = new Item[17];
 		
 		array[0]=new CD("New Logic Studio", 2004, "Laura Pausini", "Resta in ascolto", 60,
 				"POP", "Italiano", "Ultimo cd dell'artista Laura Pausini.", 15.00f);
@@ -85,6 +85,8 @@ public class ItemImporterTest implements ItemImporter {
 			pkg2.add(new ItemDiscount5(array[3]));
 		
 		array[15]=new ItemDiscount20(pkg2);
+		
+		array[16]=new ItemDiscount5(array[4]);
 		
 		
 		for(int i=0;i<array.length;i++){
