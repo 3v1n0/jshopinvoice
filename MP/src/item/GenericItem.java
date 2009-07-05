@@ -61,6 +61,10 @@ public class GenericItem extends Item implements Cloneable {
 		throw new SinglePartException();		
 	}
 	
+	public ItemList getSubItems() throws SinglePartException { 
+		throw new SinglePartException();
+	}
+	
 	public Item getSubItem(int n) throws SinglePartException { 
 		throw new SinglePartException();
 	}

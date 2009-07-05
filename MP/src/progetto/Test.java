@@ -81,8 +81,8 @@ public class Test {
 		sh.removeCategory("Item"); // It won't remove it (it's ok!).
 		System.out.println("Shop categories after test removing "+sh.getCategories().toString());
 		sh.addItem(ii.getItemList().get(4));
-		
-		System.out.println(ii.getItemList().get(12).getFeatures());
+		Item it = new ItemDiscount10(ii.getItemList().get(3));
+		System.out.println(it.getFeatures()); //TODO how managing packages?
 		
 		System.out.print("Shop Categories: ");
 		for (String c : sh.getCategories())

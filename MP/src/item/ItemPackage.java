@@ -19,6 +19,10 @@ public class ItemPackage extends GenericItem {
 		return sum;
 	}
 	
+	public ItemList getSubItems() {
+		return items;
+	}
+	
 	public int getSubItemsCount() {
 		return items.getCount();
 	}
@@ -35,11 +39,17 @@ public class ItemPackage extends GenericItem {
 		}
 	}
 	
-	public Item getSubItem(int n){
+	public Item getSubItem(int n) {
 		return items.get(n);
 	}
 	
-	public ItemList getItemList() {
-		return items;
-	}
+//	public ItemFeatures getFeatures() { //TODO merging them?
+//		ItemFeatures features = new ItemFeaturesHashMap();
+//
+//		for (Item it : items)
+//			for (String itf : it.getFeatures().getKeys())
+//				features.add(itf, it.getFeatures().getValue(itf));
+//			
+//		return features;
+//	}
 }

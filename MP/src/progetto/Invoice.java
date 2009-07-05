@@ -41,7 +41,7 @@ public class Invoice extends Observable {
 		boolean add = true;
 		tmp.setCount(1);
 	
-		for (Item i : invoice.getItemList()) {
+		for (Item i : invoice.getSubItems()) {
 			if (tmp.getId() == i.getId()) {
 				i.setCount(i.getCount()+1);
 				add = false;
@@ -70,7 +70,7 @@ public class Invoice extends Observable {
 	}
 	
 	public ItemList getItems() {
-		return invoice.getItemList();
+		return invoice.getSubItems();
 	}
 
 	public Float getTotal() {
