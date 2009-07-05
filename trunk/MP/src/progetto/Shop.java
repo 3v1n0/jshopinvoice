@@ -9,7 +9,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.LinkedList;
 
-
 public class Shop extends Company implements Shopper {
 	private static Shop sh;
 	private String shopname;
@@ -58,7 +57,7 @@ public class Shop extends Company implements Shopper {
 		removeCategory(i.getType());
 	}
 	
-	private boolean findCategory(String cat, boolean remove) {
+	private boolean findnRmCategory(String cat, boolean remove) {
 		
 		for (String c : categories)
 			if (c == cat) {
@@ -72,11 +71,11 @@ public class Shop extends Company implements Shopper {
 	}
 	
 	private boolean findCategory(String cat) {
-		return findCategory(cat, false);
+		return findnRmCategory(cat, false);
 	}
 	
 	private boolean delCategory(String cat) {
-		return findCategory(cat, true);
+		return findnRmCategory(cat, true);
 	}
 	
 	public void addCategory(String cat) {
@@ -99,11 +98,9 @@ public class Shop extends Company implements Shopper {
 	}
 	
 	public void removeCategoryItems(String cat) {
-		for (Item it : items)
-			if (it.getType() == cat)
-				removeItem(it);
-		
-		removeCategory(cat);
+		for (int i = 0; i < items.getSize(); i++)
+			if (items.get(i).getType() == cat)
+				removeItem(items.get(i));
 	}
 
 	protected void addInvoice(Invoice i) {

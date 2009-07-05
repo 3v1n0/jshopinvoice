@@ -48,5 +48,4 @@ public abstract class Media extends GenericItem {
 	public String getGenre() {return getFeature("Genre").getStringValue();}
 	public String getLanguage() {return getFeature("Language").getStringValue();}
 	public Integer getDuration() {return getFeature("Duration").getIntValue();}
-
 }

@@ -42,7 +42,7 @@ public class Invoice extends Observable {
 		tmp.setCount(1);
 	
 		for (Item i : invoice.getSubItems()) {
-			if (tmp.getId() == i.getId()) {
+			if (tmp.equals(i)) {
 				i.setCount(i.getCount()+1);
 				add = false;
 			}
@@ -105,7 +105,7 @@ public class Invoice extends Observable {
 	
 	public void setPrinter(InvoicePrinter ip) {
 		printer = ip;
-		
+		//TODO multiple-elements
 		if (ip != null)
 			ip.setInvoice(this);
 	}

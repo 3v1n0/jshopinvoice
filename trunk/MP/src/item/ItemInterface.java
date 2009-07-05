@@ -11,6 +11,7 @@ public interface ItemInterface {
 	public int getId();
 	public int getCount();
 	
+	public void setFeatures(ItemFeatures f);
 	public ItemFeatureValue getFeature(String f);
 	public void addFeature(String f, ItemFeatureValue v); //TODO protected?
 	public void removeFeature(String f); //TODO protected?
@@ -24,5 +25,6 @@ public interface ItemInterface {
 	public int getSubItemsCount() throws SinglePartException;
 	public Item getSubItem(int n) throws SinglePartException;
 	
-//	public Item clone();
+	public Item clone();
+	public boolean equals(Object i);
 }

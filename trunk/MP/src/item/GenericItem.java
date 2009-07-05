@@ -23,7 +23,7 @@ public class GenericItem extends Item implements Cloneable {
 		id = 0;
 		count = num;
 		features = new ItemFeaturesHashMap();
-		//TODO add type, brand, name, desc, price as ItemFeatures? no leave the class fields
+		//TODO add type, brand, name, desc, price as ItemFeatures?
 	}
 	
 	protected GenericItem(String br, String nm, String desc, Float pr) {
@@ -42,8 +42,8 @@ public class GenericItem extends Item implements Cloneable {
 	
 	public String getType() {return type;}
 	public String getBrand() {return brand;}
-	public String getDescription() {return description;}
 	public String getName() {return name;}
+	public String getDescription() {return description;}
 	public Float getPrice() {return price;}
 	public Integer getDiscount() {return 0;}
 	public int getId() {return id;}
@@ -69,6 +69,10 @@ public class GenericItem extends Item implements Cloneable {
 		throw new SinglePartException();
 	}
 	
+	public void setFeatures(ItemFeatures f) {
+		features = f;
+	}
+	
 	public ItemFeatures getFeatures() {
 		return features;
 	}
@@ -88,5 +92,28 @@ public class GenericItem extends Item implements Cloneable {
 
 	public void removeFeature(String f) {
 		getFeatures().remove(f);
+	}
+	
+	public boolean equals(Object i) {
+		if (!(i instanceof Item))
+			return false;	
+		
+		Item it = (Item)i;
+		
+		if (it.getType().equals(getType()) &&
+			it.getBrand().equals(this.getBrand()) &&
+			it.getName().equals(this.getName()) &&
+			it.getDescription().equals(this.getDescription()) &&
+			it.getId() == this.getId() &&
+			it.getFeatures().equals(this.getFeatures()))
+			return true;
+		else
+			return false;
+	}
+	
+	public Item clone() {
+		Item gi = super.clone();
+		gi.setFeatures((getFeatures().clone()));
+		return gi;
 	}
 }

@@ -19,6 +19,7 @@ public abstract class Item implements ItemInterface, Cloneable {
 	public abstract void setId(int ID);
 	public abstract void setCount(int c);
 	
+	public abstract void setFeatures(ItemFeatures f);
 	public abstract ItemFeatureValue getFeature(String f);
 	public abstract void addFeature(String f, ItemFeatureValue v);
 	public abstract void removeFeature(String f);
@@ -29,6 +30,8 @@ public abstract class Item implements ItemInterface, Cloneable {
 	public abstract int getSubItemsCount() throws SinglePartException;
 	public abstract Item getSubItem(int n) throws SinglePartException;
 	
+	public abstract boolean equals(Object i);
+	
 	public Item clone() {
 		try {
 			return (Item) super.clone();
@@ -36,5 +39,4 @@ public abstract class Item implements ItemInterface, Cloneable {
 			return null;
 		}
 	}
-
 }
