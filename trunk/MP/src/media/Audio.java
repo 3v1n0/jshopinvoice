@@ -1,6 +1,5 @@
 package media;
 import item.ItemFeatureValue;
-import item.ItemFeatureValueException;
 
 public class Audio extends Media {
 
@@ -29,17 +28,13 @@ public class Audio extends Media {
 	public String getAuthor() {return getFeature("Author").getStringValue();}
 
 	public String getName() {
-		try {
+		if (getAuthor() != null) {
 			return getAuthor()+" - "+getTitle();
-		} catch (ItemFeatureValueException e) {
-			try {
-				return getTitle();
-			} catch (ItemFeatureValueException ex) {
-				return super.getName();
-			}
+		} else {
+			return getTitle();
 		}
 	}
-	
+
 	Media createMedia() {return new Audio();}
 	final Media createMediaType() {return new Audio();}
 
