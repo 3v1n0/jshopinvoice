@@ -10,7 +10,7 @@ public class ItemFeaturesHashMap extends ItemFeatures {
 		features = new HashMap<String, ItemFeatureValue>();
 	}
 
-	public Collection<String> getKeys() {
+	public Iterable<String> getKeys() {
 		return features.keySet();
 	}
 
