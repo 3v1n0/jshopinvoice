@@ -14,7 +14,6 @@ public class Invoice extends Observable {
 	private ItemPackage invoice;
 	private LinkedList<InvoicePrinter> printers;
 	private int id;
-	//TODO keep trace of the duplicates
 
 	public Invoice(Shop sel, Entity buy) throws Exception {
 		if (sel == null)
@@ -105,10 +104,10 @@ public class Invoice extends Observable {
 	 */
 	
 	public void addPrinter(InvoicePrinter ip) {
-		printers.add(ip);
-		//TODO multiple-elements
-		if (ip != null)
+		if (ip != null) {
+			printers.add(ip);
 			ip.setInvoice(this);
+		}
 	}
 	
 	public void print() {
