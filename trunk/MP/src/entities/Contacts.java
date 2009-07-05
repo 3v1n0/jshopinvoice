@@ -17,5 +17,14 @@ public class Contacts {
 	public String getFax() {return fax;}
 	public String getMail() {return email;}
 	public String getWeb() {return web;}
+	
+	public String toString(){
+		String s="";
+		if(phone != null) s += getPhone()+"  ";
+		if(fax != null) s += getFax()+"  ";
+		if(email != null) s += getMail()+"  ";
+		if(web != null) s += getWeb();
+		return s;
+	}
 
 }

@@ -15,4 +15,6 @@ public abstract class Entity {
 	public String getName() {return name;}
 	public Address getAddress() {return address;}
 	public Contacts getContacts() {return contacts;}
+	
+	
 }

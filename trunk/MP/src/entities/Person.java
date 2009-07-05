@@ -6,6 +6,7 @@ public class Person extends Entity {
 	
 	public Person(String n, String s, Address ad, Contacts cnt) {
 		super(n, ad, cnt);
+		name=n;
 		surname = s;
 	}
 	

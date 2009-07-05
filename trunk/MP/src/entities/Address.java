@@ -18,7 +18,7 @@ public class Address {
 	}
 	
 	public String toString() {
-		String out = street + ", " + number + "\n" +
+		String out = street + " " + number + "\n" +
 					 zip + " - " + city + "\n" +
 					 province + " - " + country + "\n";
 		return out;
