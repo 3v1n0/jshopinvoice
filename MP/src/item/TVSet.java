@@ -7,6 +7,6 @@ public class TVSet extends GenericItem {
 		addFeature("Inches", new ItemFeatureValue(inches));
 	}
 
-	public Integer getInches() throws Exception {return getFeature("Inches").getIntValue();}
+	public Integer getInches() {return getFeature("Inches").getIntValue();}
 
 }

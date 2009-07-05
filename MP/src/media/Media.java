@@ -1,27 +1,23 @@
 package media;
 import item.GenericItem;
+import item.ItemFeatureValue;
 
 public abstract class Media extends GenericItem {
-	
-	private String title;
-	private Integer duration;
-	private String genre;
-	private String language; //list?!? TODO
-	//private int medianum; // numero di dischi?!? TODO of course not!!
-	//private Integer year; // TODO??? idem with potatoes
 	private Media mi;
 	private Media mt;
 
 	Media() {};
-	Media(String house, String tit, Integer len, String gen,
+	Media(String house, String title, Integer length, String genre,
 		  String lang, String desc, Float price) {
-		super(house, tit, desc, price);
+		super(house, title, desc, price);
 		mi = createMedia();
 		mt = createMediaType();
-		title = tit;
-		genre = gen;
-		language = lang;
-		duration = len;
+		
+		//addFeature("Year", new ItemFeatureValue(year)); TODO
+		addFeature("Title", new ItemFeatureValue(title));
+		addFeature("Genre", new ItemFeatureValue(genre));
+		addFeature("Language", new ItemFeatureValue(lang));
+		addFeature("Duration", new ItemFeatureValue(length));
 	}
 	
 	abstract Media createMedia();
@@ -35,22 +31,22 @@ public abstract class Media extends GenericItem {
 		return mt.getClass().getSimpleName();
 	}
 
-	public String getInfo(){
-		String s;
-		s = "Title:\t\t"+title+
-			"\nBrand:\t\t"+getBrand()+
-			"\nDuration:\t"+duration+
-			"\nGenre:\t\t"+genre+
-			"\nLanguage:\t"+language+
-			"\nType:\t\t"+getMediaType();
-		return s;
-	}
+//	public String getInfo(){
+//		String s;
+//		s = "Title:\t\t"+getTitle()+
+//			"\nBrand:\t\t"+getBrand()+
+//			"\nDuration:\t"+getDuration()+
+//			"\nGenre:\t\t"+getGenre()+
+//			"\nLanguage:\t"+getLanguage()+
+//			"\nType:\t\t"+getMediaType();
+//		return s;
+//	}
 	
 	protected String createType() {return "Media";}
 	
-	public String getTitle() {return title;}
-	public String getGenre() {return genre;}
-	public String getLanguage() {return language;}
-	public Integer getDuration() {return duration;}
+	public String getTitle() {return getFeature("Title").getStringValue();}
+	public String getGenre() {return getFeature("Genre").getStringValue();}
+	public String getLanguage() {return getFeature("Language").getStringValue();}
+	public Integer getDuration() {return getFeature("Duration").getIntValue();}
 
 }

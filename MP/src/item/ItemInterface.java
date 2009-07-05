@@ -11,6 +11,7 @@ public interface ItemInterface {
 	public int getId();
 	public int getCount();
 	
+	public ItemFeatureValue getFeature(String f);
 	public void addFeature(String f, ItemFeatureValue v); //TODO protected?
 	public void removeFeature(String f); //TODO protected?
 

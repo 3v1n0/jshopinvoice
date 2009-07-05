@@ -19,6 +19,7 @@ public abstract class Item implements ItemInterface, Cloneable {
 	public abstract void setId(int ID);
 	public abstract void setCount(int c);
 	
+	public abstract ItemFeatureValue getFeature(String f);
 	public abstract void addFeature(String f, ItemFeatureValue v);
 	public abstract void removeFeature(String f);
 

@@ -2,17 +2,14 @@ package item;
 
 public class Speakers extends GenericItem {
 // classe leaf del pattern composite
-
-	private Integer power;
-	private Integer channels;
 	
-	public Speakers(String nm, String br, Float pr, String desc, Integer pwr, Integer ch) {
+	public Speakers(String nm, String br, Float pr, String desc, Integer power, Integer channels) {
 		super(br, nm, desc, pr);
-		power = pwr;
-		channels = ch;
+		addFeature("Power", new ItemFeatureValue(power));
+		addFeature("Channels", new ItemFeatureValue(channels));
 	}
 
-	public Integer getPower() {return power;}
-	public Integer getChannels() {return channels;}
+	public Integer getPower() {return getFeature("Power").getIntValue();}
+	public Integer getChannels() {return getFeature("Channels").getIntValue();}
 
 }

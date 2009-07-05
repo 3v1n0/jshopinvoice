@@ -75,12 +75,15 @@ public class Test {
 		
 		sh.removeItem(sh.getItems().get(6));
 		sh.addItem(ii.getItemList().get(6));
-		System.out.println(ii.getItemList().get(6).getFeatures());
+		System.out.println(ii.getItemList().get(4).getFeatures());
 		sh.addCategory("Misc");
 		sh.removeItem(sh.getItems().get(4));
 		sh.removeCategory("Item"); // It won't remove it (it's ok!).
 		System.out.println("Shop categories after test removing "+sh.getCategories().toString());
 		sh.addItem(ii.getItemList().get(4));
+		
+		//TODO test null info, and ItemFeatureValueException for no key..
+		// 	   Test also the getFeatures on packages
 		
 		System.out.print("Shop Categories: ");
 		for (String c : sh.getCategories())
