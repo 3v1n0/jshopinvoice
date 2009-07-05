@@ -3,9 +3,9 @@ package item;
 public class ItemFeatureValue {
 	private Object value;
 	
-	//FIXME null values...
+	//FIXME null values... This is ambiguos, but it won't ever cause errors here
 	
-	public ItemFeatureValue(String s) { //TODO set them all protected!
+	public ItemFeatureValue(String s) {
 		value = s;
 	}
 	
@@ -24,39 +24,38 @@ public class ItemFeatureValue {
 	public ItemFeatureValue(Boolean b) {
 		value = b;
 	}
-	
-	//FIXME add new proper exception based on http://mindprod.com/jgloss/exception.html
-	public String getStringValue() throws Exception {
+
+	public String getStringValue() throws ItemFeatureValueException {
 		if (!(value instanceof String))
-			throw new Exception();
+			throw new ItemFeatureValueException();
 		
 		return (String)value;
 	}
 	
-	public Integer getIntValue() throws Exception {
+	public Integer getIntValue() throws ItemFeatureValueException {
 		if (!(value instanceof Integer))
-			throw new Exception();
+			throw new ItemFeatureValueException();
 		
 		return (Integer)value;
 	}
 	
-	public Double getDoubleValue() throws Exception {
+	public Double getDoubleValue() throws ItemFeatureValueException {
 		if (!(value instanceof Double))
-			throw new Exception();
+			throw new ItemFeatureValueException();
 		
 		return (Double)value;
 	}
 	
-	public Float getFloatValue() throws Exception {
+	public Float getFloatValue() throws ItemFeatureValueException {
 		if (!(value instanceof Float))
-			throw new Exception();
+			throw new ItemFeatureValueException();
 		
 		return (Float)value;
 	}
 	
-	protected boolean getBooleanValue() throws Exception {
+	public boolean getBooleanValue() throws ItemFeatureValueException {
 		if (!(value instanceof Boolean))
-			throw new Exception();
+			throw new ItemFeatureValueException();
 		
 		return (Boolean)value;
 	}
@@ -73,6 +72,9 @@ public class ItemFeatureValue {
 				return "no";
 		}
 
-		return value.toString();
+		if (value != null)
+			return value.toString();
+		else
+			return "N/A";
 	}
 }

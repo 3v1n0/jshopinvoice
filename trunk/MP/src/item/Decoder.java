@@ -9,5 +9,5 @@ public class Decoder extends GenericItem{
 	}
 	
 		
-	public boolean getSmartCard() throws Exception {return getFeature(scard).getBooleanValue();}
+	public boolean getSmartCard() {return getFeature(scard).getBooleanValue();}
 }

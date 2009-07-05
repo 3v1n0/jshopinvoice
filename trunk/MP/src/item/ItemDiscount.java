@@ -23,6 +23,7 @@ public abstract class ItemDiscount extends Item {
 	public int getId() {return item.getId();}
 	public int getCount() {return item.getCount();}
 	
+	public ItemFeatureValue getFeature(String f) {return item.getFeature(f);}
 	public void addFeature(String f, ItemFeatureValue v) {item.addFeature(f, v);}
 	public void removeFeature(String f) {item.removeFeature(f);}
 	

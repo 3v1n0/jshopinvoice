@@ -16,6 +16,6 @@ public class HiFi extends GenericItem {
 		addFeature(pw, new ItemFeatureValue(s.getPower()));
 	}
 	
-	public Integer getPower() throws Exception {return getFeature(pw).getIntValue();}
+	public Integer getPower() {return getFeature(pw).getIntValue();}
 
 }

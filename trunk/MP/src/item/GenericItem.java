@@ -12,7 +12,6 @@ public class GenericItem extends Item implements Cloneable {
 	private ItemFeatures features;
 	private int id;
 	private int count;
-					// => TODO ShopItem that surrounds an Item with price and ID.
 	
 	protected GenericItem() {};
 	protected GenericItem(String br, String nm, String desc, Float pr, int num) {
@@ -24,6 +23,7 @@ public class GenericItem extends Item implements Cloneable {
 		id = 0;
 		count = num;
 		features = new ItemFeaturesHashMap();
+		//TODO add type, brand, name, desc, price as ItemFeatures?
 	}
 	
 	protected GenericItem(String br, String nm, String desc, Float pr) {
@@ -65,19 +65,24 @@ public class GenericItem extends Item implements Cloneable {
 		throw new SinglePartException();
 	}
 	
-	public void addFeature(String f, ItemFeatureValue v) {
-		features.add(f, v);
-	}
-
 	public ItemFeatures getFeatures() {
 		return features;
 	}
 	
-	public ItemFeatureValue getFeature(String f) {
-		return getFeatures().getValue(f);
+	public void addFeature(String f, ItemFeatureValue v) {
+		getFeatures().add(f, v);
+	}
+	
+	public ItemFeatureValue getFeature(String f) throws ItemFeatureValueException {
+		ItemFeatureValue v = getFeatures().getValue(f);
+		
+		if (v == null)
+			throw new ItemFeatureValueException("Bad Item Feature value requested, the key doesn't exist!");
+			
+		return v;
 	}
 
 	public void removeFeature(String f) {
-		features.remove(f);
+		getFeatures().remove(f);
 	}
 }

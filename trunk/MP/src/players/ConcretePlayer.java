@@ -25,7 +25,7 @@ public abstract class ConcretePlayer extends GenericItem implements Player {
 		if( read == null )
 			s = "Error: Insert a media.";
 		else
-			s = "Name: "+this.getName()+" Brand: "+this.getBrand()+" read \n\n"+read.getInfo();
+			s = "Name: "+this.getName()+" Brand: "+this.getBrand()+" read \n\n"+read.getFeatures();
 
 		return s;
 	}
