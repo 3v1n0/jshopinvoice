@@ -65,8 +65,8 @@ public class Test {
 		
 		System.out.println(sh.equals(sh1));
 		
-		Entity en = new Company("prova", new Address("prova",0,"prova","prova",0,"prova"),
-								new Contacts("tst", "tst", "tst", "tst"), "XYSYAY");
+		Entity en = new Person("Matteo","Pratesi", new Address("Via L.Manara",7,"Sesto Fiorentino","Firenze",50019,"Italia"),
+								new Contacts("055-445661", null, "matteo.pratesi@libero.it",null));
 		
 		ItemImporter ii = new ItemImporterTest();
 		
