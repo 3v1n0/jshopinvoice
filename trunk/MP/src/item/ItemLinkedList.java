@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class ItemLinkedList extends ItemList {
-	LinkedList<Item> list;
+	private final LinkedList<Item> list;
 	
 	public ItemLinkedList() {
 		list = new LinkedList<Item>();
@@ -27,7 +27,6 @@ public class ItemLinkedList extends ItemList {
 	}
 	
 	public int getCount() {
-//		return list.size();
 		int count = 0;
 		for (Item i : list)
 			count += i.getCount();
