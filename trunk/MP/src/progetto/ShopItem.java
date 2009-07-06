@@ -31,14 +31,14 @@ public class ShopItem extends Item {
 	public void addFeature(String f, ItemFeatureValue v) {item.addFeature(f, v);}
 	public void removeFeature(String f) {item.removeFeature(f);}
 	
-	public void setCount(int c) {if (c > 0) count = c; else c = 0;}
+	public void setCount(int c) {if (c > 0) count = c; else count = 0;}
 	public void setId(int ID) {id = ID;}
 
 	public ItemList<? extends Item> getSubItems()throws SinglePartException {return item.getSubItems();}
 	public int getSubItemsCount() throws SinglePartException {return item.getSubItemsCount();}
-	public Item getSubItem(int n)throws SinglePartException {return item.getSubItem(n);}
-	public void add(Item i)throws SinglePartException{item.add(i);}
-	public void remove(Item i)throws SinglePartException{item.remove(i);}
+	public Item getSubItem(int n) throws SinglePartException {return item.getSubItem(n);}
+	public void add(Item i) throws SinglePartException{item.add(i);}
+	public void remove(Item i) throws SinglePartException{item.remove(i);}
 	
 	public boolean equals(Object i) {
 		if (!(i instanceof Item))
