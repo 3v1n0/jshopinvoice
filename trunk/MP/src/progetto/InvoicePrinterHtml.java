@@ -78,7 +78,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		i.getSeller().getVATIN()+"<br />\n"+
 		i.getSeller().getAddress().getStreet() +", "+i.getSeller().getAddress().getNumber()+"<br />\n" +
 		i.getSeller().getAddress().getZip()+" - "+i.getSeller().getAddress().getCity() +
-		"("+i.getSeller().getAddress().getProvince()+")<br />\n" +
+		" ("+i.getSeller().getAddress().getProvince()+")<br />\n" +
 		i.getSeller().getContacts().getPhone() + "<br />\n" +
 		i.getSeller().getContacts().getFax() +"<br />\n" +
 		i.getSeller().getContacts().getMail() + "<br />\n" +
@@ -98,7 +98,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"attn: "+i.getBuyer().getName()+" <br />\n" +
 		i.getBuyer().getAddress().getStreet() +", "+i.getBuyer().getAddress().getNumber()+"<br />\n" +
 		i.getBuyer().getAddress().getZip()+" - "+i.getBuyer().getAddress().getCity() +
-		"("+i.getBuyer().getAddress().getProvince()+")<br />\n" +
+		" ("+i.getBuyer().getAddress().getProvince()+")<br />\n" +
 		i.getBuyer().getContacts().getMail()+"<br />\n" +
 		(i.getBuyer() instanceof entities.Company ? "VATIN: "+((entities.Company)i.getBuyer()).getVATIN()+"<br />\n" : "" ) +
 		"</td>\n" +
