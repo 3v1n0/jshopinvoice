@@ -226,13 +226,13 @@ public class Shop extends Company implements Shopper {
 				"\t\t\t\t<td><b>Oggetto</b></td>\n" +
 				"\t\t\t\t<td><b>Descrizione</b></td>\n" +
 				"\t\t\t\t<td><b>Prezzo</b></td>\n" +
-				"\t\t\t\t<td><b>"+stringToHTML("Disponibilità")+"</b></td>\n" +
+				"\t\t\t\t<td><b>"+Utility.stringToHTML("Disponibilità")+"</b></td>\n" +
 				"\t\t\t</tr>\n";
 		
 		for (Item i : items)
 			html += "\t\t\t<tr id='"+i.getId()+"'>\n" +
-					"\t\t\t\t<td>"+stringToHTML(i.getName())+"</td>\n" +
-					"\t\t\t\t<td>"+stringToHTML(i.getDescription())+"</td>\n" +
+					"\t\t\t\t<td>"+Utility.stringToHTML(i.getName())+"</td>\n" +
+					"\t\t\t\t<td>"+Utility.stringToHTML(i.getDescription())+"</td>\n" +
 					"\t\t\t\t<td>"+i.getPrice()+
 					(i.getDiscount() > 0 ? " ("+i.getDiscount()+"%)" : "") +
 					"</td>\n" +
@@ -247,35 +247,6 @@ public class Shop extends Company implements Shopper {
 		System.out.println("\nINFO Shop Item file list saved in "+filepath);
 	}
 	
-	// Move as a static method to an utility class?
-	private String stringToHTML(String str) {
-		String tstr = "";
-		
-		for (int i = 0; i < str.length(); i++) {
-			char c = str.charAt(i);
-			switch (c) {
-				case '<':
-					tstr += "&lt;";
-					break;
-				case '>':
-					tstr += "&gt;";
-					break;
-				case '"':
-					tstr += "&quot;";
-					break;
-				case '&':
-					tstr += "&amp;";
-					break;
-				default:
-					if (c > 0x7f)
-						tstr += "&#"+(int)c+";";
-					else
-						tstr += c;
-			}
-		}
-		
-		return tstr.toString();
-	}
 
 	public String getName() {return shopname;}
 	public String getCompanyName() {return super.getName();}

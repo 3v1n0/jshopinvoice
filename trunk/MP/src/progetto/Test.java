@@ -111,6 +111,7 @@ public class Test {
 
 		System.out.println("Invoices: "+sh.getInvoicesCount());
 		a.addPrinter(new InvoicePrinterStdout());
+		a.addPrinter(new InvoicePrinterHtml());
 		
 /*		
  		for(int i=0;i<array.length;i++){

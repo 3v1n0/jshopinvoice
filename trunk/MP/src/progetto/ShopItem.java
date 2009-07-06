@@ -24,7 +24,24 @@ public class ShopItem extends Item {
 	public Float getPrice() {return item.getPrice();}
 	public Integer getDiscount() {return item.getDiscount();}
 	public int getId() {return id;}
-	public int getCount() {return count;}
+	public int getCount() {
+//		TODO
+//		try {
+//			int min = 0;
+//			
+//			for (Item it : item.getSubItems()) {
+////				ShopItem sh = findItem(it);
+//				if (it.getCount() < min || min == 0)
+//					min = it.getCount();
+//			}
+//			
+//			System.out.println("OOOOOOOOOOOOOOOOOOHhhhhhhhhhHHHHHHHHHHHHH "+count);
+//			return (count < min ? count : min);
+//		} catch (SinglePartException e) {}
+//		
+		
+		 return count;
+	}
 
 	public void setFeatures(ItemFeatures f) {item.setFeatures(f);};
 	public ItemFeatureValue getFeature(String f) {return item.getFeature(f);}
