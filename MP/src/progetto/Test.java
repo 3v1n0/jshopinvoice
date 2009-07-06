@@ -23,7 +23,7 @@ public class Test {
 			c += (i+1)+") "+item.getName()+", "+item.getDescription() +
 				  " - "+item.getType()+" - "+item.getPrice() +"EUR " +
 				  (item.getDiscount() > 0 ? " ("+item.getDiscount()+"% di sconto)" : "" )+
-				  "\n";
+				  " - Disponibilità: "+item.getCount()+"\n";
 		}
 
 		c += "0) Quit";		

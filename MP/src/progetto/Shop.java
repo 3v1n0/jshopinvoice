@@ -104,12 +104,34 @@ public class Shop extends Company implements Shopper {
 	public void removeItemInstance(Item i) {
 		ShopItem shi = findItem(i);
 		
-		if (shi != null) {
-			if (shi.getCount() > 1) {
-				shi.setCount(shi.getCount()-1);
-			} else {
-				removeItem(i); // Remove this to leave in the Shop unavailable items
+		try {
+			for (Item it : i.getSubItems()) {
+				ShopItem sh = findItem(it);
+				if (sh != null) {
+					sh.setCount(sh.getCount()-1);
+				}
 			}
+		} catch (SinglePartException e) {}
+		
+		if (shi != null) {
+			if (shi.getCount() > 0) {
+				shi.setCount(shi.getCount()-1);
+				
+				for (Item it : getItems()) {
+					boolean found = false;
+					try {
+						for (Item sub : it.getSubItems())
+							if (sub.equals(shi))
+								found = true;
+					} catch  (SinglePartException e) {}
+					
+					if (found && it.getCount() == (shi.getCount()+1))
+						it.setCount(shi.getCount());
+				}
+						
+			} /*if (shi.getCount() < 1) {
+				removeItem(i); // Remove this to leave in the Shop unavailable items
+			} */
 		}
 	}
 	

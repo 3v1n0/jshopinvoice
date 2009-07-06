@@ -33,34 +33,30 @@ public class Invoice extends Observable {
 		notifyObservers();
 	}
 	
-	public void add(ShopItem a) throws Exception {
-		if (a.getId() < 1)
+	public void add(ShopItem si) throws Exception {
+		if (si.getId() < 1)
 			throw new Exception("Invalid Item ID!"); //TODO
 		
 		boolean add = true;
-		ShopItem shi = a.clone();
-		shi.setCount(1);
-	
-//		for (Item i : invoice.getSubItems()) {
-//			if (shi.equals(i)) {
-//				i.setCount(i.getCount()+1);
-//				add = false;
-//			}
-//		}
 		
-		for (int i = 0; i < invoice.getSubItems().getSize(); i++) {
-			ShopItem it = invoice.getSubItem(i);
-			if (it.equals(shi)) {
-				it.setCount(it.getCount()+1);
+		if (si.getCount() < 1)
+			return;
+	
+		for (Item i : invoice.getSubItems()) {
+			if (si.equals(i)) {
+				i.setCount(i.getCount()+1);
 				add = false;
 				break;
 			}
 		}
 	
-		if (add)
+		if (add) {
+			ShopItem shi = si.clone();
+			shi.setCount(1);
 			invoice.add(shi);
+		}
 		
-		seller.removeItemInstance(a);
+		seller.removeItemInstance(si);
 
 		emitChange();
 //		setChanged();
