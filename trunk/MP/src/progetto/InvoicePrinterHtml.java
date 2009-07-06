@@ -22,7 +22,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n" +
 		"<html>\n" +
 		"<head>\n" +
-		"<title>"+i.getSeller().getName()+" - Invoice n. "+i.getId()+"</title>\n" +
+		"<title>"+Utility.stringToHTML(i.getSeller().getName()+" - Invoice n. "+i.getId())+"</title>\n" +
 		"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n" +
 		"<style type=\"text/css\">\n" +
 		"	 * { \n" +
@@ -71,18 +71,18 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"<table class=\"header\">\n" +
 		"<tr>\n" +
 		"<td align=\"left\">\n" +
-		"<span style=\"font-size: 23px; font-weight: bold; color:#333399;\">"+i.getSeller().getName()+"</span>\n" +
+		"<span style=\"font-size: 23px; font-weight: bold; color:#333399;\">"+Utility.stringToHTML(i.getSeller().getName())+"</span>\n" +
 		"</td>\n" +
 		"<td align=\"right\">\n" +
-		i.getSeller().getCompanyName()+"<br />\n"+
-		i.getSeller().getVATIN()+"<br />\n"+
-		i.getSeller().getAddress().getStreet() +", "+i.getSeller().getAddress().getNumber()+"<br />\n" +
-		i.getSeller().getAddress().getZip()+" - "+i.getSeller().getAddress().getCity() +
-		" ("+i.getSeller().getAddress().getProvince()+")<br />\n" +
-		i.getSeller().getContacts().getPhone() + "<br />\n" +
-		i.getSeller().getContacts().getFax() +"<br />\n" +
-		i.getSeller().getContacts().getMail() + "<br />\n" +
-		i.getSeller().getContacts().getWeb()+"<br />\n" +
+		Utility.stringToHTML(i.getSeller().getCompanyName())+"<br />\n"+
+		Utility.stringToHTML(i.getSeller().getVATIN())+"<br />\n"+
+		Utility.stringToHTML(i.getSeller().getAddress().getStreet() +", "+i.getSeller().getAddress().getNumber())+"<br />\n" +
+		Utility.stringToHTML(i.getSeller().getAddress().getZip()+" - "+i.getSeller().getAddress().getCity() +
+		" ("+i.getSeller().getAddress().getProvince())+")<br />\n" +
+		Utility.stringToHTML(i.getSeller().getContacts().getPhone()) + "<br />\n" +
+		Utility.stringToHTML(i.getSeller().getContacts().getFax()) +"<br />\n" +
+		Utility.stringToHTML(i.getSeller().getContacts().getMail()) + "<br />\n" +
+		Utility.stringToHTML(i.getSeller().getContacts().getWeb())+"<br />\n" +
 		"</td>\n" +
 		"</tr>\n" +
 		"</table>\n" +
@@ -95,17 +95,17 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"<tr>\n" +
 		"<td class=\"data\" align=\"left\" width=\"70%\">\n" +
 		"<b>Bill To: </b><br />\n" +
-		"attn: "+i.getBuyer().getName()+" <br />\n" +
-		i.getBuyer().getAddress().getStreet() +", "+i.getBuyer().getAddress().getNumber()+"<br />\n" +
-		i.getBuyer().getAddress().getZip()+" - "+i.getBuyer().getAddress().getCity() +
-		" ("+i.getBuyer().getAddress().getProvince()+")<br />\n" +
-		i.getBuyer().getContacts().getMail()+"<br />\n" +
+		"attn: "+Utility.stringToHTML(i.getBuyer().getName())+" <br />\n" +
+		Utility.stringToHTML(i.getBuyer().getAddress().getStreet() +", "+i.getBuyer().getAddress().getNumber())+"<br />\n" +
+		Utility.stringToHTML(i.getBuyer().getAddress().getZip()+" - "+i.getBuyer().getAddress().getCity() +
+		" ("+i.getBuyer().getAddress().getProvince())+")<br />\n" +
+		Utility.stringToHTML(i.getBuyer().getContacts().getMail())+"<br />\n" +
 		(i.getBuyer() instanceof entities.Company ? "VATIN: "+((entities.Company)i.getBuyer()).getVATIN()+"<br />\n" : "" ) +
 		"</td>\n" +
 		"<td class=\"data\" align=\"left\" width=\"30%\">\n" +
 		"<span style=\"font-size: 20px; font-weight: bold; color:#333399;\"> INVOICE </span> <br />\n" +
 		"<b>INVOICE #</b>"+i.getId()+"<br />\n" +
-		"<b>DATE: </b>"+i.getTime()+"<br />\n" +
+		"<b>DATE: </b>"+Utility.stringToHTML(i.getTime().toString())+"<br />\n" +
 		"</td>\n" +
 		"</tr>\n" +
 		"</table>\n" +
@@ -126,7 +126,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 			html +=
 			"<tr class=\"item\">\n" +
 			"<td class=\"item\" align=\"left\">"+sh.getCount()+"</td>\n" +
-			"<td class=\"item\" align=\"left\">"+(sh.getBrand()+" - "+sh.getName())+"</td>\n" +
+			"<td class=\"item\" align=\"left\">"+Utility.stringToHTML(sh.getBrand()+" - "+sh.getName())+"</td>\n" +
 			"<td class=\"item\" align=\"right\">"+sh.getPrice()+"</td>\n" +
 			"<td class=\"item\" align=\"right\">"+(sh.getDiscount() > 0 ? sh.getDiscount()+"%" : "")+"</td>\n" +
 			"<td class=\"item\" align=\"right\">"+(sh.getPrice()*sh.getCount())+"</td>\n" +
@@ -158,7 +158,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"<table class=\"footer\">\n" +
 		"<tr>\n" +
 		"<td align=\"center\" width=\"100%\">\n" +
-		"Make checks payable to: <b>"+i.getSeller().getCompanyName()+"</b> <br />\n" +
+		"Make checks payable to: <b>"+Utility.stringToHTML(i.getSeller().getCompanyName())+"</b> <br />\n" +
 		"<u>Thank you for your business!!</u> <br />\n" +
 		"</td>\n" +
 		"</tr>\n" +
