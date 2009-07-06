@@ -11,5 +11,5 @@ public abstract class InvoicePrinter {
 		return invoice;
 	}
 
-	protected abstract void print();
+	protected abstract void print() throws Exception;
 }

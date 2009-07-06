@@ -119,7 +119,7 @@ public class Invoice extends Observable {
 		}
 	}
 	
-	public void print() {
+	public void print() throws Exception {
 		for (InvoicePrinter p : printers)
 			if (p != null && p.getInvoice() == this)
 				p.print();
