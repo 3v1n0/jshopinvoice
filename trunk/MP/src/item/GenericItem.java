@@ -1,7 +1,5 @@
 package item;
 
-//import java.util.HashMap;
-
 public class GenericItem extends Item {
 	
 	private String type;
@@ -10,38 +8,20 @@ public class GenericItem extends Item {
 	private Float price;
 	private String description;
 	private ItemFeatures features;
-//	private int id;
-//	private int count;
 	
 	protected GenericItem() {};
-	protected GenericItem(String br, String nm, String desc, Float pr, int num) {
+	protected GenericItem(String br, String nm, String desc, Float pr) {
 		type = createType();
 		brand = br;
 		name = nm;
 		description = desc;
 		price = pr;
-//		id = 0;
-//		count = num;
 		features = new ItemFeaturesHashMap();
 		//TODO add type, brand, name, desc, price as ItemFeatures?
 	}
 	
-	protected GenericItem(String br, String nm, String desc, Float pr) {
-		this(br, nm, desc, pr, 1);
-	}
-	
 	protected String createType() {return "Item";} //TODO extend to missing sup
 	
-//	public void setId(int ID) {
-//		id = ID;
-//	}
-//	
-//	public void setCount(int c) {
-//		if (c > 0)
-//			count = c;
-//		else
-//			count = 0;
-//	}
 	public void setId(int ID) {}
 	public void setCount(int ID) {}
 	
@@ -109,7 +89,6 @@ public class GenericItem extends Item {
 			it.getBrand().equals(this.getBrand()) &&
 			it.getName().equals(this.getName()) &&
 			it.getDescription().equals(this.getDescription()) &&
-			/*it.getId() == this.getId() &&*/
 			it.getFeatures().equals(this.getFeatures()))
 			return true;
 		else
