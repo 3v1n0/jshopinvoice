@@ -10,8 +10,8 @@ public class GenericItem extends Item {
 	private Float price;
 	private String description;
 	private ItemFeatures features;
-	private int id;
-	private int count;
+//	private int id;
+//	private int count;
 	
 	protected GenericItem() {};
 	protected GenericItem(String br, String nm, String desc, Float pr, int num) {
@@ -20,8 +20,8 @@ public class GenericItem extends Item {
 		name = nm;
 		description = desc;
 		price = pr;
-		id = 0;
-		count = num;
+//		id = 0;
+//		count = num;
 		features = new ItemFeaturesHashMap();
 		//TODO add type, brand, name, desc, price as ItemFeatures?
 	}
@@ -32,13 +32,18 @@ public class GenericItem extends Item {
 	
 	protected String createType() {return "Item";} //TODO extend to missing sup
 	
-	public void setId(int ID) {
-		id = ID;
-	}
-	
-	public void setCount(int c) {
-		count = c;
-	}
+//	public void setId(int ID) {
+//		id = ID;
+//	}
+//	
+//	public void setCount(int c) {
+//		if (c > 0)
+//			count = c;
+//		else
+//			count = 0;
+//	}
+	public void setId(int ID) {}
+	public void setCount(int ID) {}
 	
 	public String getType() {return type;}
 	public String getBrand() {return brand;}
@@ -46,8 +51,8 @@ public class GenericItem extends Item {
 	public String getDescription() {return description;}
 	public Float getPrice() {return price;}
 	public Integer getDiscount() {return 0;}
-	public int getId() {return id;}
-	public int getCount() {return count;}
+	public int getId() {return 0;}
+	public int getCount() {return 1;}
 	
 	public int getSubItemsCount() throws SinglePartException {
 		throw new SinglePartException();
@@ -61,7 +66,7 @@ public class GenericItem extends Item {
 		throw new SinglePartException();		
 	}
 	
-	public ItemList getSubItems() throws SinglePartException { 
+	public ItemList<? extends Item> getSubItems() throws SinglePartException { 
 		throw new SinglePartException();
 	}
 	
@@ -100,20 +105,20 @@ public class GenericItem extends Item {
 		
 		Item it = (Item)i;
 		
-		if (it.getType().equals(getType()) &&
+		if (it.getType().equals(this.getType()) &&
 			it.getBrand().equals(this.getBrand()) &&
 			it.getName().equals(this.getName()) &&
 			it.getDescription().equals(this.getDescription()) &&
-			it.getId() == this.getId() &&
+			/*it.getId() == this.getId() &&*/
 			it.getFeatures().equals(this.getFeatures()))
 			return true;
 		else
 			return false;
 	}
 	
-	public Item clone() {
-		Item gi = super.clone();
-		gi.setFeatures((getFeatures().clone()));
-		return gi;
+	public GenericItem clone() {
+		GenericItem i = (GenericItem)super.clone();
+		i.setFeatures((getFeatures().clone()));
+		return i;
 	}
 }

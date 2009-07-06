@@ -12,17 +12,17 @@ import players.Gramophone;
 import players.HDDVDPlayer;
 
 public class ItemImporterTest implements ItemImporter {
-	private ItemList ill;
+	private ItemList<Item> ill;
 		
 	public ItemImporterTest() throws SinglePartException {
 		ill = buildItemList();
 	};
 	
-	public ItemList getItemList() throws SinglePartException {
+	public ItemList<Item> getItemList() throws SinglePartException {
 		return ill;
 	}
 
-	private ItemList buildItemList() throws SinglePartException {
+	private ItemList<Item> buildItemList() throws SinglePartException {
 		Item[] array;
 		
 		array = new Item[17];
@@ -62,7 +62,7 @@ public class ItemImporterTest implements ItemImporter {
 		array[12]=new HiFi("Hi-fi",(CDPlayer)array[5],(Speakers)array[11],"Un bellissimo modello di hi-fi");
 		array[13]=new TVSet("TV","Samsung",150.00f,"Un bellissimo modello di TV",20);
 		
-		Item pkg = new ItemPackage("Pacchetto bLu","Sony, Samsung","Lettore blu ray+TVset+bluray batman");
+		Item pkg = new ItemPackage<Item>("Pacchetto bLu","Sony, Samsung","Lettore blu ray+TVset+bluray batman");
 		
 		pkg.add(array[2]);
 		pkg.add(array[7]);
@@ -78,7 +78,7 @@ public class ItemImporterTest implements ItemImporter {
 		
 		
 		
-		Item pkg2 = new ItemPackage("Scooonti!","Vari","Multimedia vari");
+		Item pkg2 = new ItemPackage<Item>("Scooonti!","Vari","Multimedia vari");
 		
 			pkg2.add(array[0]);
 			pkg2.add(new ItemDiscount5(array[1]));
@@ -99,7 +99,7 @@ public class ItemImporterTest implements ItemImporter {
 			System.out.println("ERROR: Tried to add an item over another Item!");
 		}
 		
-		ill = new ItemLinkedList();
+		ill = new ItemLinkedList<Item>();
 
 		for (Item a : array)
 			ill.add(a);

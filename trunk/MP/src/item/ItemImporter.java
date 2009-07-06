@@ -1,5 +1,5 @@
 package item;
 
 public interface ItemImporter {
-	public ItemList getItemList() throws Exception;
+	public ItemList<? extends Item> getItemList() throws Exception;
 }

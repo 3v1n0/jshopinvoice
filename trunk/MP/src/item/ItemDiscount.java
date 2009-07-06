@@ -32,11 +32,11 @@ public abstract class ItemDiscount extends Item {
 	public void setCount(int c) {item.setCount(c);}
 	public void setId(int ID) {item.setId(ID);}
 
-	public ItemList getSubItems()throws SinglePartException {return item.getSubItems();}
+	public ItemList<? extends Item> getSubItems()throws SinglePartException {return item.getSubItems();}
 	public int getSubItemsCount() throws SinglePartException {return item.getSubItemsCount();}
 	public Item getSubItem(int n)throws SinglePartException {return item.getSubItem(n);}
-	public void add(Item i)throws SinglePartException{item.add(i);}
-	public void remove(Item i)throws SinglePartException{item.remove(i);}
+	public void add(Item i) throws SinglePartException{item.add(i);}
+	public void remove(Item i) throws SinglePartException{item.remove(i);}
 	
 	public boolean equals(Object i) {
 		if (!(i instanceof Item))
@@ -44,10 +44,10 @@ public abstract class ItemDiscount extends Item {
 		
 		Item it = (Item)i;
 		
-		return (item.equals(it) && it.getPrice().equals(this.getPrice()));
+		return item.equals(it); //FIXME controllo sul prezzo
 	}
 
-	public Item clone() {
+	public ItemDiscount clone() {
 		ItemDiscount itd = (ItemDiscount)super.clone();
 		itd.setItem(item.clone());
 		return itd;
