@@ -1,7 +1,6 @@
 package item;
 
 public class Speakers extends GenericItem {
-// classe leaf del pattern composite
 	
 	public Speakers(String nm, String br, Float pr, String desc, Integer power, Integer channels) {
 		super(br, nm, desc, pr);
