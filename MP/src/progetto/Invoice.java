@@ -11,7 +11,7 @@ public class Invoice extends Observable {
 	private Shop seller;
 	private Entity buyer;
 	private Date time;
-	private ItemPackage invoice;
+	private ItemPackage<ShopItem> invoice;
 	private LinkedList<InvoicePrinter> printers;
 	private int id;
 
@@ -19,7 +19,7 @@ public class Invoice extends Observable {
 		if (sel == null)
 		    throw new IllegalArgumentException("Invalid Shop!!");
 		
-		invoice = new ItemPackage("Invoice", sel.getCompanyName(), sel.getName());
+		invoice = new ItemPackage<ShopItem>("Invoice", sel.getCompanyName(), sel.getName());
 		seller = sel;
 		buyer = buy;
 		time = new Date(System.currentTimeMillis());
@@ -33,23 +33,34 @@ public class Invoice extends Observable {
 		notifyObservers();
 	}
 	
-	public void add(Item a) throws Exception {
+	public void add(ShopItem a) throws Exception {
 		if (a.getId() < 1)
 			throw new Exception("Invalid Item ID!"); //TODO
 		
-		Item tmp = a.clone();
 		boolean add = true;
-		tmp.setCount(1);
+		ShopItem shi = a.clone();
+		shi.setCount(1);
 	
-		for (Item i : invoice.getSubItems()) {
-			if (tmp.equals(i)) {
-				i.setCount(i.getCount()+1);
+//		for (Item i : invoice.getSubItems()) {
+//			if (shi.equals(i)) {
+//				i.setCount(i.getCount()+1);
+//				add = false;
+//			}
+//		}
+		
+		for (int i = 0; i < invoice.getSubItems().getSize(); i++) {
+			ShopItem it = invoice.getSubItem(i);
+			if (it.equals(shi)) {
+				it.setCount(it.getCount()+1);
 				add = false;
+				break;
 			}
 		}
 	
 		if (add)
-			invoice.add(tmp);
+			invoice.add(shi);
+		
+		seller.removeItemInstance(a);
 
 		emitChange();
 //		setChanged();
@@ -61,6 +72,8 @@ public class Invoice extends Observable {
 		
 		if (a.getCount() < 1)
 			invoice.remove(a);
+		
+		seller.addItem(a);
 	
 		emitChange();
 	}
@@ -69,7 +82,7 @@ public class Invoice extends Observable {
 		return id;
 	}
 	
-	public ItemList getItems() {
+	public ItemList<ShopItem> getItems() {
 		return invoice.getSubItems();
 	}
 

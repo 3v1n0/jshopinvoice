@@ -2,23 +2,22 @@ package item;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-public class ItemLinkedList extends ItemList {
-	private final LinkedList<Item> list;
+public class ItemLinkedList<I extends Item> extends ItemList<I> {
+	private final LinkedList<I> list;
 	
 	public ItemLinkedList() {
-		list = new LinkedList<Item>();
+		list = new LinkedList<I>();
 	}
 	
-	public void add(Item i) {
+	public void add(I i) {
 		list.add(i);
 	}
 	
-	public void remove(Item i) {
-		if (list.contains(i))
-			list.remove(i);
+	public void remove(I i) {
+		list.remove(i);
 	}
 	
-	public ListIterator<Item> iterator() {
+	public ListIterator<I> iterator() {
 		return list.listIterator();
 	}
 	
@@ -34,7 +33,7 @@ public class ItemLinkedList extends ItemList {
 		return count;
 	}
 
-	public Item get(int idx) {
+	public I get(int idx) {
 		return list.get(idx);
 	}
 

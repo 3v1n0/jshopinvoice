@@ -1,13 +1,12 @@
 package item;
 
-public class ItemPackage extends GenericItem {
-	// classe composite del pattern composite
-	private ItemList items; //TODO type AbstractItemList?
+public /*abstract*/ class ItemPackage<I extends Item> extends GenericItem /* implements Iterable TODO redoundant? */ {
+	private ItemList<I> items;
 	
 
 	public ItemPackage(String nm, String br, String desc) {
 		super(br, nm, desc, null);
-		items = new ItemLinkedList();
+		items = new ItemLinkedList<I>();
 	}
 	
 	public Float getPrice() {
@@ -19,7 +18,7 @@ public class ItemPackage extends GenericItem {
 		return sum;
 	}
 	
-	public ItemList getSubItems() {
+	public ItemList<I> getSubItems() {
 		return items;
 	}
 	
@@ -27,19 +26,21 @@ public class ItemPackage extends GenericItem {
 		return items.getCount();
 	}
 
+	@SuppressWarnings("unchecked")
 	public void add(Item i) {
-		items.add(i);
-		this.setCount(this.getCount() + 1);
+		items.add((I)i);
+//		this.setCount(this.getCount() + 1);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void remove(Item i) {
-		if (getCount() > 0) {
-			items.remove(i);
-			this.setCount(this.getCount() - 1);
-		}
+//		if (getCount() > 0) {
+			items.remove((I)i);
+//			this.setCount(this.getCount() - 1);
+//		}
 	}
 	
-	public Item getSubItem(int n) {
+	public I getSubItem(int n) {
 		return items.get(n);
 	}
 	

@@ -11,7 +11,7 @@ public class Test {
 	
 	
 	/** metodo per leggere interi */
-	public static int getInt(ItemList items) {
+	public static int getInt(ItemList<ShopItem> items) {
 		byte[] b = new byte[9];
 		int res = 0;
 		int m = 1;
@@ -71,16 +71,16 @@ public class Test {
 		ItemImporter ii = new ItemImporterTest();
 		
 		for (Item i : ii.getItemList())
-			sh.addItem(i);
+			sh.addItem(i, (int)(Math.random()*100));
 		
 		sh.removeItem(sh.getItems().get(6));
-		sh.addItem(ii.getItemList().get(6));
+		sh.addItem(ii.getItemList().get(6), 5);
 		System.out.println(ii.getItemList().get(4).getFeatures());
 		sh.addCategory("Misc");
 		sh.removeItem(sh.getItems().get(4));
 		sh.removeCategory("Item"); // It won't remove it (it's ok!).
 		System.out.println("Shop categories after test removing "+sh.getCategories().toString());
-		sh.addItem(ii.getItemList().get(4));
+		sh.addItem(ii.getItemList().get(4), 3);
 		Item it = new ItemDiscount10(ii.getItemList().get(3));
 		System.out.println(it.getFeatures()); //TODO how managing packages?
 		System.out.println(it.equals(it)+" - "+ii.getItemList().get(3).equals(it));
@@ -91,7 +91,14 @@ public class Test {
 		System.out.println("Uguali features: " +(itt.getFeatures() == it.getFeatures()));
 		System.out.println(itt.getClass().getName()+" "+it.getClass().getName()+"\nUguali: (must be false) "+itt.equals(it));
 		
-//		sh.removeCategoryItems("Vinyl");
+		Item ittt = ii.getItemList().get(3).clone();
+		System.out.println(ii.getItemList().get(3).getClass().getName()+" "+ittt.getClass().getName()+"\nUguali: (must be true) "+ittt.equals(ii.getItemList().get(3)));
+		
+		
+		ittt = ii.getItemList().get(2).clone();
+		System.out.println(ii.getItemList().get(2).getClass().getName()+" "+ittt.getClass().getName()+"\nUguali: (must be true) "+ittt.equals(ii.getItemList().get(2)));
+		
+//		sh.removeCategoryItems("Player");
 		
 		System.out.print("Shop Categories: ");
 		for (String c : sh.getCategories())
@@ -145,7 +152,7 @@ public class Test {
 		
 		Invoice b= new Invoice(sh,en);
 		
-		for(int i=0; i < sh.getItemCount()/2; i++){
+		for(int i=0; i < sh.getItems().getSize()/2; i++){
 			b.add(sh.getItems().get(i));
 		}
 		System.out.println(b.getTotal()+" EUR for "+b.getItemsCount()+" items");
