@@ -18,6 +18,8 @@ public abstract class Media extends GenericItem {
 		addFeature("Genre", new ItemFeatureValue(genre));
 		addFeature("Language", new ItemFeatureValue(lang));
 		addFeature("Duration", new ItemFeatureValue(length));
+		addFeature("Media Type", new ItemFeatureValue(getMedia()));
+		addFeature("Media Support", new ItemFeatureValue(getMediaType()));
 	}
 	
 	abstract Media createMedia();
@@ -30,17 +32,6 @@ public abstract class Media extends GenericItem {
 	public String getMediaType() {
 		return mt.getClass().getSimpleName();
 	}
-
-//	public String getInfo(){
-//		String s;
-//		s = "Title:\t\t"+getTitle()+
-//			"\nBrand:\t\t"+getBrand()+
-//			"\nDuration:\t"+getDuration()+
-//			"\nGenre:\t\t"+getGenre()+
-//			"\nLanguage:\t"+getLanguage()+
-//			"\nType:\t\t"+getMediaType();
-//		return s;
-//	}
 	
 	protected String createType() {return "Media";}
 	

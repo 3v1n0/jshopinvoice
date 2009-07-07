@@ -1,6 +1,6 @@
 package item;
 
-public /*abstract*/ class ItemPackage<I extends Item> extends GenericItem /* implements Iterable TODO redoundant? */ {
+public class ItemPackage<I extends Item> extends GenericItem {
 	private ItemList<I> items;
 	
 
@@ -29,28 +29,16 @@ public /*abstract*/ class ItemPackage<I extends Item> extends GenericItem /* imp
 	@SuppressWarnings("unchecked")
 	public void add(Item i) {
 		items.add((I)i);
-//		this.setCount(this.getCount() + 1);
 	}
 
 	@SuppressWarnings("unchecked")
 	public void remove(Item i) {
-//		if (getCount() > 0) {
-			items.remove((I)i);
-//			this.setCount(this.getCount() - 1);
-//		}
+		items.remove((I)i);
 	}
 	
 	public I getSubItem(int n) {
 		return items.get(n);
 	}
 	
-//	public ItemFeatures getFeatures() { //TODO merging them?
-//		ItemFeatures features = new ItemFeaturesHashMap();
-//
-//		for (Item it : items)
-//			for (String itf : it.getFeatures().getKeys())
-//				features.add(itf, it.getFeatures().getValue(itf));
-//			
-//		return features;
-//	}
+	protected String createType() {return "Item Package";}
 }

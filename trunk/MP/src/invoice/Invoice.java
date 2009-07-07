@@ -34,10 +34,7 @@ public class Invoice extends Observable {
 		notifyObservers();
 	}
 	
-	public void add(ShopItem si) throws Exception {
-		if (si.getId() < 1)
-			throw new Exception("Invalid Item ID!"); //TODO
-		
+	public void add(ShopItem si) throws Exception {	
 		boolean add = true;
 		
 		if (si.getCount() < 1)
@@ -60,8 +57,6 @@ public class Invoice extends Observable {
 		seller.removeItemInstance(si);
 
 		emitChange();
-//		setChanged();
-//		notifyObservers(a);
 	}
 
 	public void remove(Item a) {
@@ -103,16 +98,6 @@ public class Invoice extends Observable {
 		return time;
 	}
 	
-	/* My Idea:
-	 * invoice.setPrinter(new InvoicePrintStdout());
-	 * invoice.print();
-	 * 
-	 * InvoicePrint html = new InvoicePrintHTML();
-	 * html.setFile("ohoho.html");
-	 * invoice.setPrinter(html);
-	 * invoice.print(); // To be notified of changes by observer!!!
-	 */
-	
 	public void addPrinter(InvoicePrinter ip) {
 		if (ip != null) {
 			printers.add(ip);
@@ -124,5 +109,7 @@ public class Invoice extends Observable {
 		for (InvoicePrinter p : printers)
 			if (p != null && p.getInvoice() == this)
 				p.print();
+			else 
+				throw new IllegalStateException("No valid printer found for the invoice!");
 	}
 }

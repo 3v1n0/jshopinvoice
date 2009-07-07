@@ -1,23 +1,17 @@
 package item;
 
 public class GenericItem extends Item {
-	
-	private String type;
-	private String name;
-	private String brand;
-	private Float price;
-	private String description;
+
 	private ItemFeatures features;
 	
 	protected GenericItem() {};
-	protected GenericItem(String br, String nm, String desc, Float pr) {
-		type = createType();
-		brand = br;
-		name = nm;
-		description = desc;
-		price = pr;
+	protected GenericItem(String brand, String name, String desc, Float price) {
 		features = new ItemFeaturesHashMap();
-		//TODO add type, brand, name, desc, price as ItemFeatures?
+		addFeature("Type", new ItemFeatureValue(createType()));
+		addFeature("Brand", new ItemFeatureValue(brand));
+		addFeature("Name", new ItemFeatureValue(name));
+		addFeature("Description", new ItemFeatureValue(desc));
+		addFeature("Price", new ItemFeatureValue(price));
 	}
 	
 	protected String createType() {return "Item";} //TODO extend to missing sup
@@ -25,11 +19,11 @@ public class GenericItem extends Item {
 	public void setId(int ID) {}
 	public void setCount(int ID) {}
 	
-	public String getType() {return type;}
-	public String getBrand() {return brand;}
-	public String getName() {return name;}
-	public String getDescription() {return description;}
-	public Float getPrice() {return price;}
+	public String getType() {return getFeature("Type").getStringValue();}
+	public String getBrand() {return getFeature("Brand").getStringValue();}
+	public String getName() {return getFeature("Name").getStringValue();}
+	public String getDescription() {return getFeature("Description").getStringValue();}
+	public Float getPrice() {return getFeature("Price").getFloatValue();}
 	public Integer getDiscount() {return 0;}
 	public int getId() {return 0;}
 	public int getCount() {return 1;}

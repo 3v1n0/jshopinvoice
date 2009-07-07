@@ -1,7 +1,5 @@
 package item;
 
-//import java.util.HashMap;
-
 public abstract class Item implements ItemInterface, Cloneable {
 
 	public abstract String getType();

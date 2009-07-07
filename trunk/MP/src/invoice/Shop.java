@@ -129,9 +129,10 @@ public class Shop extends Company implements Shopper {
 						it.setCount(shi.getCount());
 				}
 						
-			} /*if (shi.getCount() < 1) {
+			}
+			/*if (shi.getCount() < 1) {
 				removeItem(i); // Remove this to leave in the Shop unavailable items
-			} */
+			}*/
 		}
 	}
 	

@@ -3,8 +3,6 @@ package item;
 public class ItemFeatureValue {
 	private Object value;
 	
-	//FIXME null values... This is ambiguos, but it won't ever cause errors here
-	
 	public ItemFeatureValue(String s) {
 		value = s;
 	}
