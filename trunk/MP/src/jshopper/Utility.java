@@ -1,4 +1,4 @@
-package progetto;
+package jshopper;
 
 public abstract class Utility {
 	public static String stringToHTML(String str) {

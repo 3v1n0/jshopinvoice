@@ -1,5 +1,7 @@
-package item;
+package items;
 
+import item.GenericItem;
+import item.ItemFeatureValue;
 import players.*;
 
 public class HiFi extends GenericItem {

@@ -1,4 +1,7 @@
-package item;
+package discounts;
+
+import item.Item;
+import item.ItemDiscount;
 
 public class ItemDiscount20 extends ItemDiscount{
 	

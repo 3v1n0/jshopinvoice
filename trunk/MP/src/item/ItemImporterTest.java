@@ -1,5 +1,11 @@
 package item;
 
+import discounts.ItemDiscount20;
+import discounts.ItemDiscount5;
+import items.Decoder;
+import items.HiFi;
+import items.Speakers;
+import items.TVSet;
 import media.BluRay;
 import media.CD;
 import media.DVD;

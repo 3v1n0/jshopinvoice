@@ -1,4 +1,4 @@
-package progetto;
+package invoice;
 
 public abstract class InvoicePrinter {
 	private Invoice invoice;

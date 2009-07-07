@@ -1,7 +1,11 @@
-package progetto;
+package invoice;
+
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import jshopper.Utility;
+
 
 public class InvoicePrinterHtml extends InvoicePrinter {
 	String htmlfile;
