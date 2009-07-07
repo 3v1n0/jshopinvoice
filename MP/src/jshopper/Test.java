@@ -8,8 +8,6 @@ import discounts.ItemDiscount10;
 
 import entities.*;
 import invoice.Invoice;
-import invoice.InvoicePrinterHtml;
-import invoice.InvoicePrinterStdout;
 import invoice.Shop;
 import invoice.ShopItem;
 import item.*;

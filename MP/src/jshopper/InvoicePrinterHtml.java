@@ -1,10 +1,13 @@
-package invoice;
+package jshopper;
 
+
+import invoice.Invoice;
+import invoice.InvoicePrinter;
+import invoice.ShopItem;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import jshopper.Utility;
 
 
 public class InvoicePrinterHtml extends InvoicePrinter {

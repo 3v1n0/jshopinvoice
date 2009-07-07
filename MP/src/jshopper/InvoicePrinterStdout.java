@@ -1,5 +1,7 @@
-package invoice;
+package jshopper;
 
+import invoice.Invoice;
+import invoice.InvoicePrinter;
 import item.Item;
 
 public class InvoicePrinterStdout extends InvoicePrinter {
