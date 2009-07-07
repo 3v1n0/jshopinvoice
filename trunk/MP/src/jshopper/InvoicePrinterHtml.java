@@ -11,8 +11,17 @@ import java.io.IOException;
 
 
 public class InvoicePrinterHtml extends InvoicePrinter {
-	private String htmlfile = null;
-	private String htmlpath = null;
+	private String htmlfile;
+	private String htmlpath;
+	
+	InvoicePrinterHtml(String path, String file) {
+		htmlpath = path;
+		htmlfile = file;
+	}
+	
+	InvoicePrinterHtml() {
+		this(null, null);
+	}
 	
 	public void setFile(String f) {
 		htmlfile = f;
@@ -23,7 +32,15 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 	}
 	
 	protected String createName() {
-		return "TestHTMLPrinter";
+		return "Test HTML Printer";
+	}
+	
+	protected String getHtmlFile() {
+		return htmlfile;
+	}
+	
+	protected String getHtmlPath() {
+		return htmlpath;
 	}
 
 	protected void print() throws IOException {
@@ -125,7 +142,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"<tr>\n" +
 		"<td class=\"data\" align=\"left\" width=\"70%\">\n" +
 		"<b>Bill To: </b><br />\n" +
-		"attn: "+Utility.stringToHTML(i.getBuyer().getName())+" <br />\n" +
+		Utility.stringToHTML(i.getBuyer().getName())+" <br />\n" +
 		Utility.stringToHTML(i.getBuyer().getAddress().getStreet() +", "+i.getBuyer().getAddress().getNumber())+"<br />\n" +
 		Utility.stringToHTML(i.getBuyer().getAddress().getZip()+" - "+i.getBuyer().getAddress().getCity() +
 		" ("+i.getBuyer().getAddress().getProvince())+")<br />\n" +
@@ -202,6 +219,16 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 
 		file.write(html.getBytes("US-ASCII"));
 		System.out.println("HTML Invoice saved at "+hfilepath);
+	}
+	
+	public boolean equals(Object o) {
+		if (!(o instanceof InvoicePrinterHtml))
+			return false;
+		
+		InvoicePrinterHtml ip = (InvoicePrinterHtml)o;
+		return (super.equals(ip) &&
+				this.getHtmlFile() == ip.getHtmlFile() &&
+				this.getHtmlPath() == ip.getHtmlPath());
 	}
 
 }
