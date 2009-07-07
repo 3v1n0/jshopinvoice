@@ -100,8 +100,11 @@ public class Invoice extends Observable {
 	
 	public void addPrinter(InvoicePrinter ip) {
 		if (ip != null) {
-			printers.add(ip);
-			ip.setInvoice(this);
+			if (!printers.contains(ip)) {
+				System.out.println("Adding Printer "+ip.getName()+" to "+getId());
+				printers.add(ip);
+				ip.setInvoice(this);
+			}
 		}
 	}
 	

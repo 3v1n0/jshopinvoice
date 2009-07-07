@@ -8,19 +8,42 @@ import jshopper.Utility;
 
 
 public class InvoicePrinterHtml extends InvoicePrinter {
-	String htmlfile;
+	private String htmlfile = null;
+	private String htmlpath = null;
 	
 	public void setFile(String f) {
 		htmlfile = f;
 	}
+	
+	public void setFilePath(String p) {
+		htmlpath = p;
+	}
+	
+	protected String createName() {
+		return "TestHTMLPrinter";
+	}
 
 	protected void print() throws IOException {
+		String hfile;
+		String hpath;
+		
+		if (htmlpath == null)
+			hpath = Utility.getTmpPath();
+		else
+			hpath = htmlpath;
+
 		if (htmlfile == null)
-			htmlfile = Utility.getTmpPath() + "Invoice_"+getInvoice().getId()+".html";
+			hfile = "Invoice_%d.html";
+		else
+			hfile = htmlfile;
+		
+		hfile = hfile.replaceAll("%d", ""+getInvoice().getId());
 		
 		Invoice i = getInvoice();
 		
-		FileOutputStream file = new FileOutputStream(htmlfile);
+		String hfilepath = hpath+System.getProperty("file.separator")+hfile;
+		
+		FileOutputStream file = new FileOutputStream(hfilepath);
 		
 		String html = 
 		"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n" +
@@ -175,7 +198,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"</html>\n";
 
 		file.write(html.getBytes("US-ASCII"));
-		System.out.println("HTML Invoice saved at "+htmlfile);
+		System.out.println("HTML Invoice saved at "+hfilepath);
 	}
 
 }
