@@ -89,7 +89,7 @@ public class Test {
 		System.out.println("Shop categories after test removing "+sh.getCategories().toString());
 		sh.addItem(ii.getItemList().get(4), 3);
 		Item it = new ItemDiscount10(ii.getItemList().get(3));
-		System.out.println(it.getFeatures()); //TODO how managing packages?
+		System.out.println(it.getFeatures());
 		System.out.println(it.equals(it)+" - "+ii.getItemList().get(3).equals(it));
 		Item itt = it.clone();
 		System.out.println("Uguali: (must be false) "+(itt == it));

@@ -43,8 +43,12 @@ public abstract class ItemDiscount extends Item {
 			return false;
 		
 		Item it = (Item)i;
-		
-		return item.equals(it); //FIXME controllo sul prezzo
+		/*
+		System.out.println(getPrice()+" = "+it.getPrice()+" "+(this.getDiscount().equals(it.getDiscount()))+" "+(this.getDiscount().equals(it.getDiscount()))+
+				" "+(item.equals(it) && this.getDiscount().equals(it.getDiscount()))+" "+item.equals(it));
+		*/
+//		return (item.equals(it) && this.getDiscount().equals(it.getDiscount())); //FIXME controllo sul prezzo
+		return item.equals(it);
 	}
 
 	public ItemDiscount clone() {

@@ -11,7 +11,6 @@ public interface Shopper {
 	public void removeCategory(String cat);
 	public String getName();
 	public String getCompanyName();
-//	public int getId(); TODO
 	public ItemList<? extends Item> getItems();
 	public int getItemCount();
 	public int getInvoicesCount();

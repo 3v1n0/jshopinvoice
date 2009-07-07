@@ -1,21 +1,10 @@
-package item;
+package jshopper;
 
-import discounts.ItemDiscount20;
-import discounts.ItemDiscount5;
-import items.Decoder;
-import items.HiFi;
-import items.Speakers;
-import items.TVSet;
-import media.BluRay;
-import media.CD;
-import media.DVD;
-import media.HDDVD;
-import media.Vinyl;
-import players.BluRayPlayer;
-import players.CDPlayer;
-import players.DVDPlayer;
-import players.Gramophone;
-import players.HDDVDPlayer;
+import discounts.*;
+import item.*;
+import items.*;
+import media.*;
+import players.*;
 
 public class ItemImporterTest implements ItemImporter {
 	private ItemList<Item> ill;

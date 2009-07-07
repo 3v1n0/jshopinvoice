@@ -7,7 +7,10 @@ public abstract class InvoicePrinter {
 		invoice = inv;
 	}
 	
-	protected final Invoice getInvoice() {
+	protected final Invoice getInvoice() throws IllegalStateException {
+		if (invoice == null)
+			throw new IllegalStateException("Invoice not initialized yet.");
+
 		return invoice;
 	}
 

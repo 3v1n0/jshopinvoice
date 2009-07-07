@@ -13,7 +13,7 @@ public class InvoiceObserver implements Observer {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} //else // TODO exception!
+		}
 	}
 
 }

@@ -13,8 +13,8 @@ public interface ItemInterface {
 	
 	public void setFeatures(ItemFeatures f);
 	public ItemFeatureValue getFeature(String f);
-	public void addFeature(String f, ItemFeatureValue v); //TODO protected?
-	public void removeFeature(String f); //TODO protected?
+	public void addFeature(String f, ItemFeatureValue v);
+	public void removeFeature(String f);
 
 	public void setId(int ID);
 	public void setCount(int c);
