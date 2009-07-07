@@ -1,4 +1,4 @@
-package progetto;
+package invoice;
 
 import entities.*;
 import item.*;
@@ -6,6 +6,7 @@ import item.*;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.Observable;
+
 
 public class Invoice extends Observable {
 	private Shop seller;

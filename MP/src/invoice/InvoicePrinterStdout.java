@@ -1,4 +1,4 @@
-package progetto;
+package invoice;
 
 import item.Item;
 

@@ -1,6 +1,10 @@
-package progetto;
+package invoice;
 
-import item.*;
+import item.Item;
+import item.ItemFeatureValue;
+import item.ItemFeatures;
+import item.ItemList;
+import item.SinglePartException;
 
 public class ShopItem extends Item {
 	Item item;

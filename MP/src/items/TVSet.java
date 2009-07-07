@@ -1,4 +1,7 @@
-package item;
+package items;
+
+import item.GenericItem;
+import item.ItemFeatureValue;
 
 public class TVSet extends GenericItem {
 

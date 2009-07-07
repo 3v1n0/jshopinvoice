@@ -1,14 +1,14 @@
-package progetto;
+package invoice;
 
-import item.Item;
-import item.ItemList;
-import item.ItemLinkedList;
-import item.SinglePartException;
+import item.*;
 import entities.*;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.LinkedList;
+
+import jshopper.Utility;
+
 
 public class Shop extends Company implements Shopper {
 	private static Shop sh;
