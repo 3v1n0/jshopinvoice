@@ -17,6 +17,7 @@ public class Shop extends Company implements Shopper {
 	private ItemList<ShopItem> items;
 	private LinkedList<Invoice> invoices;
 	private LinkedList<String> categories;
+	private LinkedList<InvoicePrinter> iprinters;
 	private LinkedList<Entity> clients;
 	private static int shops;
 	private static int added;
@@ -29,6 +30,7 @@ public class Shop extends Company implements Shopper {
 		categories = new LinkedList<String>();
 		clients = new LinkedList<Entity>();
 		items = new ItemLinkedList<ShopItem>();
+		iprinters = new LinkedList<InvoicePrinter>();
 		obs = new InvoiceObserver();
 		id = (++shops);
 	}
@@ -192,6 +194,9 @@ public class Shop extends Company implements Shopper {
 
 			if (!clients.contains(i.getBuyer()))
 				clients.add(i.getBuyer());
+			
+			for (InvoicePrinter ip : iprinters)
+				i.addPrinter(ip);
 		}
 	}
 	
@@ -206,6 +211,13 @@ public class Shop extends Company implements Shopper {
 		Invoice i = new Invoice(this, buyer);
 		addInvoice(i);
 		return i;
+	}
+	
+	public void addDefaultInvoicePrinter(InvoicePrinter ip) {
+		iprinters.add(ip);
+
+		for (Invoice inv : invoices)
+			inv.addPrinter(ip);
 	}
 	
 	public void printItemsHtml() throws IOException {

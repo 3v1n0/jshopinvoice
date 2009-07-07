@@ -3,6 +3,10 @@ package invoice;
 import item.Item;
 
 public class InvoicePrinterStdout extends InvoicePrinter {
+	
+	protected String createName() {
+		return "Test STDout Printer";
+	}
 
 	protected void print() {
 		Invoice i = getInvoice();

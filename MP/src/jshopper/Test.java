@@ -114,11 +114,13 @@ public class Test {
 		
 		sh.printItemsHtml();
 		
+		sh.addDefaultInvoicePrinter(new InvoicePrinterHtml());
+		
 		Invoice a= new Invoice(sh,en);
 
 		System.out.println("Invoices: "+sh.getInvoicesCount());
 		a.addPrinter(new InvoicePrinterStdout());
-		a.addPrinter(new InvoicePrinterHtml());
+		a.addPrinter(new InvoicePrinterHtml()); //Not added...
 	
 		
 		int c = -1;
@@ -136,7 +138,6 @@ public class Test {
 		
 		for(int i=0; i < sh.getItems().getSize()/2; i++){
 			b.add(sh.getItems().get(i));
-			b.addPrinter(new InvoicePrinterHtml());
 		}
 		System.out.println(b.getTotal()+" EUR for "+b.getItemsCount()+" items");
 	}
