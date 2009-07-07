@@ -119,6 +119,7 @@ public class Test {
 		System.out.println("Invoices: "+sh.getInvoicesCount());
 		a.addPrinter(new InvoicePrinterStdout());
 		a.addPrinter(new InvoicePrinterHtml()); //Not added...
+		a.addPrinter(new InvoicePrinterHtml(Utility.getTmpPath(), "Test_invoice_%d.html"));
 	
 		
 		int c = -1;

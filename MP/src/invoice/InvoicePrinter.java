@@ -29,7 +29,7 @@ public abstract class InvoicePrinter {
 	protected abstract String createName();
 	protected abstract void print() throws Exception;
 	
-	public final boolean equals(Object o) {
+	public boolean equals(Object o) {
 		if (!(o instanceof InvoicePrinter))
 			return false;
 		
