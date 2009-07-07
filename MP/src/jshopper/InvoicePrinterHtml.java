@@ -57,7 +57,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		else
 			hfile = htmlfile;
 		
-		hfile = hfile.replaceAll("%d", ""+getInvoice().getId());
+		hfile = hfile.replaceAll("%d", Integer.toString(getInvoice().getId()));
 		
 		Invoice i = getInvoice();
 		
