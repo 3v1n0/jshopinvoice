@@ -242,7 +242,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"</html>\n";
 
 		file.write(html.getBytes("US-ASCII"));
-		System.out.println("HTML Invoice saved at "+hfilepath);
+		System.out.println("DEBUG: HTML Invoice saved at "+hfilepath);
 	}
 	
 	public boolean equals(Object o) {
@@ -254,5 +254,4 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 				this.getHtmlFile() == ip.getHtmlFile() &&
 				this.getHtmlPath() == ip.getHtmlPath());
 	}
-
 }
