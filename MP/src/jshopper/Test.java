@@ -133,7 +133,10 @@ public class Test {
 		System.out.println(a.getTotal()+" EUR for "+a.getItemsCount()+" items");
 		
 		
-		Invoice b= new Invoice(sh,en);
+		Invoice b= new Invoice(sh, new Company("The big buyer",
+							   new Address("Viale de' Ricchi", 1000, "Firenze", "FI", 50100, "Italia"),
+							   new Contacts("+390558595661", "+390558383389", "info@bigbuyer.com", "http://www.bigbuyer.com"),
+							   "IASHDKFOADIF67ASDF"));
 		
 		for(int i=0; i < sh.getItems().getSize()/2; i++){
 			b.add(sh.getItems().get((int)(Math.random()*100)%sh.getItems().getSize()),

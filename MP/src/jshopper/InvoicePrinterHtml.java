@@ -196,7 +196,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 					"<td class=\"subitem\" align=\"left\">"+Utility.stringToHTML(it.getBrand()+" - "+it.getName())+"</td>\n" +
 					"<td class=\"subitem\" align=\"right\">"+it.getPrice()+"</td>\n" +
 					"<td class=\"subitem\" align=\"right\">"+(it.getDiscount() > 0 ? it.getDiscount()+"%" : "")+"</td>\n" +
-					"<td class=\"subitem\" align=\"right\">"+(it.getPrice()*it.getCount())+"</td>\n" +
+					"<td class=\"subitem\" align=\"right\">"+(it.getPrice()*sh.getCount())+"</td>\n" +
 					"</tr>\n";
 			} catch (SinglePartException e) {}
 		}
