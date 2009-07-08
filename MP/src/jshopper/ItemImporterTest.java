@@ -73,7 +73,7 @@ public class ItemImporterTest implements ItemImporter {
 		
 		
 		
-		Item pkg2 = new ItemPackage<Item>("Pausini-Batman-Titanic","Vari","CD-BluRay-HDDVD già scontati del 5% e con un ulteriore sconto pacchetto!!");
+		Item pkg2 = new ItemPackage<Item>("Pausini-Matrix-Titanic","Vari","CD-BluRay-HDDVD già scontati del 5% e con un ulteriore sconto pacchetto!!");
 		
 			pkg2.add(array[0]);
 			pkg2.add(new ItemDiscount5(array[1]));
