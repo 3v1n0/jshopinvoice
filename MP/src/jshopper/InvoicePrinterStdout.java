@@ -2,7 +2,7 @@ package jshopper;
 
 import invoice.Invoice;
 import invoice.InvoicePrinter;
-import item.Item;
+import invoice.ShopItem;
 
 public class InvoicePrinterStdout extends InvoicePrinter {
 	
@@ -30,7 +30,7 @@ public class InvoicePrinterStdout extends InvoicePrinter {
 		System.out.println("|-------------------------------------------------------|");
 		System.out.println("\n\n|-----#####-----Oggetto----------------------------------------------Prezzo (Sconto)-----|");
 		
-		for (Item o : i.getItems()) {
+		for (ShopItem o : i.getItems()) {
 			String itemstr = normalizeString("["+normalizeInt(o.getId(), Integer.toString(i.getSeller().getItemCount()).length())+
 							 "] "+o.getBrand()+" - "+o.getName()/*+" | "+o.getDescription()*/, 45);
 			System.out.println("\t"+o.getCount()+"\t"+itemstr+

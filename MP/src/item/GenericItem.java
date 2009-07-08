@@ -1,6 +1,6 @@
 package item;
 
-public class GenericItem extends Item {
+public class GenericItem extends AbstractItem {
 
 	private ItemFeatures features;
 	

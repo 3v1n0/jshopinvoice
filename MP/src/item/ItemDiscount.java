@@ -1,6 +1,6 @@
 package item;
 
-public abstract class ItemDiscount extends Item {
+public abstract class ItemDiscount extends AbstractItem {
 
 	private Item item;
 	private Integer discount;

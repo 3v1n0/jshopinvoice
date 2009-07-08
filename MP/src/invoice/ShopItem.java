@@ -1,12 +1,8 @@
 package invoice;
 
-import item.Item;
-import item.ItemFeatureValue;
-import item.ItemFeatures;
-import item.ItemList;
-import item.SinglePartException;
+import item.*;
 
-public class ShopItem extends Item {
+public class ShopItem extends AbstractItem {
 	private Item item;
 	private int count;
 	private int id;
