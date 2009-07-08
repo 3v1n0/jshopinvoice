@@ -14,7 +14,7 @@ public class GenericItem extends Item {
 		addFeature("Price", new ItemFeatureValue(price));
 	}
 	
-	protected String createType() {return "Item";} //TODO extend to missing sup
+	protected String createType() {return "Item";}
 	
 	public void setId(int ID) {}
 	public void setCount(int ID) {}
