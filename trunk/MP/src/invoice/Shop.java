@@ -6,7 +6,7 @@ import entities.*;
 import java.util.LinkedList;
 
 
-public class Shop extends Company implements Shopper, ShopObservable {
+public class Shop extends Company implements Shopper {
 	private String shopname;
 	private InvoiceObserver obs;
 	private ItemList<ShopItem> items;
