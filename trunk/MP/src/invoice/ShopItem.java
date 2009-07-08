@@ -11,7 +11,7 @@ public class ShopItem extends Item {
 	int count;
 	int id;
 	
-	protected ShopItem(Item i, int id, int count){
+	protected ShopItem(Item i, int id, int count) {
 		item = i;
 		this.id = id;
 		this.count = count;

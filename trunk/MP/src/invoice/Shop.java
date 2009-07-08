@@ -56,13 +56,14 @@ public class Shop extends Company implements Shopper {
 		return null;
 	}
 	
-	public ShopItem addItem(Item i, int count) {
-		boolean ipkg;
+	public ShopItem addItem(Item i, int count) throws SinglePartException {
 		
-		try {
+		ShopItem shf = ShopItemFactory.getShopItem(i, added+1, count);
+		
+		if (shf instanceof ShopItemPackage) {
 			int min = 0;
 			
-			for (Item it : i.getSubItems()) {
+			for (Item it : shf.getSubItems()) {
 				ShopItem sh = findItem(it);
 				if (sh != null) {
 					if (sh.getCount() < min || min == 0)
@@ -72,29 +73,27 @@ public class Shop extends Company implements Shopper {
 				}
 			}
 			count = (count < min ? count : min);
-
-			ipkg = true;
-		} catch (SinglePartException e) {
-			ipkg = false;
+			shf.setCount(count);
 		}
 		
 		ShopItem shi = findItem(i);
 		
-		if (shi != null) {
-			if (ipkg)
-				shi.setCount(shi.getCount() + count);
-			else
-				shi.setCount(count);
-		} else {
-			shi = new ShopItem(i, ++added, count);
+		if (shi == null) {
+			shi = shf;
 			items.add(shi);
 			addCategory(shi.getType());
+			added++;
+		} else {
+			if (shi instanceof ShopItemPackage)
+				shi.setCount(count);
+			else
+				shi.setCount(shi.getCount() + count);
 		}
 		
 		return shi;
 	}
 	
-	public ShopItem addItem(Item i) {
+	public ShopItem addItem(Item i) throws Exception {
 		return addItem(i, 1);
 	}
 	
@@ -103,17 +102,17 @@ public class Shop extends Company implements Shopper {
 		removeCategory(i.getType());
 	}
 	
-	public void removeItemInstance(Item i) {
+	public void removeItemInstance(Item i) throws SinglePartException {
 		ShopItem shi = findItem(i);
 		
-		try {
+		if (shi instanceof ShopItemPackage) {
 			for (Item it : i.getSubItems()) {
 				ShopItem sh = findItem(it);
 				if (sh != null) {
 					sh.setCount(sh.getCount()-1);
 				}
 			}
-		} catch (SinglePartException e) {}
+		}
 		
 		if (shi != null) {
 			if (shi.getCount() > 0) {
@@ -125,7 +124,7 @@ public class Shop extends Company implements Shopper {
 						for (Item sub : it.getSubItems())
 							if (sub.equals(shi))
 								found = true;
-					} catch  (SinglePartException e) {}
+					} catch (SinglePartException e) {}
 					
 					if (found && it.getCount() == (shi.getCount()+1))
 						it.setCount(shi.getCount());

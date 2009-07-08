@@ -59,7 +59,7 @@ public class Invoice extends Observable {
 		emitChange();
 	}
 
-	public void remove(Item a) {
+	public void remove(Item a) throws Exception {
 		a.setCount(a.getCount()-1);
 		
 		if (a.getCount() < 1)
