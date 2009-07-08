@@ -5,8 +5,8 @@ import item.Item;
 import java.util.LinkedList;
 
 public interface Shopper {
-	public Item addItem(Item i);
-	public void removeItemInstance(Item i);
+	public Item addItem(Item i) throws Exception;
+	public void removeItem(Item i) throws Exception;
 	public void addCategory(String cat);
 	public void removeCategory(String cat);
 	public String getName();
