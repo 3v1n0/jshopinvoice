@@ -10,7 +10,7 @@ public class CDPlayer extends ConcretePlayer{
 		super(title,brand,price,description);
 	}
 	
-	public ConcretePlayer createPlayer(){return new CDPlayer();}
+	ConcretePlayer createPlayer() {return new CDPlayer();}
 
 	public void accept(Media m) {
 		if (m instanceof CD) {super.accept(m);}
