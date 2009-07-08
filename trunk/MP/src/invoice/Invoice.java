@@ -58,6 +58,11 @@ public class Invoice extends Observable {
 
 		emitChange();
 	}
+	
+	public void add(ShopItem si, int count) throws Exception {
+		for (int i = 0; i < count; i++)
+			add(si);
+	}
 
 	public void remove(Item a) throws Exception {
 		a.setCount(a.getCount()-1);
