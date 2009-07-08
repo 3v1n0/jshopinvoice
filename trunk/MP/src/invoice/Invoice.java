@@ -17,7 +17,7 @@ public class Invoice extends Observable {
 	private int id;
 
 	public Invoice(Shop sel, Entity buy) throws Exception {
-		if (sel == null)
+		if (sel == null || (!(sel instanceof Shop)))
 		    throw new IllegalArgumentException("Invalid Shop!!");
 		
 		invoice = new ItemPackage<ShopItem>("Invoice", sel.getCompanyName(), sel.getName());
@@ -30,7 +30,7 @@ public class Invoice extends Observable {
 	}
 	
 	public Invoice (Shopper sel, Entity buy) throws Exception {
-		this((Shop)sel, buy);
+		this((Shop)sel, buy); //FIXME ? Using shop everywhere...
 	}
 	
 	private void emitChange() {
