@@ -7,9 +7,9 @@ import item.ItemList;
 import item.SinglePartException;
 
 public class ShopItem extends Item {
-	Item item;
-	int count;
-	int id;
+	private Item item;
+	private int count;
+	private int id;
 	
 	protected ShopItem(Item i, int id, int count) {
 		item = i;
