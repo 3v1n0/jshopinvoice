@@ -2,8 +2,8 @@ package item;
 
 public abstract class ItemDiscount extends Item {
 
-	Item item;
-	Integer discount;
+	private Item item;
+	private Integer discount;
 	
 	protected ItemDiscount(Item a) {
 		item = a;
