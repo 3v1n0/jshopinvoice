@@ -35,11 +35,11 @@ public class Test {
 		for (Item i : ii.getItemList())
 			jsh.addShopItem(jsh.getShop(), i, (int)(Math.random()*100));
 		
-		System.out.print("Shop Categories: "+jsh.getShop().getCategories());
+		System.out.println("Shop Categories: "+jsh.getShop().getCategories());
 		
 		jsh.getShop().addDefaultInvoicePrinter(new InvoicePrinterHtml());
 		
-		Invoice a= new Invoice(jsh.getShop(), jsh.getClients().get(0));
+		Invoice a = jsh.addNewShopInvoice(jsh.getClients().get(0));
 
 		System.out.println("Invoices: "+jsh.getShop().getInvoicesCount());
 		a.addPrinter(new InvoicePrinterStdout());
@@ -49,7 +49,7 @@ public class Test {
 		jsh.setItemSelector(new ItemSelectorPane());
 		jsh.populateShopInvoice(a);
 		
-		Invoice b= new Invoice(jsh.getShop(), jsh.getClients().get(1));
+		Invoice b = jsh.addNewShopInvoice(jsh.getClients().get(1));
 		
 		jsh.setItemSelector(new ItemSelectorRandom());
 		jsh.populateShopInvoice(b);
