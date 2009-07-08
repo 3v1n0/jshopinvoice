@@ -18,4 +18,5 @@ public interface Shopper extends ShopObservable {
 	public LinkedList<Invoice> getInvoices();
 	public LinkedList<String> getCategories();
 	public boolean equals(Object o);
+	public void addDefaultInvoicePrinter(InvoicePrinter invp);
 }

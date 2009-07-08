@@ -215,8 +215,10 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"<tr><td>\n" +
 		"<table class=\"detail\">\n" +
 		"<tr>\n" +
+		"   <td class=\"item_total_total\" style=\"{border-right-style: hidden};\" align=\"left\">"+
+		i.getItemsCount()+"</td>\n" +
 		"	<td class=\"item_total_total\" align=\"right\" width=\"85%\"><b>Total</b></td>\n" +
-		"    <td class=\"item_total_total\" align=\"right\">"+i.getTotal()+"</td>\n" +
+		"   <td class=\"item_total_total\" align=\"right\">"+i.getTotal()+"</td>\n" +
 		"</tr>\n" +
 		"</table>\n" +
 		"</td></tr>\n" +
