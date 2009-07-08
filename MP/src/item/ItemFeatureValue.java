@@ -1,5 +1,7 @@
 package item;
 
+import java.util.List;
+
 public class ItemFeatureValue {
 	private Object value;
 	
@@ -21,6 +23,10 @@ public class ItemFeatureValue {
 	
 	public ItemFeatureValue(Boolean b) {
 		value = b;
+	}
+	
+	public ItemFeatureValue(List<ItemFeatureValue> l) {
+		value = l;
 	}
 
 	public String getStringValue() throws ItemFeatureValueException {
@@ -56,6 +62,14 @@ public class ItemFeatureValue {
 			throw new ItemFeatureValueException();
 		
 		return (Boolean)value;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<ItemFeatureValue> getListValue() throws ItemFeatureValueException {
+		if (!(value instanceof List))
+			throw new ItemFeatureValueException();
+		
+		return (List<ItemFeatureValue>)value;
 	}
 	
 	public Object getObjectValue() {
