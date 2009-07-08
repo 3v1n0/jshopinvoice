@@ -49,19 +49,19 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		String hfile;
 		String hpath;
 		
+		Invoice i = getInvoice();
+		
 		if (htmlpath == null)
 			hpath = Utility.getTmpPath();
 		else
 			hpath = htmlpath;
 
 		if (htmlfile == null)
-			hfile = "Invoice_%d.html";
+			hfile = i.getSeller().getName().replaceAll(" ", "_")+"_Invoice_%d.html";
 		else
 			hfile = htmlfile;
 		
 		hfile = hfile.replaceAll("%d", Integer.toString(getInvoice().getId()));
-		
-		Invoice i = getInvoice();
 		
 		String hfilepath = hpath+System.getProperty("file.separator")+hfile;
 		

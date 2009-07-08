@@ -21,7 +21,7 @@ public abstract class InvoicePrinter {
 		return invoice;
 	}
 	
-	protected final String createID() {return getClass().getName();}
+	protected final String createID() {return getClass().getName();} //TODO better hashcode?
 	
 	public String getName() {return name;}
 	protected final String getID() {return id;}
