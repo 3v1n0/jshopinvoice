@@ -136,7 +136,8 @@ public class Test {
 		Invoice b= new Invoice(sh,en);
 		
 		for(int i=0; i < sh.getItems().getSize()/2; i++){
-			b.add(sh.getItems().get(i));
+			b.add(sh.getItems().get((int)(Math.random()*100)%sh.getItems().getSize()),
+				  (int)(Math.random()*100));
 		}
 		System.out.println(b.getTotal()+" EUR for "+b.getItemsCount()+" items");
 	}
