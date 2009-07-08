@@ -30,7 +30,7 @@ public class Invoice extends Observable {
 	}
 	
 	public Invoice (Shopper sel, Entity buy) throws Exception {
-		this((Shop)sel, buy); //FIXME ? Using shop everywhere...
+		this((Shop)sel, buy);
 	}
 	
 	private void emitChange() {
@@ -95,7 +95,7 @@ public class Invoice extends Observable {
 		return invoice.getSubItemsCount();
 	}
 	
-	public Shop getSeller() {
+	public Shopper getSeller() {
 		return seller;
 	}
 	

@@ -103,7 +103,7 @@ public class Shop extends Company implements Shopper, ShopObservable {
 		removeCategory(i.getType());
 	}
 	
-	public void removeItemInstance(Item i) throws SinglePartException {
+	protected void removeItemInstance(Item i) throws SinglePartException {
 		ShopItem shi = findItem(i);
 		
 		if (shi instanceof ShopItemPackage) {
@@ -187,7 +187,7 @@ public class Shop extends Company implements Shopper, ShopObservable {
 		}
 	}
 
-	protected void addInvoice(Invoice i) {
+	public void addInvoice(Invoice i) {
 		if (!invoices.contains(i)) {
 			i.addObserver(obs);
 			invoices.add(i);
@@ -200,14 +200,14 @@ public class Shop extends Company implements Shopper, ShopObservable {
 		}
 	}
 	
-	protected void removeInvoice(Invoice i) {
+	public void removeInvoice(Invoice i) {
 		if (invoices.contains(i)) {
 			i.deleteObservers();
 			invoices.remove(i);
 		}
 	}
 	
-	protected Invoice addCustomerInvoice(Entity buyer) throws Exception {
+	public Invoice addCustomerInvoice(Entity buyer) throws Exception {
 		Invoice i = new Invoice(this, buyer);
 		addInvoice(i);
 		return i;
@@ -242,6 +242,7 @@ public class Shop extends Company implements Shopper, ShopObservable {
 	}
 
 	public String getName() {return shopname;}
+	public Company getCompany() { return this; }
 	public String getCompanyName() {return super.getName();}
 	public int getId() {return id;}
 	public ItemList<ShopItem> getItems() {return items;}
