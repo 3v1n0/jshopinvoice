@@ -9,6 +9,6 @@ public class ItemDiscount10 extends ItemDiscount{
 		super(obj);
 	}
 
-	protected Integer createDiscount() {	return 10;	}
+	protected Integer createDiscount() {return 10;}
 
 }
