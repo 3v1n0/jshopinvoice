@@ -3,15 +3,10 @@ package invoice;
 import item.*;
 import entities.*;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.LinkedList;
 
-import jshopper.Utility;
 
-
-public class Shop extends Company implements Shopper {
-	private static Shop sh;
+public class Shop extends Company implements Shopper, ShopObservable {
 	private String shopname;
 	private InvoiceObserver obs;
 	private ItemList<ShopItem> items;
@@ -19,11 +14,12 @@ public class Shop extends Company implements Shopper {
 	private LinkedList<String> categories;
 	private LinkedList<InvoicePrinter> iprinters;
 	private LinkedList<Entity> clients;
+	private LinkedList<ShopObserver> observers;
 	private static int shops;
 	private static int added;
 	private int id;
 	
-	private Shop(Company cmp, String nm, Address add, Contacts cnt) {
+	public Shop(Company cmp, String nm, Address add, Contacts cnt) {
 		super(cmp.getName(), add, cnt, cmp.getVATIN());
 		shopname = nm;
 		invoices = new LinkedList<Invoice>();
@@ -31,20 +27,25 @@ public class Shop extends Company implements Shopper {
 		clients = new LinkedList<Entity>();
 		items = new ItemLinkedList<ShopItem>();
 		iprinters = new LinkedList<InvoicePrinter>();
+		observers = new LinkedList<ShopObserver>();
 		obs = new InvoiceObserver();
 		id = (++shops);
 	}
 	
-	public static Shop createShop(Company cmp, String nm, Address add, Contacts cnt) {
-		if (sh == null)
-			sh = new Shop(cmp, nm, add, cnt);
-
-		return sh;
+	public Shop(Company cmp, String nm) {
+		this(cmp, nm, cmp.getAddress(), cmp.getContacts());
 	}
 	
-	public static Shop createShop(Company cmp, String nm) {
-		return createShop(cmp, nm, cmp.getAddress(), cmp.getContacts());
-	}
+//	public static Shop createShop(Company cmp, String nm, Address add, Contacts cnt) {
+//		if (sh == null)
+//			sh = new Shop(cmp, nm, add, cnt);
+//
+//		return sh;
+//	}
+	
+//	public static Shop createShop(Company cmp, String nm) {
+//		return createShop(cmp, nm, cmp.getAddress(), cmp.getContacts());
+//	}
 	
 	private ShopItem findItem(Item i) {
 		for (int j = 0; j < items.getSize(); j++) {
@@ -219,46 +220,26 @@ public class Shop extends Company implements Shopper {
 			inv.addPrinter(ip);
 	}
 	
-	public void printItemsHtml() throws IOException {
-		String filepath = System.getProperty("java.io.tmpdir") +
-						  System.getProperty("file.separator") + "Shop.html";
-		
-		FileOutputStream file = new FileOutputStream(filepath);
-		//TODO manage exception
-		
-		String html = "<html>\n" +
-					  "\t<head>\n" +
-					  "\t\t<title>"+getName()+" Items list</title>\n" +
-					  "\t</head>\n" +
-					  "\t<body>\n" +
-					  "\t\t<h1>"+getName()+"</h1>\n" +
-					  "\t\t<table align=\"center\">\n";
-		
-		html += "\t\t\t<tr>\n" +
-				"\t\t\t\t<td><b>Oggetto</b></td>\n" +
-				"\t\t\t\t<td><b>Descrizione</b></td>\n" +
-				"\t\t\t\t<td><b>Prezzo</b></td>\n" +
-				"\t\t\t\t<td><b>"+Utility.stringToHTML("Disponibilità")+"</b></td>\n" +
-				"\t\t\t</tr>\n";
-		
-		for (Item i : items)
-			html += "\t\t\t<tr id='"+i.getId()+"'>\n" +
-					"\t\t\t\t<td>"+Utility.stringToHTML(i.getName())+"</td>\n" +
-					"\t\t\t\t<td>"+Utility.stringToHTML(i.getDescription())+"</td>\n" +
-					"\t\t\t\t<td>"+i.getPrice()+
-					(i.getDiscount() > 0 ? " ("+i.getDiscount()+"%)" : "") +
-					"</td>\n" +
-					"\t\t\t\t<td>"+i.getCount()+"</td>\n" +
-					"\t\t\t</tr>\n";
-		
-		html += "\t\t</table>\n" +
-				"\t<body>\n" +
-				"</html>";
-
-		file.write(html.getBytes("US-ASCII"));
-		System.out.println("\nINFO Shop Item file list saved in "+filepath);
+	public void addObserver(ShopObserver sho) {
+		observers.add(sho);
 	}
 	
+	public void deleteObserver(ShopObserver sho) {
+		observers.remove(sho);
+	}
+	
+	public void notifyObservers() {
+		for (ShopObserver sho : observers)
+			sho.update(this);
+	}
+	
+	public boolean equals(Object o) {
+		if (!(o instanceof Shop))
+			return false;
+		
+		Shop sh = (Shop)o;
+		return (sh.getId() == this.getId());
+	}
 
 	public String getName() {return shopname;}
 	public String getCompanyName() {return super.getName();}

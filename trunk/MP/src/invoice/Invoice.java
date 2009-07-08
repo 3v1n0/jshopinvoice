@@ -29,6 +29,10 @@ public class Invoice extends Observable {
 		seller.addInvoice(this);
 	}
 	
+	public Invoice (Shopper sel, Entity buy) throws Exception {
+		this((Shop)sel, buy);
+	}
+	
 	private void emitChange() {
 		setChanged();
 		notifyObservers();
