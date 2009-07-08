@@ -4,6 +4,8 @@ package jshopper;
 import invoice.Invoice;
 import invoice.InvoicePrinter;
 import invoice.ShopItem;
+import item.Item;
+import item.SinglePartException;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -93,15 +95,22 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"						}\n" +
 		"	 td.item, td.item_total, td.item_total_detail, td.item_total_project {\n" +
 		"		valign:middle;\n" +
-		"	 	border: 1px none #333399;		\n" +
 		"	 }\n" +
 		"	 td.item_total_total {\n" +
 		"            border: 2px solid #333399;\n" +
 		"\n" +
 		"	 }\n" +
 		" 	td.item {\n" +
-		"			border-bottom-style: solid; \n" +
+		"			border-top-style: solid; \n" +
+		"           border: 1px none #333399;\n" +
 		"	 }\n" +
+		"   td.subitem {\n" +
+		"			height: 10px;\n" +
+		"			padding-left: 20px;\n" +
+	 	"			font-size: 10px;\n" +
+	 	"			border: 1px none #333399;\n" +
+	 	"			border-top-style: hidden;\n" +
+	 	"}\n" +
 		"	 td.item_total_project {\n" +
 		"	 	border: 2px none #333399;\n" +
 		"		border-top-style: solid; \n" +
@@ -169,7 +178,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"<td class=\"title\" width=\"15%\">Total</td>\n" +
 		"</tr>\n";
 		
-		for (ShopItem sh : i.getItems())
+		for (ShopItem sh : i.getItems()) {
 			html +=
 			"<tr class=\"item\">\n" +
 			"<td class=\"item\" align=\"left\">"+sh.getCount()+"</td>\n" +
@@ -178,6 +187,19 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 			"<td class=\"item\" align=\"right\">"+(sh.getDiscount() > 0 ? sh.getDiscount()+"%" : "")+"</td>\n" +
 			"<td class=\"item\" align=\"right\">"+(sh.getPrice()*sh.getCount())+"</td>\n" +
 			"</tr>\n";
+			
+			try {
+				for (Item it : sh.getSubItems())
+					html +=
+					"<tr class=\"subitem\">\n" +
+					"<td class=\"subitem\" align=\"left\">&nbsp;</td>\n" +
+					"<td class=\"subitem\" align=\"left\">"+Utility.stringToHTML(it.getBrand()+" - "+it.getName())+"</td>\n" +
+					"<td class=\"subitem\" align=\"right\">"+it.getPrice()+"</td>\n" +
+					"<td class=\"subitem\" align=\"right\">"+(it.getDiscount() > 0 ? it.getDiscount()+"%" : "")+"</td>\n" +
+					"<td class=\"subitem\" align=\"right\">"+(it.getPrice()*it.getCount())+"</td>\n" +
+					"</tr>\n";
+			} catch (SinglePartException e) {}
+		}
 
 		html += 
 		"<tr class=\"item\">\n" +
