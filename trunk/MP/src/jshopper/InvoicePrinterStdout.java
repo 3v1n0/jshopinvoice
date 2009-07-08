@@ -17,7 +17,7 @@ public class InvoicePrinterStdout extends InvoicePrinter {
 		System.out.println("|---Seller:---------------------------------------------|\n"+
 							i.getSeller().getCompanyName()+" "+
 							i.getSeller().getAddress()+i.getSeller().getContacts()+"\nVATIN: "+
-							i.getSeller().getVATIN());
+							i.getSeller().getCompany().getVATIN());
 	
 		System.out.print("|--- Buyer:---------------------------------------------|\n"+
 						 i.getBuyer().getName()+", "+i.getBuyer().getAddress()+

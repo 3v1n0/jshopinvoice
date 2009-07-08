@@ -4,6 +4,8 @@ import item.ItemList;
 import item.Item;
 import java.util.LinkedList;
 
+import entities.*;
+
 public interface Shopper extends ShopObservable {
 	public Item addItem(Item i) throws Exception;
 	public Item addItem(Item i, int count) throws Exception;
@@ -19,4 +21,8 @@ public interface Shopper extends ShopObservable {
 	public LinkedList<String> getCategories();
 	public boolean equals(Object o);
 	public void addDefaultInvoicePrinter(InvoicePrinter invp);
+	public void addInvoice(Invoice invoice);
+	public Company getCompany();
+	public Contacts getContacts();
+	public Address getAddress();
 }

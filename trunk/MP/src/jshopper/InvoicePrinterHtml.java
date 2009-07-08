@@ -131,7 +131,7 @@ public class InvoicePrinterHtml extends InvoicePrinter {
 		"</td>\n" +
 		"<td align=\"right\">\n" +
 		Utility.stringToHTML(i.getSeller().getCompanyName())+"<br />\n"+
-		Utility.stringToHTML(i.getSeller().getVATIN())+"<br />\n"+
+		Utility.stringToHTML(i.getSeller().getCompany().getVATIN())+"<br />\n"+
 		Utility.stringToHTML(i.getSeller().getAddress().getStreet() +", "+i.getSeller().getAddress().getNumber())+"<br />\n" +
 		Utility.stringToHTML(i.getSeller().getAddress().getZip()+" - "+i.getSeller().getAddress().getCity() +
 		" ("+i.getSeller().getAddress().getProvince())+")<br />\n" +
