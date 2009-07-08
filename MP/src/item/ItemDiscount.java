@@ -9,7 +9,8 @@ public abstract class ItemDiscount extends Item {
 		item = a;
 		discount = createDiscount();		
 	}
-	protected abstract Integer createDiscount();
+	
+	abstract Integer createDiscount();
 	
 	protected String createType() {return item.getType();}
 	private void setItem(Item i) {item = i;}
