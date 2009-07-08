@@ -4,13 +4,13 @@ import item.GenericItem;
 import item.ItemFeatureValue;
 
 public class Decoder extends GenericItem{
-	private final String scard = "SmartCard";
+	private final String SMARTCARD = "SmartCard";
 	
 	public Decoder(String nm, String br, Float pr, String desc, boolean smartcard) {
 		super(br, nm, desc, pr);
-		addFeature(scard, new ItemFeatureValue(smartcard));
+		addFeature(SMARTCARD, new ItemFeatureValue(smartcard));
 	}
 	
 		
-	public boolean getSmartCard() {return getFeature(scard).getBooleanValue();}
+	public boolean getSmartCard() {return getFeature(SMARTCARD).getBooleanValue();}
 }
