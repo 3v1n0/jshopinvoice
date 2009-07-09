@@ -57,7 +57,7 @@ public class Test {
 		jsh.setItemSelector(new ItemSelectorPane());
 		jsh.populateShopInvoice(a);
 		
-		Invoice b = jsh.addNewShopInvoice(jsh.getClients().get(1));
+		Invoice b = jsh.addNewShopInvoice(jsh.getClients().get(4));
 		
 		jsh.setItemSelector(new ItemSelectorRandom());
 		jsh.populateShopInvoice(b);
