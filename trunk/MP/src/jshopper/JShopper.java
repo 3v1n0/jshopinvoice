@@ -80,7 +80,7 @@ public class JShopper {
 		for (Shopper s : shops) {
 			if (!s.equals(sh)) {
 				for (Item it : s.getItems())
-					if (it.equals(i))
+					if (i.equals(it))
 						throw new Exception("The item added is already listed in another shop!");
 			}
 		}
