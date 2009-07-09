@@ -23,6 +23,9 @@ public class Test {
 		Entity en = new Person("Matteo","Pratesi", new Address("Via L.Manara",7,"Sesto Fiorentino","Firenze",50019,"Italia"),
 								new Contacts("055-445661", null, "matteo.pratesi@libero.it",null));
 		jsh.addClient(en);
+		jsh.addClient(new Person("Marco","Trevisan", new Address("Via Prato",2,"Castel San Niccolò","Arezzo",52018,"Italia"),
+								 new Contacts(null, null, "marco.trevisan@3v1n0.net",null)));
+		
 		jsh.addClient(new Company("The big buyer",
 				      new Address("Viale de' Ricchi", 1000, "Firenze", "FI", 50100, "Italia"),
 				      new Contacts("+390558595661", "+390558383389", "info@bigbuyer.com", "http://www.bigbuyer.com"),
