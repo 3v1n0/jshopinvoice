@@ -35,7 +35,8 @@ public class Shop extends Company implements Shopper {
 	public Shop(Company cmp, String nm) {
 		this(cmp, nm, cmp.getAddress(), cmp.getContacts());
 	}
-	
+
+//	private Shop sh;
 //	public static Shop createShop(Company cmp, String nm, Address add, Contacts cnt) {
 //		if (sh == null)
 //			sh = new Shop(cmp, nm, add, cnt);
