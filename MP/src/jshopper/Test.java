@@ -20,11 +20,16 @@ public class Test {
 		
 		jsh.addShop(new Shop(cmp, "The New SHOP"), new ShopPrinterHtml());
 		
-		Entity en = new Person("Matteo","Pratesi", new Address("Via L.Manara",7,"Sesto Fiorentino","Firenze",50019,"Italia"),
-								new Contacts("055-445661", null, "matteo.pratesi@libero.it",null));
+		Entity en = new Person("Matteo", "Pratesi",
+								new Address("Via L.Manara",7, "Sesto Fiorentino"," Firenze", 50019, "Italia"),
+								new Contacts("055-445661", null, "matteo.pratesi@libero.it", null));
 		jsh.addClient(en);
 		jsh.addClient(new Person("Marco","Trevisan", new Address("Via Prato",2,"Castel San Niccolò","Arezzo",52018,"Italia"),
 								 new Contacts(null, null, "marco.trevisan@3v1n0.net",null)));
+		jsh.addClient(new Person("Gianluca","Apollaro", new Address(null,null,null,null,null,null),
+								 new Contacts(null, null, "gianluca88@gsmboy.it", null)));
+		jsh.addClient(new Person("Francesco","Purpura", new Address(null,null,null,null,null,null),
+				 				 new Contacts(null, null, "francesco.prp@alice.it", null)));
 		
 		jsh.addClient(new Company("The big buyer",
 				      new Address("Viale de' Ricchi", 1000, "Firenze", "FI", 50100, "Italia"),
