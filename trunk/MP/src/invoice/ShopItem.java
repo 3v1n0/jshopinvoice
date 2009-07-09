@@ -4,11 +4,13 @@ import item.*;
 
 public class ShopItem extends AbstractItem {
 	private Item item;
+	private Shopper shop;
 	private int count;
 	private int id;
 	
-	protected ShopItem(Item i, int id, int count) {
+	protected ShopItem(Shopper sh, Item i, int id, int count) {
 		item = i;
+		shop = sh;
 		this.id = id;
 		this.count = count;
 	}
@@ -25,6 +27,7 @@ public class ShopItem extends AbstractItem {
 	public Integer getDiscount() {return item.getDiscount();}
 	public int getId() {return id;}
 	public int getCount() {return count;}
+	public Shopper getShop() {return shop;}
 
 	public void setFeatures(ItemFeatures f) {item.setFeatures(f);};
 	public ItemFeatureValue getFeature(String f) {return item.getFeature(f);}

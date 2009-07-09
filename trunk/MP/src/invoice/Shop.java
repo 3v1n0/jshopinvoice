@@ -59,7 +59,7 @@ public class Shop extends Company implements Shopper {
 	
 	public ShopItem addItem(Item i, int count) throws SinglePartException {
 		
-		ShopItem shf = ShopItemFactory.getShopItem(i, added+1, count);
+		ShopItem shf = ShopItemFactory.getShopItem(this, i, added+1, count);
 		
 		if (shf instanceof ShopItemPackage) {
 			int min = 0;
