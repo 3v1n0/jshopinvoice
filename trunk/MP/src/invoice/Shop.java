@@ -222,7 +222,8 @@ public class Shop extends Company implements Shopper {
 	}
 	
 	public void addObserver(ShopObserver sho) {
-		observers.add(sho);
+		if (!observers.contains(sho) && sho != null)
+			observers.add(sho);
 	}
 	
 	public void deleteObserver(ShopObserver sho) {
