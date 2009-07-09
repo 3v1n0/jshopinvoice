@@ -44,12 +44,12 @@ public class ShopItem extends AbstractItem {
 	public void remove(Item i) throws SinglePartException{item.remove(i);}
 	
 	public boolean equals(Object i) {
-		if (!(i instanceof Item))
+		if (!(i instanceof ShopItem))
 			return false;
 		
-		Item it = (Item)i;
+		ShopItem it = (ShopItem)i;
 		
-		return (item.equals(it) && it.getId() == this.getId());
+		return (item.equals(it) && it.getId() == this.getId() && shop.equals(it.getShop()));
 	}
 
 	public ShopItem clone() {
