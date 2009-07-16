@@ -27,4 +27,6 @@ public interface Item {
 	
 	public Item clone();
 	public boolean equals(Object i);
+	
+	public void accept(ItemVisitor iv);
 }

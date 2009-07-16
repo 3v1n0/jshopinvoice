@@ -29,6 +29,7 @@ public abstract class AbstractItem implements Item, Cloneable {
 	public abstract Item getSubItem(int n) throws SinglePartException;
 	
 	public abstract boolean equals(Object i);
+	public abstract void accept(ItemVisitor iv);
 	
 	public Item clone() {
 		try {

@@ -94,4 +94,8 @@ public class GenericItem extends AbstractItem {
 		i.setFeatures((getFeatures().clone()));
 		return i;
 	}
+
+	public void accept(ItemVisitor iv) {
+		iv.visit(this);
+	}
 }
