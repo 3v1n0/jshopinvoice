@@ -57,4 +57,8 @@ public class ShopItem extends AbstractItem {
 		shi.setItem(item.clone());
 		return shi;
 	}
+
+	public void accept(ItemVisitor iv) {
+		iv.visit(item);
+	}
 }

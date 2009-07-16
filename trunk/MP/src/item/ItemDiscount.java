@@ -52,4 +52,8 @@ public abstract class ItemDiscount extends AbstractItem {
 		itd.setItem(item.clone());
 		return itd;
 	}
+	
+	public void accept(ItemVisitor iv) {
+		iv.visit(item);
+	}
 }
