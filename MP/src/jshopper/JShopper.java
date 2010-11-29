@@ -7,22 +7,24 @@ import item.Item;
 import item.ItemList;
 
 public class JShopper {
-	static JShopper jshopper;
+	private static JShopper jshopper;
 	private LinkedList<Shopper> shops;
 	private LinkedList<Entity> clients;
 	private ItemSelector is;
 	private Shopper shop;
-	
+
 	private JShopper() {
 		shops = new LinkedList<Shopper>();
 		clients = new LinkedList<Entity>();
 		is = null;
+		jshopper = null;
 	}
 	
 	public static JShopper createJShopper() {
-		if (jshopper == null)
-			return new JShopper();
-		else
+		if (jshopper == null) {
+			jshopper = new JShopper();
+			return jshopper;
+		} else
 			return jshopper;
 	}
 	
