@@ -23,9 +23,9 @@ public class JShopper {
 	public static JShopper createJShopper() {
 		if (jshopper == null) {
 			jshopper = new JShopper();
-			return jshopper;
-		} else
-			return jshopper;
+		}
+
+		return jshopper;
 	}
 	
 	public void addClient(Entity b) {
